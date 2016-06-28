@@ -1,0 +1,217 @@
+%\pdfoutput=0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\documentclass[english,ngerman,headsepline,noparindent,greybox, chapterprefix=true]{bgteubner}
+%
+%\usepackage{graphicx}
+%\usepackage{dcolumn}
+%\usepackage[gen]{eurosym}
+%%\usepackage{miller}
+%\usepackage{contour}
+%%\usepackage{fixme}
+%\usepackage{nicefrac}
+%\usepackage{url}
+%%\usepackage{overpic}
+%\usepackage{verbatim}
+%%\usepackage{url}
+%%\usepackage{tocloft}
+%%\usepackage{cite}
+%\usepackage{babelbib}
+%\usepackage{psfrag}
+%\usepackage[utf8]{inputenc}
+%\usepackage{capt-of}
+%\usepackage{ngerman}
+%%\usepackage[ps2pdf,bookmarks=true,bookmarksopen=false,bookmarksnumbered=true]{hyperref}
+%%\usepackage{bookmark}
+%\usepackage{amsmath}
+%\usepackage{xcolor}
+%%**** tikz package, übernommen von Johannes Agricola aus dem EP Skript********
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+%\usetikzlibrary{calc, babel, intersections}
+%\usetikzlibrary{arrows}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usepackage[european resistors]{circuitikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% übernommen vom EP Skript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt, twoside, a4paper]{book}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+%\usepackage{lineno}
+\usepackage{verbatim}
+%\usepackage{comment}
+\usepackage[squaren]{SIunits}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[noadjust]{marginnote}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{nicefrac}
+\usepackage{framed}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\input{tikz/circuitikz-macros.tex}
+\usepackage[european resistors]{circuitikz}
+\usepackage[ 
+    top=2cm, 
+    bottom=2cm, 
+    outer=3cm, 
+    inner=3cm,
+    marginparwidth=2.5cm,
+  ]{geometry}
+
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+\input{utils/format.tex}
+\IfFileExists{tmp/makefile-auto-tutor.tex}
+{
+  \input{tmp/makefile-auto-tutor.tex}
+} %else
+{
+  \input{utils/disable-tutor.tex}
+  %\input{utils/enable-tutor.tex}
+}
+\input{utils/tutor.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \setcounter{tocdepth}{0}
+ \setcounter{totalnumber}{6}
+ \setcounter{topnumber}{6}
+ \setcounter{bottomnumber}{6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \newcommand{\Ohm}{$\mathrm\Omega$}
+ \newcommand{\sym}[1]{$ #1 $}
+ %\newcommand{\degree}{$^{\circ}$} 	%already defined somewhere else...
+ \newcommand{\ret}{$[\hookleftarrow]$}
+ \newcommand{\bs}{\tt\symbol{'134}}
+ \newcommand{\us}{\tt\symbol{95}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hyphenation{ Tor-sions-mo-dul Tor-sions-schwing-ung  Boltz-mann Ab-len-kung Be-schleu-ni-gungs-span-nung}
+
+%\makeindex
+
+\let\person=\textsc
+\newcommand{\komplex}[1]{\ensuremath{\mathfrak{#1}}}%
+
+\begin{document}
+
+\frontmatter
+
+
+\title{\Huge Physikalisches Praktikum\\
+f"ur Nebenfach Physik}
+\author{Dr.~Jens Weingarten, Prof.~Dr.~Arnulf Quadt}
+%\edition{1}
+ 
+\maketitle
+%das Folgende macht das inhaltverzeichnis schoen
+\makeatletter
+\renewcommand*{\l@chapter}{\@dottedtocline{0}{1.5em}{2.3em}}
+\makeatother
+
+\tableofcontents
+
+%\include{00_einl/vorwort}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% JW: Zum kompilieren verwende Ausgabeprofil "LaTex => PDF"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\mainmatter
+
+%%%%%% define header and footer style %%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{\leftmark} %Kapitelnummer und -überschrift Header außen
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}	%Seitenzahl Footer außen an der Seite
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\part{Vorbemerkungen}
+%
+%\renewcommand{\thechapter}{\Alph{chapter}}
+%
+%\include{00_einl/regeln}
+%\include{00_einl/literatur}
+%\include{00_einl/sicherheit}
+%\include{00_einl/protokoll}
+%\include{00_einl/fehler-JW}
+%\include{00_einl/fehlerr}
+%\include{00_einl/diagramme}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\cleardoublepage
+%\part{Versuche}
+%
+%
+%\renewcommand{\thechapter}{\arabic{chapter}}
+%\setcounter{chapter}{0}
+%\def\chaptername{Versuch}
+%\setcounter{tocdepth}{0}
+%
+%%%%%%% Vorführversuch %%%%%%%
+%\include{Versuch_0/Versuch-0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\include{Versuch_17-18/Versuch-17}	% Solarzelle und Hlableiterdiode
+%\include{Versuch_17-18/Versuch-18}	% Transistor
+%\include{Versuch_15-16/Versuch-15}	% Wechselstrom und RC Kreis
+%\include{Versuch_15-16/Versuch-16}	% Spule und Transformator
+%\include{Versuch_1-2/Versuch-1}			% Stoß
+%\include{Versuch_1-2/Versuch-2}			% Drehschwingungen
+%\include{Versuch_3-4/Versuch-3}			% Kapillarität und Auftrieb
+%\include{Versuch_3-4/Versuch-4}			% Innere Reibung von Flüssigkeiten
+%\include{Versuch_7-8/Versuch-7}			% Linsengesetze
+%\include{Versuch_7-8/Versuch-8}			% Mikroskop
+%\include{Versuch_9-10/Versuch-9}		% Brechungsindex von Glas
+%\include{Versuch_9-10/Versuch-10}		% Beugung am Gitter
+%\include{Versuch_11-12/Versuch-11}	% Thermoelement
+%\include{Versuch_11-12/Versuch-12}	% Kennlinien verschiedener Leiter
+%\include{Versuch_13-14/Versuch-13}	% Elektrische Netzwerke
+%\include{Versuch_13-14/Versuch-14} 	% Nichtstationäre Diffusion
+%\include{Versuch_19-20/Versuch-19}	% Künstliche Radioaktivität
+%\include{Versuch_19-20/Versuch-20}	% Spezifische Elektronenladung e/m
+%\include{Versuch_5-6/Versuch-5}			% Spezifische Wärmekapazität
+%\include{Versuch_5-6/Versuch-6}			% Molare Wärmekapazität von Luft
+
+\include{Versuch_neu_1-2/Versuch_Neu-1}	% Schwingungen
+\include{Versuch_neu_1-2/Versuch_Neu-2}	% Ultraschall
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\cleardoublepage
+%\appendix
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\backmatter
+%
+%\renewcommand{\thechapter}{\Roman{chapter}}
+%\setcounter{chapter}{10}
+
+% \include{00_einl/raumverz}
+
+\end{document}
+

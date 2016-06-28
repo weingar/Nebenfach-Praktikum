@@ -1,0 +1,171 @@
+\chapter{Molare Wärmekapazität von Luft}
+\label{v:6}
+
+Im Versuch soll die Wärmekapazität eines Gases (hier: Luft) bestimmt werden.
+
+%------------------------------------------------
+\section{Stichworte}
+%------------------------------------------------
+
+Allgemeine Gasgleichung; molare Wärmekapazitäten $C_P$ und $C_V$; 1. Hauptsatz der Thermodynamik; Energie des geladenen Kondensators
+%
+%------------------------------------------------
+\section{Literatur}
+%------------------------------------------------
+
+Gehrtsen, Kapitel 5.1.5 und 5.2.2 bis 5.2.4
+%
+%------------------------------------------------
+\section{Anwendungsbeispiele}
+%------------------------------------------------
+%
+In jeder Beschreibung von chemischen Prozessen fester, flüssiger oder gasförmiger Stoffe spielt die Thermodynamik eine herausragende Rolle. Sie wird deshalb im Studium der Chemie und Biologie ausführlicher an anderer Stelle eingeübt. Ein Gesichtspunkt soll hier genauer untersucht werden: Eine große Anzahl von Maschinen und Motoren nutzt die Expansion von Gasen aus, um einen Kolben zu bewegen (früher in Dampfmaschinen, heute in den Explosionsmotoren der Autos).
+
+%Energieäquivalenzen, kinetische Gastheorie, Carnot'scher Kreisprozess.
+%
+%------------------------------------------------
+\section{Theoretischer Hintergrund}
+%------------------------------------------------
+
+\subsection{Die Zustandsgleichung idealer Gase}
+
+Die Zustandsgleichung eines Systems gibt an, wie seine messbaren Eigenschaften voneinander abhängen. Der Zustand einer Gasmasse $M$ wird durch drei Größen volständig beschrieben: Tempereatur $T$, Druck $p$ und Volumen $V$. Zwei davon können unabhängig voneinander variiert werden, die dritte ist dann eindeutig bestimmt. Dieser Zusammenhang ist gegeben durch die \textit{allgemeine Gasgleichung}:
+\begin{equation}
+	pV = Nk_bT = \nu RT.
+\end{equation}
+Hierbei ist $N$ die Anzahl von Molekülen in der Gasasse, $\nu$ beschreibt die Menge des Gases in mol. Die Gaskonstante ist definiert als: $R = N_A k_b = 8,31\, \mathrm{J\, K^{-1}\, mol^{-1}}$.\\
+Diese Gasgleichung gilt, aufgrund ihrer Herleitung, eigentlich nur für \textit{ideale Gase}, in denen Teilchen abgesehen von kurzzeitigen Stößen keine Kräfte aufeinander ausüben und selbst kein messbares Eigenvolumen haben. Viele reale Gase verhalten sich allerdings relativ ähnlich zu einem idealen Gas, so dass auch hier die Gasgleichung als Näherung benutzt werden kann.
+
+Folgerungen aus der Gasgleichung sind
+\begin{itemize}
+	\item das \textit{Gesetz von Boyle-Mariotte}: Bei konstanter Temperatur ist der Druck umgekehrt proportional zum Volumen: $\mathrm{p\sim V^{-1} \quad (T=const.)}$
+	\item das \textit{Gesetz von Gay-Lussac}: Bei konstantem Volumen steigt der Druck mit der Temperatur: $\mathrm{p\sim T \quad (V=const.)}$
+	\item das \textit{Gesetz von Charles} (oft auch nach \textit{Gay-Lussac} benannt: Bei konstantem Druck steigt das Volumen wie die Temperatur: $\mathrm{V\sim T \quad (p=const.)}$
+\end{itemize}
+
+\subsection{Der 1. Hauptsatz der Wärmelehre}
+
+Der erste Hauptsatz der Thermodynamik, der nur eine Umformulierung des Energieerhaltungssatzes ist, beschreibt, was passiert wenn man einem System von außen Wärmeenergie zuführt:\\
+\textit{Die Wärmeenergie $\Delta Q$ wird teilweise in mechanische Arbeitsleistung $\Delta W$ verbraucht. Der Rest von $\Delta Q$ führt zu einer Steigerung der inneren Energie $U$ des Systems um $\Delta U$:}
+%\begin{important}
+	\begin{equation}
+		\Delta Q = \Delta U + \Delta W
+	\end{equation}
+%\end{important}
+
+Bei idealen Gasen entspricht die innere Eneregie der Bewegungsenergie der Moleküle, ist also proportional zur Temperatur des Gases (s. Gleichung \ref{eq:spez_Waermekapazitaet}). Die mechanische Arbeitsleistung besteht aus der Druckarbeit $\Delta W = p\,\Delta V$. Für ein Gas lautet also der Energieerhaltungssatz:
+\begin{equation} \label{eq:ersterHauptsatz}
+	dQ = dU + p\,dV
+\end{equation}
+Hierbei bezeichnen $dQ$, $dU$ und $dV$ infinitesimale Änderungen der jeweiligen Größen, sie sind also die Verallgemeinerung der vorher betrachteten großen Änderungen $\Delta Q$, $\Delta U$ und $\Delta V$.
+
+\subsection{Die molare Wärmekapazität von Luft}
+
+Wie man aus Gleichung \ref{eq:spez_Waermekapazitaet} sieht, ist die molare Wärmekapazität von Luft definiert als
+\begin{equation}
+	C_{mol} = \frac{1}{n}\frac{dQ}{dT},
+\end{equation}
+wobei $n$ die Gasmenge in mol angibt.\\
+Unter isochoren Bedingungen ($dV = 0$) kann man diese Definition, unter Benutzung von Gleichung \ref{eq:ersterHauptsatz}, umschreiben zu
+\begin{equation}
+	C_V = \frac{1}{n}\frac{dU}{dT}.
+\end{equation}
+$C_V$ steht dabei für die molare Wärmekapazität bei konstantem Druck: $C_V \hat{=} C_{mol}(p=const.)$\\
+Dies lässt sich mit der Dulong-Petite'schen Regel (s. Gleichung \ref{eq:Dulong-Petit}) und der Gaskonstanten $R$ schreiben als
+\begin{equation}
+	C_V = \frac{f}{2}R.
+\end{equation}
+
+%------------------------------------------------
+\section{Fragen zur Vorbereitung}
+%------------------------------------------------
+
+\begin{enumerate}
+ %
+ \item Was soll heute im Praktikum gemessen werden? Warum?
+ %
+ \item Wie lautet das ideale Gasgesetz? Welche Einschränkungen liegen ihm zugrunde?
+ %
+ \item Was und wie gross ist R (mit Einheit) ?
+ %
+ \item Wie ist die Temperaturskala definiert? (Umrechnung Kelvin in Celsius)
+ %
+ \item Was für Bewegungsmöglichkeiten haben Moleküle in Gasen?
+ %
+ \item Welche Unterscheidung muss bei der Betrachtung der Wärmekapazität bei Gasen gemacht werden? Warum ist das bei Festkörpern nicht nötig?
+ %
+ \item In welchem Zusammenhang stehen $c_v$ und $c_p$ im Fall von idealen Gasen?
+ %
+ \item Wie stehen die Bewegungsmöglichkeiten mit den Freiheitsgraden in Zusammenhang?
+ %
+ \item Wie hängt $c_v$ mit den Freiheitsgraden zusammen?
+ %
+ \item Wie wird $c_v$ von Luft im Praktikum bestimmt?
+ %
+\end{enumerate}
+
+%------------------------------------------------
+\section{Durchführung} 
+%------------------------------------------------
+
+Die Luft befindet sich in einem Plexiglaszylinder (dessen Innen-Volumen man durch Ausmessen bestimmen kann). Sie wird kurzzeitig durch einen Draht erhitzt. Im Gas erhöht sich der Druck, der in einem Wassermanometer die Wassersäule ansteigen lässt. Das kann man beobachten und ausmessen. Die Energie, mit der man den Heizdraht erhitzt, kommt aus einem Kondensator, der mit verschieden hoher Spannung aufgeladen werden kann.\\
+Man heizt also die Luft in einem bekannten, konstanten Volumen auf verschiedene Temperaturen auf und misst den dazugehörigen Druckanstieg.\\
+
+\underline{Zubehör:} Zylinder mit Heizdraht und Wassermanometer, Gleichspannungsquelle mit Potentiometer und Voltmeter (0 - 600 Volt), Kondensator, Messlatte.
+
+\begin{enumerate}
+ %
+ \item Messen Sie jeweils drei Mal die Ausdehnung der Luft bei Erwärmung, für Ladespannungen am Kondensator von 150\;V bis 500\;V in Schritten von 50\;V nach dem folgenden Rezept: 
+  \begin{itemize}
+	 \item Stellen Sie die Spannung am Kondensator ein. Verschliessen Sie das enge Rohr des Wassermanometers mit einem Finger.
+	 \item Messen Sie den maximalen Ausschlag des Manometers, wenn Sie nun den Kondensator mit Hilfe des Tasters entladen und damit die Luft erwärmen.
+	 \item Entfernen Sie den Finger vom Manometer, damit sich Druck und Temperatur im Messzylinder ausgleichen können.
+	 \item Wiederholen Sie diese Messung noch zwei Mal, bevor Sie zur nächsten Spannung übergehen.
+	\end{itemize}
+ %
+ \item Messen Sie zum Abschluss die Innenmaße des Zylinders (Länge und Durchmesser), um das Luftvolumen berechnen zu können. Wie groß ist die Messungenauigkeit?
+ %
+\end{enumerate}
+
+%------------------------------------------------
+\section{Auswertung} 
+%------------------------------------------------
+\etodo{
+Mißt man hier nicht eigentlich $c_p$?
+}
+
+Benutzen Sie für die Auswertung folgende Angaben:
+\begin{table}[h]
+		\begin{tabular}{ll}
+			Kapazität des Kondensators & $C = 20\,\mu$F \\
+			Avogadrozahl & $N_A = 6,022\cdot 10^{23}\,\mathrm{mol}^{-1}$
+		\end{tabular}
+\end{table}
+
+\noindent
+Die Radien der beiden Schenkel des Wassernanometers verhalten sich wie $r_1$ : $r_2$ =1 : 4,5.
+
+\begin{enumerate}
+ %
+ \item Berechnen Sie das Volumen $V$ des Zylinders inklusive seines Fehlers.
+ %
+ \item \label{v6:Graph} Tragen Sie den Mittelwert des maximalen Ausschlags $h_1$ am Wassermanometer graphisch gegen das Quadrat der Kondensatorspannung $U$ auf.
+ %
+ \item Berechnen Sie die molare Wärmekapazität $C_V$ von Luft aus der Steigung der Geraden $h_1 = f(U^2)$. Benutzen Sie die Beziehung
+  \begin{equation}
+	 h_1 = const\cdot \frac{1}{C_V}U^2\; .  
+  \end{equation}
+ Leiten Sie die Formel her und berechnen Sie die Konstante
+%Herleitung?
+  \begin{equation}
+   const = \frac{R\cdot C}{\rho\cdot g\cdot V\cdot 1,05\cdot 2}\; .
+  \end{equation} 
+ %
+ \item Schätzen Sie den Fehler von $C_V$ aus der Grenzgeraden der Auftragung aus \ref{v6:Graph} sowie dem Fehler des Volumens ab.
+ %
+ \item Berechnen Sie die Boltzmann Konstante $k$ (mit Fehler) aus der Beziehung
+  \begin{equation}
+   C_V = \frac{5}{2}k\cdot N_A \; .
+  \end{equation}
+  %
+\end{enumerate}

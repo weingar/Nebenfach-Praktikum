@@ -1,0 +1,777 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Computersimulation und Fehlerrechnung} \label{v:fehler}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Die experimentelle Physik arbeitet mit Apparaturen. Dem entsprechend
+liegt das Schwergewicht des Physikalischen Praktikums für Anfänger auf
+dem Umgang mit Apparaten und Messinstrumenten. Die allgemeine
+Verfügbarkeit von leistungsfähigen Computern hat allerdings in den
+letzten Jahren einen Strukturwandel bewirkt, indem die
+Computersimulation und die Experimentsteuerung und Datennahme mit
+Computern eine immer größere Bedeutung erlangen. Die
+Computersimulation ermöglicht es, experimentelle Abläufe auf dem
+Computer so genau nachzubilden, wie die Naturgesetze bekannt sind.
+Dadurch können Versuchsanordnungen optimiert und neue physikalische
+Erkenntnisse aus den Unterschieden zwischen dem simulierten Ergebnis
+und dem gemessenen Ergebnis gewonnen werden. Die Experimentsteuerung
+und Datennahme mit dem Computer ermöglicht die Handhabung immer
+komplexerer Versuchsanordnungen. Als Beispiel mag dienen, daß bei
+Rutherfords Experimenten zur Streuung von Alphateilchen einzelne
+Lichtblitze auf Szintillationsschirmen mit dem Auge beobachtet werden
+mußten, während in modernen Apparaturen der Kern- und Teilchenphysik
+mehrere tausend Detektoren gleichzeitig betrieben werden und die
+Meßergebnisse zeitgeordnet aufgeschrieben werden können. Die Daten
+liegen dann in einer Form vor, daß sie unmittelbar mit dem Computer
+weiterverarbeitet werden können.
+
+Der vorliegende Praktikumsversuch führt in dieses Anwendungsgebiet der
+Computer ein und vermittelt gleichzeitig Kenntnisse in der Fehler- und
+Ausgleichsrechnung. Er kann anstelle von zwei Versuchen der
+Serie~1--10 ausgeführt werden. Vorschläge werden in den entsprechenden
+Anleitungen unterbreitet.
+
+
+
+
+
+Hinweis: Es können auch die Programm-Pakete unter Linux "'xmgr"' oder
+"'gnuplot"' benutzt werden, sowie die gängigen Pakete unter
+DOS/WINDOWS. Hier kann man die entsprechenden Programme selbst
+schreiben (siehe auch Einführungsversuch~\ref{v:computer}
+"'Computer"').
+
+
+\section{Stichworte}
+
+Zufallszahlen, Normalverteilung, Varianz der Normalverteilung,
+Bestwert, Fehler des Bestwertes, Fehlerfortpflanzung, Gauß'sche
+Methode der kleinsten Quadrate (minimales $\chi^2$),
+Computer-Betriebssystem MS-DOS 5.0
+
+\section{Zubehör}
+
+Computer und Peripherie im Praktikum.
+
+
+
+
+\section{Grundlagen}
+
+\subsection{Aufgabe des Versuchs}
+
+Aufgabe des Versuchs ist eine Einführung in die Fehlerrechnung und die
+Motivation zur Benutzung der CIP-Rechner (CIP = Computer Investitions
+Programm). Die CIP-Rechner stehen allen Studenten der Physik zur
+Benutzung zur Verfügung auch außerhalb der Praktikumsstunden und
+während der vorlesungsfreien Zeit. Die geringe Anzahl der CIP-Rechner
+macht allerdings eine gewisse Einschränkung des Zugangs unumgänglich.
+Deshalb ist eine Absprache mit Ihrem Assistenten erforderlich.
+
+\subsection{Vorbemerkung zur Fehlerrechnung}
+
+Meßvorgänge liefern Meßergebnisse mit einem Fehler, der nach einer
+verbindlichen Übereinkunft ein Maß für die Genauigkeit des
+Meßergebnisses darstellt.
+
+Ein Beispiel: Die Länge eines Stabes wird durch Anlegen eines Maßstabes
+bestimmt. Dann sind zwei Arten von Fehlern möglich
+
+\begin{enumerate}
+  \item der systematische Fehler des Maßstabs, der sich durch genauen Vergleich mit dem Urmeter ermitteln läßt
+  \item der zufällige Fehler, der sich durch Unsicherheiten beim Anlegen des
+ Maßstabs ergibt.
+\end{enumerate}
+
+Wir beschäftigen uns im folgenden ausschließlich mit dem zufälligen
+Fehler.
+
+Ein mathematisches Modell für den Zufall wird durch Zufallszahlen
+geliefert. Darunter versteht man Zahlen zwischen zwei Grenzen $G1$ und
+$G2$, deren Werte möglichst gleichmäßig zwischen diesen Grenzen
+verteilt sind. Ein Beispiel für einen Zufallsgenerator ist das
+Roulette, das echte Zufallszahlen erzeugt. Rechner erzeugen
+Pseudozufallszahlen nach einer Vorschrift, die garantiert, daß die
+Gleichverteilung möglichst gut erfüllt ist. Wir verwenden in unserem
+Versuch einen Zufallsgenerator, der im folgenden Abschnitt beschrieben
+wird.
+
+\subsection{Zufallsgenerator}
+
+Die interne Uhr des Computers liefert den Zeitpunkt des Beginns des
+Versuchs, zum Beispiel
+
+\begin{equation} \label{e:uhr}
+\mbox{ 14 Uhr 31 Minuten 48.57 Sekunden}
+\end{equation}
+
+
+Der Zufallsgenerator ist angewiesen, hieraus nach einem leicht
+erkennbaren Bildungsgesetz als erste Zufallszahl
+
+\begin{equation}   \label{e:zahl}
+  N(1)= 0.57483114
+\end{equation}
+
+herzustellen. Alle weiteren Zufallszahlen werden nach der Rekursion
+
+\begin{equation}  \label{e:zahl1}
+ N(i+1) = \mbox{MOD} \left( N(i) \cdot  317 , 1 \right)
+\end{equation}
+
+erzeugt. Da
+
+\begin{equation} \label{e:rech}
+ 0.57483114 \cdot 317 = 182.22147138
+\end{equation}
+
+beträgt, ergibt sich als nächste Zufallszahl $N(2) = 0.22147138$
+usw. Der Multiplikator in (Gl.~\ref{e:rech}) ist dabei weitgehend
+beliebig wählbar, aber nicht vollständig beliebig, da z.B. die Zahl
+100 anstelle von 317 ungeeignet wäre (warum?). Alle so erzeugten
+Zufallszahlen liegen zwischen 0 und 1. Zur Vereinfachung der
+Darstellung multiplizieren wir alle Zahlen mit 100 und lassen die
+Stellen hinter dem Komma fort. Die Zufallszahlen unseres Beispiels sind
+dann $N(1) = 57$, $N(2) = 22$, usw. In dieser Darstellung liegen die
+Zufallszahlen zwischen 0 und 99.
+
+Man kann sich leicht vorstellen, daß nicht in allen Fällen ein Satz von
+sinnvollen Zufallszahlen entsteht, z.B. dann nicht, wenn Sie pünktlich
+um Mitternacht mit der Erzeugung der Zufallszahlen beginnen (warum?).
+Es ist deshalb erforderlich, die "'Qualität"' der Zufallszahlen zu
+prüfen.
+
+Probe : Der Mittelwert der Gesamtmenge der Zufallszahlen und
+jeder Teilmenge sollte 49.5 betragen oder von diesem
+Erwartungswert oder wahren Wert um einen Fehler abweichen, der
+mit den Gesetzen der Statistik verträglich ist. Berechnen Sie
+also zur Kontrolle Mittelwerte mit dem Computer!
+
+Dafür steht Ihnen ein in der Programmiersprache FORTRAN geschriebenes
+Programm zur Verfügung, das aus folgenden Zeilen besteht
+
+\vspace*{2ex}
+\begin{tabular}{ll}
+C & BERECHNUNG DES MITTELWERTES\\
+10 & ARITHM = 0.\\
+20 & DO 40 I = IA, IA+NA-1\\
+30 & ARITHM = ARITHM + N(I)\\
+40 & CONTINUE\\
+50 & ARITHM = ARITHM/NA\\
+\end{tabular}                                 \hfill (FC-1)
+\vspace*{2ex}
+
+Wenn Sie bereits die Programmiersprache BASIC kennen, werden Sie
+Ähnlichkeiten mit dem FORTRAN-Text (FC-1) erkennen, aber auch
+feststellen, daß FORTRAN eine kompaktere Formulierung der Anweisungen
+ermöglicht. Die mit C eingeleitete erste Zeile enthält einen Kommentar,
+der vom Computer überlesen wird. Ausführbare Anweisungen können
+numeriert sein. Die Numerierung ist aber nicht unbedingt erforderlich.
+Die Zeile 10 definiert einen mit ARITHM bezeichneten Speicherplatz für
+eine Dezimalpunktkonstante und weist diesem Speicherplatz den
+Zahlenwert 0.0 zu. In den Zeilen 20 bis 40 befindet sich eine
+Zählschleife, die alle Zufallszahlen mit Nummern zwischen $i = IA$ und
+$i = IA+NA-1$ addiert. Die Größe $IA$ ist die vom Programm erfragte
+Nummer der ersten Zufallszahl und $NA$ die Anzahl der zu addierenden
+Zufallszahlen. Die Zählschleife endet bei der hinter der DO-Anweisung
+angegebenen Zeilennummer. Diese Zeile ist hier aus Gründen der
+Übersichtlichkeit mit der leeren Anweisung CONTINUE belegt. Die
+Zählschleife wird NA-mal durchlaufen. Bei jedem Durchlauf wird zum
+Inhalt des Speicherplatzes ARITHM eine weitere Zufallszahl addiert. Ist
+dieser Vorgang abgeschlossen, dann wird durch die Anweisung in Zeile 50
+der Inhalt des Speicherplatzes ARITHM durch das gesuchte arithmetische
+Mittel ersetzt. Nach dem hier beschriebenen Muster können Sie leicht
+selbst einfache FORTRAN-Programme schreiben, wenn Sie beachten, daß mit
+den Buchstaben I, K, L, M, N beginnende Speicherplatznamen für ganze
+Zahlen reserviert sind. Im Programm (17.A) sind dies die Speicherplätze
+I, IA, NA und N(I). Dabei vertritt N(I) die hundert mit Zufallszahlen
+belegten Speicherplätze.
+
+
+\subsection{Grundlagen der Fehlerrechnung: Bestwert und Fehler}
+
+Wir betrachten im folgenden die im Abschnitt 3 berechneten Mittelwerte
+als Meßergebnisse für eine physikalische Größe und bezeichnen diese mit
+$M$. Für diese Größe $M$ kennen wir den im wahren Wert $M_W$, d.h.
+
+\begin{equation}\label{a}
+M_W = 49.5,
+\end{equation}
+
+der in einem wirklichen Experiment natürlich unbekannt ist, aber als
+existent angenommen werden kann. Jeder Meßwert $M_i$ der Größe $M$
+weicht vom wahren Wert um den absoluten Fehler $\Delta M_i$
+
+\begin{equation} \label{b}
+\Delta M_i = M_i - M_W
+\end{equation}
+
+ab.
+
+
+Das Endergebnis einer n-mal wiederholten Bestimmung von $M$ soll
+durch einen Bestwert $M_B$ beschrieben werden, der der Vorschrift\\
+
+\begin{equation} \label{c}
+\sum_{i=1}^{n}\, (M_{i} - M_{B})^{2} = f(M_{B}) = \mbox{Minimum}.
+\end{equation}
+
+
+
+genügt, die als Gauß'sche Methode der kleinsten Quadrate zur Bestimmung
+des Bestwertes bezeichnet wird. Führt man die Bestimmung des Minimums
+nach der Vorschrift\\
+
+\begin{equation} \label{d}
+\frac{d}{d M_B}\,\sum_{i=1}^{n}\,(M_{i} - M_{B})^{2}\,=\,0
+\end{equation}
+
+aus, so ergibt sich\\
+
+\begin{equation} \label{e}
+M_{B}\,=\,\frac{1}{n}\,\sum_{i=1}^{n}\,M_{i}\,=\,\bar M
+\end{equation}
+
+und damit der {\bf Satz: Der Bestwert ist gleich dem arithmetischen Mittel.}\\
+
+
+Der in (\ref{b}) definierte absolute Fehler der Einzelmessung läßt sich
+in der Praxis nicht ermitteln. Deshalb führen wir nach der Vorschrift\\
+
+\begin{equation} \label{f}
+ \Delta M\,= \left\{\frac{1}{n-1}\,\sum_{i=1}^{n}\,(M_{i} -
+ M_{B})^{2}\right\}^{1/2}
+\end{equation}
+
+den mittleren quadratischen Fehler der Einzelmessung ein. Der in
+(\ref{f}) eigentlich erwartete Gewichtsfaktor $1/n$ wurde durch
+$1/(n-1)$ ersetzt, damit der Ausdruck für $n=1$ sinnvoll bleibt
+(Begründung?).
+
+
+\subsection{Die Normalverteilung}
+
+Sie können sich an Hand der vom Computer gelieferten Daten leicht davon
+überzeugen, daß die Meßdaten $M$ genähert in Form einer Glockenkurve um
+den wahren Wert $M_W$ oder den Bestwert $M_B$ verteilt sind. Die
+mathematische Form der Glockenkurve ist gegeben durch die Gauß'sche
+Fehlerfunktion oder Normalverteilung\\
+
+\begin{equation} \label{g}
+P(v)
+=\,\frac{1}{\sqrt{2\pi}\sigma}\,\mbox{exp}\,\left\{-v^{2}/(2\sigma^{2})\right\}
+\end{equation}
+
+wobei $v$ = $M - M_B$ gesetzt wurde und die Normierung\\
+
+\begin{equation} \label{h}
+\int_{-\infty}^{+\infty}\,P(v)dv = 1
+\end{equation}
+
+erfüllt ist. Man kann zeigen, daß \\
+
+\begin{equation} \label{i}
+\sigma^{2}\,=\,\int_{-\infty}^{+\infty}\,P(v)v^{2}dv
+\end{equation}
+
+ist. Das bedeutet, daß die Standardabweichung $\sigma$ mit dem
+mittleren quadratischen Fehler $\Delta M$ übereinstimmt. Man kann
+ferner zeigen, daß \\
+
+\begin{equation} \label{j}
+ W(\sigma)\,=\,\int_{-\sigma}^{+\sigma}\,P(v)dv = 0.68
+\end{equation}
+
+beträgt. Beziehung (\ref{j}) beinhaltet, daß die Angabe des mittleren
+quadratischen Fehlers nicht bedeutet, daß für alle Meßwerte $M$ die
+Abweichung vom Bestwert $M_B$ kleiner als $\sigma$ ist. Vielmehr
+beträgt die relative Häufigkeit hierfür nur 68\%.\\
+
+Im Teil 3 des Praktikumsversuchs benutzen wir die erzeugten
+Zufallszahlen und die Normalverteilung (\ref{g}) zur Simulation der
+Messung der Länge eines Stabes durch Anlegen eines Maßstabs. Dazu
+bilden wir die Menge der Zufallszahlen $(N)$ nach der Vorschrift\\
+
+\begin{equation} \label{k}
+  | P(v)dv| = | P(N) dN |
+\end{equation}
+
+auf die Normalverteilung ab. Die Vorschrift (\ref{k}) besagt, daß die
+Häufigkeitsverteilung der neuen Zufallszahlen der Normalverteilung
+folgt, wobei die statistischen Schwankungen aber beibehalten werden. Im
+Praktikumsversuch beträgt $P(N)$=1/100 für alle $N$. Ferner ist $dv$ =
+0.1 mm für alle Längenintervalle auf dem Maßstab. Die Vorschrift
+(\ref{k}) läßt sich deshalb ausführen, indem man den wahren Wert der
+Stablänge $X_W$ = 1000 mm dem Mittelwert $\bar N$ =49,5 zuordnet und
+$dN$ proportional $P(v)$ wählt. Die Zufallszahlen in dem so definierten
+Intervall $dN$ werden dann dem entsprechenden Längenintervall $dv$ als
+Meßwert für die Länge des Stabes zugeordnet.
+
+
+\subsection{Der Bestwert einer Funktion $f(x,y,...)$ von verschiedenen
+Meßgrößen $x,y,...$ und Fehlerfortpflanzungsgesetz}
+
+
+Gegeben seien die Meßwerte\\
+
+\begin{equation} \label{l}
+x_{i},\quad i=1\ldots r;\hspace{2cm}
+y_{k},\quad k=1\ldots s
+\end{equation}
+
+aus denen ein Endergebnis $f_{i,k}$=$f(x_{i},y_{k})$ berechnet wird.
+Beispiel: Berechnung der Fläche {f} eines Rechtecks aus den
+Kantenlängen $x$ und $y$. Es läßt sich zeigen, daß in guter Näherung
+der Bestwert $\bar f$ von $f$ gegeben ist durch\\
+
+\begin{equation} \label{m}
+\bar
+f\equiv\,r^{-1}\,\cdot\,s^{-1}\,\sum_{i=1}^{r}\,\sum_{k=1}^{s}\,f(x_{i},
+y_{k})\,=\,f(\bar x, \bar y)
+\end{equation}
+
+(siehe Anhang)\\
+
+
+Dieses Ergebnis gilt für beliebige Funktionen und beliebig viele
+Variablen.\\
+
+
+Wir bezeichnen jetzt die mittleren quadratischen Fehler von $f$, $x$
+und $y$ mit $\sigma_f$, $\sigma_x$ bzw. $\sigma_y$. Dann läßt sich
+unter Benutzung der Definitionen der mittleren quadratischen Fehler
+dieser drei Größen zeigen, daß ein Fehlerfortpflanzungsgesetz in der
+Form\\
+
+\begin{equation} \label{n}
+\sigma_{f}\,=\,\sqrt{\sigma_{x}^{2}\,\left (\frac{\partial f}{\partial
+ x}\right )^{2}\,+\,\sigma_{y}^{2}\left (\frac{\partial f}{\partial
+ y}\right )^{2}}
+\end{equation}
+
+gilt. Auch in (\ref{n}) sind beliebige Anzahlen von Variablen zugelassen.
+Spezialfälle von (\ref{n}) sind\\
+
+\begin{equation} \label{o}
+\bar f = \bar x + \bar y
+\end{equation}
+
+mit\\
+
+\begin{equation} \label{p}
+\sigma_{f}\,=\,\sqrt{\sigma_{x}^{2}\,+\,\sigma_{y}^{2}}
+\end{equation}
+
+und
+
+\begin{equation} \label{q}
+\bar f = \bar x \cdot \bar y
+\end{equation}
+
+mit\\
+
+\begin{equation} \label{r}
+\frac{\sigma_{f}}{\bar f}\,=\,\sqrt{\left(\frac{\sigma_{x}}{\bar
+ x}\right)^{2}\,+\,\left(\frac{\sigma_{y}}{\bar y}\right)^{2}}
+\end{equation}
+
+(siehe Anhang).\\
+
+
+
+Die Beziehungen (\ref{m}) und (\ref{n}) können in dem Praktikumsversuch
+für die Spezialfälle (\ref{o}) und (\ref{q}) überprüft werden. Dazu
+benutze man zwei aus je 5, 10 oder 20 Meßwerten bestehende Gruppen für
+die Länge des Stabes und bezeichne die Meßwerte der einen Gruppe mit
+$x_i$, die der anderen mit $y_k$. Dann berechne man $\bar f$ nach
+(\ref{m}) auf zwei verschiedene Weisen, indem man einmal den mittleren
+Ausdruck und zum anderen den rechten Ausdruck der Doppelgleichung
+benutzt. Zur Prüfung der Beziehung (\ref{m}) vergleiche man die beiden
+Ergebnisse für $\bar f$ miteinander. Das Fehlerfortpflanzungsgesetz
+(\ref{n}) läßt sich prüfen, indem man $\sigma_f$ einmal direkt aus den
+Werten $f_{ik}$ und zum anderen nach der Beziehung (\ref{n}) berechnet
+und die beiden Ergebnisse miteinander vergleicht. Für diese Aufgabe
+steht ein Rechenprogramm zur Verfügung (Versuchsteil 5).\\
+
+
+
+\subsection{Der mittlere quadratische Fehler des Bestwertes}
+
+Die Beziehung (\ref{f}) gibt den mittleren quadratischen Fehler $\Delta
+M_{i}$ der Einzelmessung $M_{i}$ an. Da aber nicht die Einzelmessung
+sondern der Bestwert $M_B$ das Endergebnis darstellt, muß {} der Fehler
+des Bestwertes $\Delta M_{B}$ bestimmt werden. Dazu fassen wir $M_B$
+als Funktion der Größen $M_{i}$ auf, d.h.\\
+
+\begin{equation} \label{s}
+M_{B}\,=\,\frac{1}{n}\,\sum_{i=1}^{n}\,M_{i}\,=\,f(M_{1}, M_{2},...)
+\end{equation}
+
+und wenden hierauf das Fehlerfortpflanzungsgesetzt\\
+
+\begin{equation} \label{t}
+\Delta M_{B}\,=\,\sqrt{\sum_{i=1}^{n}\,\left(\sigma_{i}\,\frac{\partial
+ f}{\partial M_{i}}\right)^{2}}
+\end{equation}
+
+an. Da alle $\sigma_i$ als gleich angenommen werden können , d.h. $\sigma_i$ =$\sigma$, und\\
+
+\begin{equation} \label{u}
+\frac{\partial f}{\partial M_{i}}\,=\,\frac{1}{n}
+\end{equation}
+
+ist, ergibt sich\\
+
+\begin{equation} \label{v}
+\Delta
+M_{B}\,=\,\frac{\sigma}{\sqrt{n}}\,=\,\sqrt{\frac{\sum_{i=1}^{n}\,(\Delta
+ M_{i})^{2}}{n(n-1)}}
+\end{equation}
+
+
+
+\subsection{Anpassung von Funktionen an Meßwerte nach der Methode der
+ kleinsten Quadrate (minimales $\chi^2$)}
+
+Ein häufig vorkommendes Problem ist die Anpassung einer glatten Kurve
+an eine Folge von Meßpunkten, die zur Bestimmung der Kurvenparameter
+dienen sollen. Als Beispiel benutzen wir das radioaktive
+Zerfallsgesetz\\
+
+\begin{equation} \label{w}
+N(t)\,=\,N_{0}e^{-\lambda t},
+\end{equation}
+
+
+das die Anzahl $N$(t) der pro Zeiteinheit zerfallenden radioaktiven
+Kerne als Funktion der Zeit $t$ beschreibt. In (\ref{w}) ist $N_0$ die
+Zahl der Zerfälle zum Zeitpunkt $t$=0 und $\lambda$ die
+Zerfallskonstante, die über die Beziehung
+
+\begin{equation} \label{x}
+\lambda \,=\,\frac{\ln 2}{T_{1/2}}
+\end{equation}
+
+mit der Halbwertszeit $T_{1/2}$ des radioaktiven Nuklids zusammenhängt.
+Zur Vereinfachung setzen wir voraus, daß $N_0$ aus anderen Messungen
+bekannt ist, so daß nur noch $T_{1/2}$ zu bestimmen ist. Wir erzeugen
+zunächst nach der Vorschrift (\ref{k}) "'Meßwerte"' auf dem Computer
+und stellen uns die Aufgabe, $T_{1/2}$ durch geeignete Anpassung der
+Funktion (\ref{w}) an die Meßwerte zu bestimmen. Die "`Messung"'
+liefert\\
+
+\begin{equation} \label{y}
+\mbox{Wertepaare} (N_i, t_i),
+\end{equation}
+
+d.h. zum Zeitpunk $t_i$ pro Zeiteinheit gemessene Anzahlen $N_i$
+radioaktiver Zerfälle. Die Vorschrift für die Anpassung der Funktion
+(\ref{w}) lautet\\
+
+\begin{equation} \label{z}
+\chi^{2}(T_{1/2})\,=\,\sum_{i=1}^{n}\frac{(N_{i}-N(t_{i}))^{2}}{\sigma_{i}^{2}}\,=\,\mbox{Minimum}.
+\end{equation}
+
+In (\ref{z}) bedeutet $\sigma_i$ den mittleren quadratischen Fehler von
+N$_i$, der nach den Gesetzen der Statistik durch die Beziehung\\
+
+\begin{equation} \label{aa}
+\sigma_i^2 = N_i
+\end{equation}
+
+gegeben ist. Wir vergleichen in (\ref{z}) also die Abweichung jedes
+Meßwertes $N_i$ von der gewählten Kurve mit dem Fehler des Meßwertes
+und minimieren die Summe der mit dem reziproken Fehlerquadrat
+gewichteten Abweichungsquadrate. Ausdrücke der Form (\ref{z}) werden
+allgemein mit $\chi^2$ bezeichnet und beinhalten die Gauß'sche Methode
+der kleinsten Quadrate. Die praktische Auswertung der Vorschrift
+(\ref{z}) erfolgt, indem man $\chi^2$ für eine Anzahl geeignet
+erscheinender Werte $T_{1/2}$ berechnet und das Minimum mit Hilfe einer
+graphischen Darstellung der Funktion $\chi^2$($T_{1/2}$) bestimmt.\\
+
+
+
+\section{Fragen}
+
+
+
+
+\section{Durchführung}
+
+
+\subsection{Versuchsvorbereitung}
+
+\begin{enumerate}
+
+\item Einschalten des Rechners durch den Assistenten (Vorsicht:
+unbedingt folgende Reihenfolge einhalten: 0\,2\,4\,1\,3\,5).
+
+\item Beantworten Sie die Aufforderung des (eingeschalteten)
+Rechners zur Benutzeridentifizierung \verb|C:\USER>| mit dem Befehl
+\verb|A-PRAKT<Return>|. Die \verb|<RETURN>| - Taste ist durch \verb|<>|
+gekennzeichnet und übergibt die eingegebenen Informationen dem
+Computer. Dadurch wird der Computer in einen definierten Anfangszustand
+zurückversetzt und nicht mehr benötigte Programme werden gelöscht.
+
+\end{enumerate}
+
+
+
+
+\subsection{Durchführung}
+
+\begin{enumerate}
+
+\item Start und Erzeugen von Zufallszahlen \newline
+Starten Sie das Programm durch die Eingabe \verb|FEHLER<RETURN>|. Das
+Programm enthält einen Zufallsgenerator, der für Sie 100 Zufallzahlen
+N(i), i=1...100 im Intervall [0,1] berechnet. Zur Berechnung einer
+Reihe von Zufallszahlen wird folgende Methode benutzt:
+
+\hspace{2cm} $N(i+1) = \mbox{Mod}(N(i)\,*\,317.1)$
+
+Anschließend werden aus diesen Zufallszahlen 100 gleichverteilte
+natürliche Zufallszahlen berechnet, die Werte zwischen 0 und 99
+annehmen können und als Matrix auf dem Bildschirm dargestellt werden.\\
+{\bf Anmerkung:} (i) Alle auf dem Bildschirm ausgegebenen Ergebnisse
+werden zusätzlich in der Datei VERS17.DAT gespeichert. Sie können diese
+Ergebnisse am Ende des Versuchs durch folgenden Befehl ausdrucken:\\
+
+\hspace{2cm} \verb|PRINT VERS17.DAT<RETURN>|\\
+
+und/oder auf eine Diskette kopieren.
+
+(ii) Nach dem Beenden jedes Versuchsteils wird durch Betätigen der
+\verb|<RETURN>| Taste automatisch zum nächsten Versuchsteil
+übergeleitet.
+
+\item Mittelwertberechnung\\
+Führen Sie 5-mal eine Mittelwertberechnung für unterschiedliche
+Anzahlen von Zufallszahlen durch.
+
+\item Normalverteilung\\
+Die 100 gleichverteilten Zufallszahlen werden in 100 normalverteilte
+Zufallszahlen, die um den Mittelwert streuen, umgerechnet. Diese
+normalverteilten Zahlen geben 100 Messungen einer Stablänge wieder.
+Diese Zahlen werden in 5 Gruppen zu je 20 Zahlen auf dem Bildschirm
+ausgegeben und als Histogramm graphisch dargestellt. Durch
+Bestätigung der \verb|<RETURN>|-Taste wird aus dem Graphik-Modus in
+den Text-Modus zurückgeschaltet.
+
+\item Gauß'sche Methode der kleinsten Quadrate\\
+Der Computer liefert 100 "'Meßwerte"' für die relative Aktivität des
+Zerfalls von $^{108}$Ag (vergl. Versuch 34) - Halbwertszeit =
+144.06~s.\\ Führen Sie einen Fit der ``Meßwerte'' durch, indem Sie eine
+Halbwertzeit vorgeben. Der Computer berechnet dann nach dem
+Zerfallsgesetz eine Kurve, die gemeinsam mit den ``Meßwerten''
+graphisch dargestellt wird. Zusätzlich erhalten Sie das $\chi^{2}$ des
+durchgeführten Fits. Wiederholen Sie diesen Fit für verschiedene
+Halbwertzeiten in der Nähe der wahren Halbwertzeit von $^{108}$Ag.
+
+\item Fehlerfortpflanzung\\
+Sie sollen nun selbst ein kleines FORTRAN-Programm schreiben, um die
+Formeln (\ref{o}) bis (\ref{r}) zu überprüfen. Als Daten dienen dazu
+für die Meßwerte $x_{i}$ und $y_{i}$ jeweils 20 der normalverteilten
+Zufallszahlen, die in 3. dieses Versuchs berechnet wurden. Also zum
+Beispiel die ersten 20 Werte als $x_{i}$ und die zweiten zwanzig Werte
+als $y_{i}$.\\ Zur Überprüfung des Bestwertes (Formeln (\ref{o}) und
+(\ref{q})) berechnen Sie den Bestwert für \=f einmal aus den Bestwerten
+für \=x und \=y nach den Formeln (\ref{o}) und (\ref{q}) und
+vergleichen dieses Ergebnis mit dem Bestwert, den Sie für \=f nach
+Formel (\ref{m}) erhalten.\\ Zur Überprüfung des
+Fehlerfortpflanzungsgesetzes berechnen Sie den Fehler einmal nach den
+Formeln (\ref{p}) und (\ref{r}) und vergleichen diese Ergebnisse mit
+dem mittleren quadratischen Fehler (Formel (\ref{f})) der Werte
+$f_{ik}$ = $f(x_{i},y_{k})$.\\
+
+Warum sind die Fehler, die man auf diese Weise erhält, nicht exakt
+gleich?\\
+
+Für diese Rechnung steht Ihnen ein Rumpfprogramm mit dem Namen
+GAUSS.FOR zur Verfügung, das Sie mit dem SEE-Editor oder EDIT
+ergänzen können. Das Rumpfprogramm enthält bereits die
+Einleseanweisung für die normalverteilten Zufallszahlen. Sie können
+innerhalb Ihres Programms auf die Zahlen unter dem Namen STABL (I) für
+I = 1,.....,100 zugreifen. Die Stelle, an der Sie Ihren eigenen
+Programmtext einfügen müssen, ist gekennzeichnet.\\
+
+Ein Editor wird zum Laden von Files (Dateien) benutzt, so daß man sie
+lesen (und ändern) kann, um sie dann erneut auf der Festplatte zu
+speichern (zu schreiben). Sie können durch den Befehl SEE FILENAME oder
+EDIT FILENAME ein beliebiges File editieren (Vorsicht: Files, die mit
+.OBJ oder .EXE enden, können nicht editiert werden.)\\
+
+Zunächst einige Erklärungen zum SEE-Editor:\\
+
+Aufruf: SEE FILENAME oder EDIT FILENAME \\
+
+Bewegung des Cursers innerhalb des Files durch die Pfeiltasten des
+Nummernblocks (Tasten 8, 4, 6, 2). Dabei wird der Cursor jeweils um
+eine Zeile nach oben oder unten bzw. um einen Buchstaben nach links
+oder rechts bewegt. Mit den Tasten Pfeil (Bild) des Nummernblocks
+(Tasten 9, 3) kann man jeweils eine ganze Bildschirmseite
+weiterblättern. Mit der grauen Pfeiltaste (Pfeil nach links) oberhalb
+der RETURN-Taste kann man den Buchstaben links vom Cursor löschen.\\
+
+Abspeichern des Files und Verlassen des Editors durch die Eingabe der
+Tastenfolge: ``\verb|<|EING LÖSCH\verb|>|'', ``Q'',
+``S''. ``\verb|<|EING LÖSCH\verb|>| ist auf dem Nummernblock zu finden.\\
+
+Ein paar Worte zu FORTRAN:
+\begin{itemize}
+  \item Rangfolge der arithmetischen Operationen:\\
+    Klammern, Sonderfunktionen (SIN, Wurzel, etc.), Potenzieren
+    (Zeichen:**), Multiplikationen, Additionen.
+  \item Ausgabe des Wertes der Variablen ``TEXT'' auf dem Bildschirm:\\
+    WRITE (*,*) TEST
+  \item Quadratwurzel von X: SQRT (X)
+  \item Zur Programmierung einer Schleife siehe Programmbeispiel (17.A).
+\end{itemize}
+
+Haben Sie weitere Fragen zur Programmiersprache FORTRAN, so wenden Sie
+sich bitte an Ihren Assistenten.\\
+
+Anschließend müssen Sie Ihr Programm noch COMPILIEREN (übersetzen) und
+LINKEN (zusammenbinden mit anderen zur Ausführung notwendigen
+Programmteilen, die vom Rechner geliefert werden). Dafür steht für Sie
+ein MAKE-File bereit. Zum COMPILIEREN und LINKEN des Files GAUSS.FOR
+tippen Sie bitte folgenden Befehl ein: MAKE GAUSS.MK\\
+
+Starten und testen Sie Ihr Programm nun durch: GAUSS\\
+
+Anmerkung: Wollen Sie statt FORTRAN lieber BASIC, C oder PASCAL
+benutzen, so ist dies selbstverständlich möglich. Auch für diese
+Sprachen gibt es ein Rumpfprogramm und ein MAKE-File.
+
+\begin{itemize}
+  \item die Zufallszahlen stehen in dem File GAUSS.DAT
+  \item Anleitungen zu den Compilern der anderen Programmiersprachen liegen
+    hier im Terminalraum in einer Plastikhülle aus.
+\end{itemize}
+
+Bitte haben Sie Verständnis, daß Sie Ihr Assistent nicht in all diesen
+Sprachen beraten kann.\\
+
+\end{enumerate}
+
+
+
+\section{Angaben}
+
+
+\subsection{Ableitung der Beziehung (\protect\ref{m}) }
+
+
+Wir entwickeln das Endergebnis $f(x_{i}$, $y_{k})$ einer Messung von
+Teilergebnissen $x_{i}$, $y_{k}$ in eine Taylorreihe um die Bestwerte
+$\bar x$, $\bar y$ und brechen nach dem ersten Glied ab:
+
+\begin{equation} \label{ab}
+f(x_{i}, y_{k})\,=\,f(\bar x, \bar y)\,+\,(x_{i}-\bar x)\,\frac{\partial
+ f}{\partial x}\,+\,(y_{k}-\bar y)\,\frac{\partial f}{\partial y}.
+\end{equation}
+
+
+Der Bestwert $\bar f$ der Endergebnisse $f(x_{i}$, $y_{k})$ ist dann gegeben durch\\
+
+\begin{equation} \label{ac}
+\bar f\,=\,r^{-1}\cdot
+s^{-1}\,\sum_{i=1}^{r}\,\sum_{k=1}^{s}\,f(x_{i}, y_{k})\\
+ =\,f(\bar x, \bar y)\,+\,\frac{1}{r}\,\sum_{i=1}^{r}\,(x_{i}-\bar
+x)\,\frac{\partial f}{\partial
+ x}\,+\frac{1}{s}\,\sum_{k=1}^{s}\,(y_{k}-\bar y)\,\frac{\partial
+ f}{\partial y}.
+\end{equation}
+
+Da der 2. und 3. Term auf der rechten Seite von (\ref{ac}) gemäß
+(\ref{e}) verschwinden, ergibt sich (\ref{m}).\\
+
+
+\subsection{Ableitung der Beziehung (\protect\ref{n})}
+
+
+Wir gehen aus von der Definition des mittleren quadratischen Fehlers (Standard-Abweichung)\\
+
+\begin{equation} \label{ad}
+\sigma_{f}^{2}\,=\,(r-1)^{-1}\cdot
+(s-1)^{-1}\,\left\{\sum_{i=1}^{r}\,\sum_{k=1}^{s}\,(f(x_{i},
+ y_{k})-\bar f)^{2}\right\}
+\end{equation}
+
+und entwickeln wie in (\ref{ab}) in eine Taylorreihe. Dann ergibt sich
+unter der Benutzung von (\ref{m})\\
+
+\begin{eqnarray} \label{ae}
+\sigma_{f}^{2}\,=\,(r-1)^{-1}\cdot
+(s-1)^{-1}\,\left\{\,\sum_{i=1}^{r}\,\sum_{k=1}^{s}\,\left[(x_{i}-\bar
+x)\,\frac{\partial f}{\partial x}\,+\,(y_{k}-\bar y)\,\frac{\partial
+ f}{\partial y}\right]^{2}\right\}
+=(r-1)^{-1}\cdot
+(s-1)^{-1} \nonumber\\
+\left\{\,\sum_{i=1}^{r}\,\sum_{k=1}^{s}\,\left[(x_{i}-\bar
+x)^{2} \left(\frac{\partial f}{\partial x}\right)^{2}\,+\,(y_{k}-\bar
+y)^{2}\,\left(\frac{\partial f}{\partial y}\right)^{2}\,+\,2(x_{i}-\bar
+x)\,\frac{\partial f}{\partial x}\,(y_{k}-\bar y)\,\frac{\partial f}{\partial
+  y}\right]\right\}.
+\end{eqnarray}
+
+Definieren wir nun die Fehler der Teilergebnisse $\sigma_x$
+bzw. $\sigma_y$ nach der in (\ref{f}) gegebenen Vorschrift, so ergibt
+sich\\
+
+\begin{equation} \label{af}
+\sigma_{f}^{2}\,=\,\sigma_{x}^{2}\left(\frac{\partial f}{\partial
+ x}\right)^{2}\,+\,\sigma_{y}^{2}\left(\frac{\partial f}{\partial
+ y}\right)^{2}
+ \end{equation}
+
+in Übereinstimmung mit (\ref{n}).\\
+
+
+Wir wenden jetzt (\ref{ad}) auf die in (\ref{o}) und (\ref{q}) angegebenen
+Spezialfälle an:\\
+
+
+
+Aus $f = x+y$ ergibt sich $\frac{\partial f}{\partial x}$=$\frac{\partial
+ f}{\partial y}$ = 1 und damit
+$\sigma_{f}^{2}=\sigma_{x}^{2}+\sigma_{y}^{2}$ in Übereinstimmung mit
+(\ref{p}). Aus $f=x\cdot y$ ergibt sich $\frac{\partial
+  f}{\partial x}|_{y=\bar y}=\bar y$ und $\frac{\partial f}{\partial y}|_{x=\bar x}=\bar x$ und damit
+$\sigma_{f}^{2}=\bar y^{2} \sigma_{x}^{2}\,+\bar x^{2}
+\sigma_{y}^{2}$ oder wegen $\bar f = \bar x \cdot\bar y$ dann
+$\frac{\sigma_{f}^{2}}{\bar f^{2}}\,=\frac{\sigma_{x}^{2}}{\bar
+ x^{2}}\,+\,\frac{\sigma_{y}^{2}}{\bar y^{2}}$
+in Übereinstimmung mit (\ref{r}) .\\
+
+
+
+
+
+\section{Auswertung}
+
+\begin{enumerate}
+
+\item Zu 2.: Berechnung des Fehlers des Mittelwertes.
+\item Zu 3.: Berechnung des Bestwertes und seines Fehlers für
+je 20 Messungen der Stablänge.
+\item Zu 4.: Auftragen von $\chi^{2}$ als Funktion der
+Halbwertzeit. Bestimmung der ``gemessenen'' Halbwertzeit aus dem
+minimalen $\chi^{2}$.
+\item Zu 5.:\\
+a) Prüfen Sie das Fehlerfortpflanzungsgesetz für die Summe zweier
+Stablängen (Ein Stab der Länge 2 m wird durch zweimaliges Anlegen des
+1~m-Maßstabs vermessen.)\\ b) Prüfen Sie das Fehlerfortpflanzungsgesetz
+für das Produkt zweier Stablängen (Der Flächeninhalt eines Quadrats
+wird durch Messung der Kantenlängen bestimmt.)
+
+\end{enumerate}
+
+
+
+\section{Bemerkungen}
+
+
+Keine.

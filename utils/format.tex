@@ -1,0 +1,80 @@
+\newcommand{\experimentheader}[4]
+{
+  \iftutor{{\bf Schwierigkeitsgrad:} #1\\}
+  \iftutor{{\bf Dauer:} #2\\}
+  {\bf Ger\"ate:} #3\\
+  {\bf Bauteile:} #4
+}
+
+\newcommand{\hintboxNone}{0}
+\newcommand{\hintboxExclamation}{1}
+\newenvironment{hintbox}[4][\hsize]
+{
+  \def\FrameCommand
+  {%
+    {\color{#3}\vrule width 3pt}%
+    \hspace{0pt}%must no space.
+    \fboxsep=\FrameSep\colorbox{#4}%
+  }%
+  \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+  \mbox{\textbf{#2}:}%
+}
+{
+  \endMakeFramed
+}
+\newcommand{\xhintbox}[3]
+{
+  \begin{hintbox}{Achtung}{red!50}{red!10}
+    #3
+  \end{hintbox}
+}
+
+\newenvironment{hint}
+{
+  \begin{hintbox}{Hinweis}{green!50}{green!10}
+}
+{
+  \end{hintbox}
+}
+
+\newenvironment{definition}
+{
+  \begin{hintbox}{Definition\\}{white!50}{white!10}
+}
+{
+  \end{hintbox}
+}
+
+\newenvironment{important}
+{
+  \begin{hintbox}{Hinweis}{gray!50}{gray!10}
+}
+{
+  \end{hintbox}
+}
+
+\newenvironment{jason}
+{
+  \begin{hintbox}{Achtung}{red!50}{red!10}
+}
+{
+  \end{hintbox}
+}
+
+\newcommand{\mandatoryenumi}
+{
+  \renewcommand{\labelenumi}{\arabic{enumi}.} 
+}
+\newcommand{\optionalenumi}
+{
+  \renewcommand{\labelenumi}{$\bigstar$\quad\arabic{enumi}.} 
+}
+\newcommand{\mandatoryenumii}
+{
+  \renewcommand{\labelenumii}{(\alph{enumii})} 
+}
+\newcommand{\optionalenumii}
+{
+  \renewcommand{\labelenumii}{$\bigstar$\quad(\alph{enumii})} 
+}
+\newcommand{\icname}[1]{\mbox{\tt #1}}

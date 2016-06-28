@@ -1,0 +1,54 @@
+\newenvironment{tutorhint}{\comment}{\endcomment}
+\newenvironment{todo}{\comment}{\endcomment}
+\newenvironment{solution}{\comment}{\endcomment}
+\iftutor
+{
+  \renewenvironment{todo}
+  {
+    \hintbox{Todo}{red!50!yellow!90}{red!50!yellow!20}
+  }
+  {
+    \endhintbox
+  }
+  \renewenvironment{tutorhint}
+  {
+    \hintbox{Tutorenhinweis der Stunde}{blue!50}{blue!10}
+  }
+  {
+    \endhintbox
+  }
+  \renewenvironment{solution}
+  {
+    \hintbox{L\"osung}{black!80}{black!5}
+  }
+  {
+    \endhintbox
+  }
+}
+\newcommand{\etutorhint}[1]
+{
+  \iftutor{
+    \tutorhint
+      #1
+    \endtutorhint
+  }
+}
+\newcommand{\esolution}[1]
+{
+  \iftutor
+  {
+    \solution
+    #1
+    \endsolution
+  }
+}
+\newcommand{\etodo}[1]
+{
+  \iftutor
+  {
+    \todo
+    #1
+    \endtodo
+  }
+}
+
