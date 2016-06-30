@@ -217,7 +217,7 @@ Wie man sieht, geht der Korrekturfaktor für $n\rightarrow\infty$ gegen $t=1$, d
 
 Bei der Bildung des arithmetischen Mittelwertes geht man implizit davon aus, dass alle Messwerte, die in die Mittelung aufgenommen werden, dieselbe Unsicherheit haben. Dies muss nicht immer der Fall sein.\\
 
-Beispiel: \textit{Aus irgendeinem Grund verwenden Sie zur Messung derselben Länge unterschiedliche Massstäbe. Z. Bsp. benutzen Sie für einige Messungen ein Lineal mit einer Genauigkeit von 1~mm, für andere Messungen eine Schieblehre, die eine Auflösung von 0,1~mm hat.}\\
+Beispiel: \textit{Aus irgendeinem Grund verwenden Sie zur Messung derselben Länge unterschiedliche Maßstäbe. Z. Bsp. benutzen Sie für einige Messungen ein Lineal mit einer Genauigkeit von 1~mm, für andere Messungen eine Schieblehre, die eine Auflösung von 0,1~mm hat.}\\
 
 Um diese unterschiedlich genauen Messungen sinnvoll in einem Mittelwert zu kombinieren, benutzt man den \textit{gewichteten Mittelwert}:
 \begin{important}
@@ -280,7 +280,7 @@ Wie wir wissen, sind die einzelnen, direkten Messungen mit Unsicherheiten behaft
 
 Die einfachste Möglichkeit, den Fehler abzuschätzen, ist die Annahme, dass die Unsicherheiten aller Einzelgrößen voll zur Gesamtunsicherheit beitragen und sich nicht untereinander beeinflussen (man sagt \textit{sie sind nicht korreliert}).
 
-Rechnerisch wird das umgesetzt, indem man in die Formel zur Berechnung der gesuchten zusammengesetzten Größe die Einzelmessungen $x_i \pm \Delta x_i$ so einsetzt, dass das Ergebniss maximal wird. Anschliessend wird der Vorgang so wiederholt, dass das Ergebnis minimal wird. Die Differenz der beiden Ergebnisse bezeichnet man als den \textit{Größtfehler}.\\
+Rechnerisch wird das umgesetzt, indem man in die Formel zur Berechnung der gesuchten zusammengesetzten Größe die Einzelmessungen $x_i \pm \Delta x_i$ so einsetzt, dass das Ergebnis maximal wird. Anschließend wird der Vorgang so wiederholt, dass das Ergebnis minimal wird. Die Differenz der beiden Ergebnisse bezeichnet man als den \textit{Größtfehler}.\\
 
 %\noindent
 Dieses Verfahren berücksichtigt den statistischen Zusammenhang der einzelnen Beiträge nicht, daher liefert es im Allgemeinen zu große Werte für die Unsicherheit. Darüber hinaus können sich rechnerische Schwierigkeiten ergeben, wenn z. Bsp. die entsprechende Größe in einer Summe im Nenner und im Zähler der Formel vorkommt. In diesem Fall ist es schwierig herauszufinden, ob die positive oder die negative Abweichung den größten bzw. den kleinsten Wert ergibt. Dieses Verfahren ist daher nur für den Notfall geeignet, liefert jedoch oft eine brauchbare Abschätzung.
@@ -310,7 +310,7 @@ Wenn die Messgrößen $x$, $y$ und $z$ statistisch unabhängig voneinander sind,
 
 Diese Formel ist bekannt als die \textit{Gauß'sche Fehlerfortpflanzung}, wenn für die Unsicherheiten $\Delta\bar{x}$, $\Delta\bar{y}$, $\Delta\bar{z}$ die jeweilige Standardabweichung eingesetzt wird.
 
-Die Ausdrück $\partial g/\partial x$, $\partial g/\partial y$ und $\partial g/\partial z$ stehen dabei für die partiellen Ableitungen der Formel zur Berechnung von $g$ nach den Variablen $x$, $y$ und $z$.
+Die Ausdrücke $\partial g/\partial x$, $\partial g/\partial y$ und $\partial g/\partial z$ stehen dabei für die partiellen Ableitungen der Formel zur Berechnung von $g$ nach den Variablen $x$, $y$ und $z$.
 
 \paragraph{Beispiel:} Messung der Dichte eines Quaders\\
 \textit{
@@ -366,28 +366,28 @@ Sei beispielsweise die Größe $g$ aus drei Variablen $x, y, z$ zusammengesetzt,
 											+ \Delta\bar{z}^2\cdot \left[\frac{\partial g}{\partial z}\right]^2_{\bar{x}, \bar{y}, \bar{z}}}
 \end{equation}
 %**********************************************************************************************************************
-\subsection{Verkn"upfung statistischer und systematischer Unsicherheiten}
+\subsection{Verknüpfung statistischer und systematischer Unsicherheiten}
 
-Auch bei der Verkn"upfung systematischer und statistischer Unsicherheiten ist die Frage nach de Kopplung der Gr"o{\ss}en zu beachten. Die Frage, ob die statistische Unsicherheit von der systematischen Abweichung abh"angig ist oder nicht, ist jedoch letztlich nicht beantwortbar. Entsprechend werden in der Literatur auch beide Meinungen vertreten.\\
+Auch bei der Verknüpfung systematischer und statistischer Unsicherheiten ist die Frage nach de Kopplung der Gr"o{\ss}en zu beachten. Die Frage, ob die statistische Unsicherheit von der systematischen Abweichung abhängig ist oder nicht, ist jedoch letztlich nicht beantwortbar. Entsprechend werden in der Literatur auch beide Meinungen vertreten.\\
 
 \noindent
 \textbf{Im Praktikum} wollen wir vom konservativen Fall ausgehen und annehmen, dass die beiden Beitr"age nicht voneinander unabh"angig sind und befolgen die folgenden Schritte:
 \begin{enumerate}
-	\item Bestimmung der statistischen Unsicherheit aus allen Einzelgr"o{\ss}en mittels \textit{quadratischer Addition} nach Gleichung \ref{eq:error_quad_add}.
-	\item Bestimmung der systematischen Unsicherheit aus \textit{linearer Addition} aller Einzelgr"o{\ss}en nach Gleichung \ref{eq:error_lin_add}.
-	\item Verkn"upfung der statistischen und systematischen Unsicherheit mittels normaler linearer Addition, nicht Gleichung \ref{eq:error_lin_add}, zur Gesamtunsicherheit, welche dann beim Ergebnis angegeben wird.
+	\item Bestimmung der statistischen Unsicherheit aus allen Einzelgrößen mittels \textit{quadratischer Addition} nach Gleichung \ref{eq:error_quad_add}.
+	\item Bestimmung der systematischen Unsicherheit aus \textit{linearer Addition} aller Einzelgrößen nach Gleichung \ref{eq:error_lin_add}.
+	\item Verknüpfung der statistischen und systematischen Unsicherheit mittels normaler linearer Addition, nicht Gleichung \ref{eq:error_lin_add}, zur Gesamtunsicherheit, welche dann beim Ergebnis angegeben wird.
 \end{enumerate}
 %**********************************************************************************************************************
-\begin{todo}
-	Einen Abschnitt über systematische Unsicherheiten und wie man sie abschätzt.
-\end{todo}
+%\begin{todo}
+	%Einen Abschnitt über systematische Unsicherheiten und wie man sie abschätzt.
+%\end{todo}
 
 %**********************************************************************************************************************
 %**********************************************************************************************************************
-\section{Graphische Auswertung bei korrelierten Messwerten}
-
-Dein einfachste Beziehung zwischen zwei Messgrößen ist die \textit{lineare Abhängigkeit}
-\begin{equation}
-	y(x) = a\cdot x + b
-\end{equation}
-mit den beiden freien Parametern $a$ und $b$.
+%\section{Graphische Auswertung bei korrelierten Messwerten}
+%
+%Dein einfachste Beziehung zwischen zwei Messgrößen ist die \textit{lineare Abhängigkeit}
+%\begin{equation}
+	%y(x) = a\cdot x + b
+%\end{equation}
+%mit den beiden freien Parametern $a$ und $b$.

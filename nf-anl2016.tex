@@ -150,55 +150,64 @@ f"ur Nebenfach Physik}
 \renewcommand{\footrulewidth}{0.4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\part{Vorbemerkungen}
-%
-%\renewcommand{\thechapter}{\Alph{chapter}}
-%
-%\include{00_einl/regeln}
+\part{Vorbemerkungen}
+
+\renewcommand{\thechapter}{\Alph{chapter}}
+
+\include{00_einl/regeln}
 %\include{00_einl/literatur}
-%\include{00_einl/sicherheit}
-%\include{00_einl/protokoll}
-%\include{00_einl/fehler-JW}
-%\include{00_einl/fehlerr}
-%\include{00_einl/diagramme}
+\include{00_einl/sicherheit}
+\include{00_einl/protokoll}
+\include{00_einl/fehler-JW}
+\include{00_einl/fehlerr}
+\include{00_einl/diagramme}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\cleardoublepage
-%\part{Versuche}
-%
-%
-%\renewcommand{\thechapter}{\arabic{chapter}}
-%\setcounter{chapter}{0}
-%\def\chaptername{Versuch}
-%\setcounter{tocdepth}{0}
+\cleardoublepage
+\part{Versuche}
+
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{0}
+\def\chaptername{Versuch}
+\setcounter{tocdepth}{0}
 %
 %%%%%%% Vorführversuch %%%%%%%
-%\include{Versuch_0/Versuch-0}
+\include{Versuch_0/Versuch-0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\include{Versuch_17-18/Versuch-17}	% Solarzelle und Hlableiterdiode
+\include{Versuch_17-18/Versuch-17}	% Solarzelle und Hlableiterdiode
 %\include{Versuch_17-18/Versuch-18}	% Transistor
-%\include{Versuch_15-16/Versuch-15}	% Wechselstrom und RC Kreis
-%\include{Versuch_15-16/Versuch-16}	% Spule und Transformator
-%\include{Versuch_1-2/Versuch-1}			% Stoß
-%\include{Versuch_1-2/Versuch-2}			% Drehschwingungen
-%\include{Versuch_3-4/Versuch-3}			% Kapillarität und Auftrieb
-%\include{Versuch_3-4/Versuch-4}			% Innere Reibung von Flüssigkeiten
-%\include{Versuch_7-8/Versuch-7}			% Linsengesetze
-%\include{Versuch_7-8/Versuch-8}			% Mikroskop
-%\include{Versuch_9-10/Versuch-9}		% Brechungsindex von Glas
-%\include{Versuch_9-10/Versuch-10}		% Beugung am Gitter
-%\include{Versuch_11-12/Versuch-11}	% Thermoelement
-%\include{Versuch_11-12/Versuch-12}	% Kennlinien verschiedener Leiter
-%\include{Versuch_13-14/Versuch-13}	% Elektrische Netzwerke
-%\include{Versuch_13-14/Versuch-14} 	% Nichtstationäre Diffusion
-%\include{Versuch_19-20/Versuch-19}	% Künstliche Radioaktivität
-%\include{Versuch_19-20/Versuch-20}	% Spezifische Elektronenladung e/m
-%\include{Versuch_5-6/Versuch-5}			% Spezifische Wärmekapazität
-%\include{Versuch_5-6/Versuch-6}			% Molare Wärmekapazität von Luft
+\include{Versuch_1-2/Versuch-1}			% Stoß
 
-\include{Versuch_neu_1-2/Versuch_Neu-1}	% Schwingungen
+\include{Versuch_15-16/Versuch-15}	% Wechselstrom und RC Kreis
+\include{Versuch_15-16/Versuch-16}	% Spule und Transformator
+
+\include{Versuch_1-2/Versuch-2}			% Drehschwingungen --> Trägheitsmoment
+\include{Versuch_neu_1-2/Versuch_Neu-1}	% Pohl'scher Resonator
+
+\include{Versuch_3-4/Versuch-3}			% Kapillarität und Auftrieb
+\include{Versuch_3-4/Versuch-4}			% Innere Reibung von Flüssigkeiten
+
+\include{Versuch_7-8/Versuch-7}			% Linsengesetze
+\include{Versuch_7-8/Versuch-8}			% Mikroskop
+
+\include{Versuch_9-10/Versuch-9}		% Brechungsindex von Glas
+\include{Versuch_9-10/Versuch-10}		% Beugung am Gitter
+
+\include{Versuch_11-12/Versuch-11}	% Thermoelement
+%\include{Versuch_11-12/Versuch-12}	% Kennlinien verschiedener Leiter
 \include{Versuch_neu_1-2/Versuch_Neu-2}	% Ultraschall
+
+\include{Versuch_13-14/Versuch-13}	% Elektrische Netzwerke
+\include{Versuch_13-14/Versuch-14} 	% Nichtstationäre Diffusion
+
+\include{Versuch_19-20/Versuch-19}	% Künstliche Radioaktivität
+\include{Versuch_19-20/Versuch-20}	% Spezifische Elektronenladung e/m
+
+\include{Versuch_5-6/Versuch-5}			% Spezifische Wärmekapazität
+\include{Versuch_5-6/Versuch-6}			% Molare Wärmekapazität von Luft
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %\cleardoublepage
@@ -206,12 +215,12 @@ f"ur Nebenfach Physik}
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\backmatter
-%
-%\renewcommand{\thechapter}{\Roman{chapter}}
-%\setcounter{chapter}{10}
+\backmatter
 
-% \include{00_einl/raumverz}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\setcounter{chapter}{10}
+
+ \include{00_einl/raumverz}
 
 \end{document}
 
