@@ -1,38 +1,5 @@
 %\pdfoutput=0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%\documentclass[english,ngerman,headsepline,noparindent,greybox, chapterprefix=true]{bgteubner}
-%
-%\usepackage{graphicx}
-%\usepackage{dcolumn}
-%\usepackage[gen]{eurosym}
-%%\usepackage{miller}
-%\usepackage{contour}
-%%\usepackage{fixme}
-%\usepackage{nicefrac}
-%\usepackage{url}
-%%\usepackage{overpic}
-%\usepackage{verbatim}
-%%\usepackage{url}
-%%\usepackage{tocloft}
-%%\usepackage{cite}
-%\usepackage{babelbib}
-%\usepackage{psfrag}
-%\usepackage[utf8]{inputenc}
-%\usepackage{capt-of}
-%\usepackage{ngerman}
-%%\usepackage[ps2pdf,bookmarks=true,bookmarksopen=false,bookmarksnumbered=true]{hyperref}
-%%\usepackage{bookmark}
-%\usepackage{amsmath}
-%\usepackage{xcolor}
-%%**** tikz package, übernommen von Johannes Agricola aus dem EP Skript********
-%\usepackage{tikz}
-%\usepackage{pgfplots}
-%\usetikzlibrary{calc, babel, intersections}
-%\usetikzlibrary{arrows}
-%\usetikzlibrary{decorations.markings}
-%\usetikzlibrary{decorations.pathreplacing}
-%\usepackage[european resistors]{circuitikz}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % übernommen vom EP Skript
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,10 +19,10 @@
 \usepackage{fancyhdr}
 \usepackage{textcomp}
 \usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage[noadjust]{marginnote}
-\usepackage{hyperref}
 \usepackage{tikz}
-\usepackage{pgfplots}
+%\usepackage{pgfplots}	%Hiermit kann man Plots direkt in LaTex mit tikz Befehlen zeichnen. Erzeugt Kompatibilitätswarnung. Brauchen wir momentan nicht!
 \usepackage{nicefrac}
 \usepackage{framed}
 \usetikzlibrary{calc,intersections}
@@ -70,20 +37,21 @@
     outer=3cm, 
     inner=3cm,
     marginparwidth=2.5cm,
+		headheight=14pt
   ]{geometry}
 
 \usepackage{parskip}
+\usepackage{pdfpages}
+%\usepackage{hyperref}
+\usepackage{import}
+
 \setlength{\parindent}{0pt}
 
 \input{utils/format.tex}
-\IfFileExists{tmp/makefile-auto-tutor.tex}
-{
-  \input{tmp/makefile-auto-tutor.tex}
-} %else
-{
-  \input{utils/disable-tutor.tex}
-  %\input{utils/enable-tutor.tex}
-}
+
+  %\input{utils/disable-tutor.tex}
+  \input{utils/enable-tutor.tex}
+
 \input{utils/tutor.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -115,8 +83,11 @@
 \frontmatter
 
 
-\title{\Huge Physikalisches Praktikum\\
-f"ur Nebenfach Physik}
+\ifnotutor{\title{\Huge Physikalisches Praktikum\\
+f"ur Nebenfach Physik}}
+\iftutor{\title{\Huge Nebenfach Praktikum\\
+Tutorenversion}}
+
 \author{Dr.~Jens Weingarten, Prof.~Dr.~Arnulf Quadt}
 %\edition{1}
  
@@ -174,40 +145,40 @@ f"ur Nebenfach Physik}
 \setcounter{tocdepth}{0}
 %
 %%%%%%% Vorführversuch %%%%%%%
-\include{Versuch_0/Versuch-0}
+\import{Versuch_0/}{Anleitung-0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\include{Versuch_17-18/Versuch-17}	% Solarzelle und Hlableiterdiode
+\import{Versuch_17-18/}{Anleitung-17}	% Solarzelle und Hlableiterdiode
 %\include{Versuch_17-18/Versuch-18}	% Transistor
-\include{Versuch_1-2/Versuch-1}			% Stoß
+\import{Versuch_1-2/}{Anleitung-1}			% Stoß
 
-\include{Versuch_15-16/Versuch-15}	% Wechselstrom und RC Kreis
-\include{Versuch_15-16/Versuch-16}	% Spule und Transformator
+\import{Versuch_15-16/}{Anleitung-15}	% Wechselstrom und RC Kreis
+\import{Versuch_15-16/}{Anleitung-16}	% Spule und Transformator
 
-\include{Versuch_1-2/Versuch-2}			% Drehschwingungen --> Trägheitsmoment
-\include{Versuch_neu_1-2/Versuch_Neu-1}	% Pohl'scher Resonator
+\import{Versuch_neu_1-2/}{Anleitung_Neu-1}	% Pohl'scher Resonator
+\import{Versuch_1-2/}{Anleitung-2}			% Drehschwingungen --> Trägheitsmoment
 
-\include{Versuch_3-4/Versuch-3}			% Kapillarität und Auftrieb
-\include{Versuch_3-4/Versuch-4}			% Innere Reibung von Flüssigkeiten
+\import{Versuch_3-4/}{Anleitung-3}			% Kapillarität und Auftrieb
+\import{Versuch_3-4/}{Anleitung-4}			% Innere Reibung von Flüssigkeiten
 
-\include{Versuch_7-8/Versuch-7}			% Linsengesetze
-\include{Versuch_7-8/Versuch-8}			% Mikroskop
+\import{Versuch_7-8/}{Anleitung-7}			% Linsengesetze
+\import{Versuch_7-8/}{Anleitung-8}			% Mikroskop
 
-\include{Versuch_9-10/Versuch-9}		% Brechungsindex von Glas
-\include{Versuch_9-10/Versuch-10}		% Beugung am Gitter
+\import{Versuch_9-10/}{Anleitung-9}		% Brechungsindex von Glas
+\import{Versuch_9-10/}{Anleitung-10}		% Beugung am Gitter
 
-\include{Versuch_11-12/Versuch-11}	% Thermoelement
+\import{Versuch_11-12/}{Anleitung-11}	% Thermoelement
 %\include{Versuch_11-12/Versuch-12}	% Kennlinien verschiedener Leiter
-\include{Versuch_neu_1-2/Versuch_Neu-2}	% Ultraschall
+\import{Versuch_neu_1-2/}{Anleitung_Neu-2}	% Ultraschall
 
-\include{Versuch_13-14/Versuch-13}	% Elektrische Netzwerke
-\include{Versuch_13-14/Versuch-14} 	% Nichtstationäre Diffusion
+\import{Versuch_13-14/}{Anleitung-13}	% Elektrische Netzwerke
+\import{Versuch_13-14/}{Anleitung-14} 	% Nichtstationäre Diffusion
 
-\include{Versuch_19-20/Versuch-19}	% Künstliche Radioaktivität
-\include{Versuch_19-20/Versuch-20}	% Spezifische Elektronenladung e/m
+\import{Versuch_19-20/}{Anleitung-19}	% Künstliche Radioaktivität
+\import{Versuch_19-20/}{Anleitung-20}	% Spezifische Elektronenladung e/m
 
-\include{Versuch_5-6/Versuch-5}			% Spezifische Wärmekapazität
-\include{Versuch_5-6/Versuch-6}			% Molare Wärmekapazität von Luft
+\import{Versuch_5-6/}{Anleitung-5}			% Spezifische Wärmekapazität
+\import{Versuch_5-6/}{Anleitung-6}			% Molare Wärmekapazität von Luft
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

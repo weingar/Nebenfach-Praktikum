@@ -365,8 +365,7 @@ wirklich physikalischen linearen Zusammenhang zu schlie"sen.
 
 Unter der Voraussetzung, dass nur die
 $y_i$-Werte mit dem Fehler $\sigma_i$ fehlerbehaftet, w"ahrend die
-$x_i$-Werte fehlerfrei sind (exakte Definition siehe
-\cite{beving}), ergibt sich f"ur die lineare Regression:
+$x_i$-Werte fehlerfrei sind, ergibt sich f"ur die lineare Regression:
 \begin{align*}
 \Delta&=\sum{\frac{1}{\sigma_i^2}}\sum{\frac{x_i^2}{\sigma_i^2}}-
 \left(\sum{\frac{x_i}{\sigma_i^2}}\right)^2 & &
@@ -443,7 +442,7 @@ Praxis nicht ermitteln. Deshalb f"uhren wir nach der Vorschrift
 den mittleren quadratischen Fehler der Einzelmessung ein. Der in
 (\ref{f}) eigentlich erwartete Gewichtsfaktor $1/n$ wurde durch
 $1/(n-1)$ ersetzt, weil man f"ur 1~Messwert nat"urlich keinen Fehler
-berechnen kann \cite{beving,tbstat}.
+berechnen kann.
 
 
 \subsection{Die Normalverteilung}
@@ -467,7 +466,7 @@ wobei $x = M_i - M_B$ gesetzt wurde und somit hier $\bar{x}=0$
 gilt. Dar"uber hinaus wird die Normierung erf"ullt:
 %
 \begin{equation} \label{h}
-  \int_{-\infty}^{+\infty}\,P(x) \d x = 1 \, .
+  \int_{-\infty}^{+\infty}\,P(x) dx = 1 \, .
 \end{equation}
 %
 Eine solche \emph{Glockenkurve} ist in Bild~\ref{a:glockenkurve}
@@ -490,7 +489,7 @@ schematisch dargestellt.
 Weiter kann folgende Formel hergeleitet werden:
 %
 \begin{equation} \label{i}
- s^2 = \int_{-\infty}^{+\infty}\,P(x) \cdot (x-\bar{x})^{2} \d x = \sigma^{2}
+ s^2 = \int_{-\infty}^{+\infty}\,P(x) \cdot (x-\bar{x})^{2} dx = \sigma^{2}
 \end{equation}
 %
 Das bedeutet, dass der Parameter $\sigma$ der Glockenkurve mit deren 
@@ -499,7 +498,7 @@ ferner zeigen, dass die Wahrscheinlichkeit, den wahren Wert
 innerhalb des $1\sigma$"=Intervalls um $\bar{x}$ zu finden
 
 \begin{equation} \label{j}
-  W(\sigma) = \int_{\bar{x}-\sigma}^{\bar{x}+\sigma} \, P(x) \d x =
+  W(\sigma) = \int_{\bar{x}-\sigma}^{\bar{x}+\sigma} \, P(x) dx =
   0.68
 \end{equation}
 %
@@ -662,7 +661,6 @@ In (\ref{z}) bedeutet $\sigma_i$ den mittleren quadratischen
 Fehler von $N_i$, der nach den Gesetzen der Statistik f"ur
 diskrete, z"ahlbare Ereignisse
 (Poisson-Statistik\index{Poisson-Statistik}) durch die Beziehung
-\cite{tbstat}
 %
 \begin{equation} \label{aa}
   \sigma_i^2 = N_i

@@ -1,106 +1,55 @@
-\chapter*{Vorversuch: Federpendel}
-\label{v:0}
+\documentclass[11pt, twoside, a4paper]{book}
 
-In diesem Versuch, der vor Beginn des Praktikums im Rahmen einer Einführungsveranstaltung zusammen mit der Praktikumsleitung und den Tutoren durchgeführt wird, wollen wir Ihnen einige der wichtigsten Aspekte zur Durchführung der Praktikumsversuche, der Auswertung der Messdaten, sowie zur Protokollierung des Versuchs aufzeigen.
-%------------------------------------------------
-\section{Stichworte}
-%------------------------------------------------
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+%\usepackage{lineno}
+\usepackage{verbatim}
+\usepackage[squaren]{SIunits}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[noadjust]{marginnote}
+\usepackage{tikz}
+\usepackage{nicefrac}
+\usepackage{framed}
 
-Federkonstante, Hookesches Gesetz, rücktreibende Kraft, Schwingung
-%
-%------------------------------------------------
-\section{Literatur}
-%------------------------------------------------
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[european resistors]{circuitikz}
+\usepackage[ 
+    top=2cm, 
+    bottom=2cm, 
+    outer=3cm, 
+    inner=3cm,
+    marginparwidth=2.5cm,
+		headheight=14pt
+  ]{geometry}
 
-Gehrtsen, Kapitel 2.3
-%
-%------------------------------------------------
-%\section{Anwendungsbeispiele}
-%------------------------------------------------
+\usepackage{parskip}
+\usepackage{pdfpages}
 
-%------------------------------------------------
-\section{Theoretischer Hintergrund}
-%------------------------------------------------
+\setlength{\parindent}{0pt}
 
-\subsection{Das Federpendel}
+\input{../utils/format.tex}
 
-Das idealisierte Federpendel besteht aus einer Masse $m$, die an einer Schraubenfeder vernachlässigbarer Masse mit der Federkonstanten $D$ aufgehängt ist. Durch Vergrößern der Masse $m$ dehnt sich die Feder um einen Betrag $X=x-x_0$ gemäß dem Hookeschen Gesetz, d.h. die rücktreibende Kraft ist der Auslenkung proportional. Im Gleichgewichtsfall ist die Summe der Kräfte gleich Null:
+  %\input{utils/disable-tutor.tex}
+  \input{../utils/enable-tutor.tex}
 
-\begin{equation} \label{eq:Federkonstante}
-	m\cdot g - D\cdot X = 0 \quad \mathrm{mit\, g=9,81\,\frac{m}{s^2}}
-\end{equation}
+\input{../utils/tutor.tex}
 
-Lenkt man die Masse $m$ an der Feder aus und lässt sie zurückschnellen, bewirkt die rücktreibende Kraft $D\cdot X$ eine Beschleunigung $d^2X/dt^2$ in Richtung $x_0$. Damit lautet die Bewegungsgleichung:
+\begin{document}
 
-\begin{equation}
-	m\frac{d^2X}{dt^2} + D\,X = 0 \,.
-\end{equation}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{0}
+\def\chaptername{Versuch}
 
-Das ist die Bewegungsgleichung einer harmonischen Schwingung, welche durch den Ansatz
-\begin{equation}
-	X(t) = X_a \cos(\omega t)
-\end{equation}
-gelöst wird. Darin ist $X_a$ die Amplitude (i.e. die maximale Auslenkung) und $\omega = \sqrt{\frac{D}{m}}$ die Kreisfrequenz der Schwingung. Die Periodendauer der Schwingung ist damit:
-\begin{equation}
-	T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{D}}
-\end{equation}
+\include{Anleitung-0}
 
-Berücksichtigt man die homogen verteilte Masse der Feder, die sich bei der Schwingung mitbewegt, so erhält man einen korrigierten Ausdruck für die Schwingungsdauer:
-\begin{equation} \label{eq:Schwingungsdauer}
-	T_F = 2\pi\sqrt{\frac{m+\frac{m_F}{3}}{D}} \, ,
-\end{equation}
-wobei $m_F$ die Masse der Feder ist. Der Ausdruck $m+\frac{m_F}{3}$ stellt die \textit{effektive Masse} von Feder und Zusatzgewicht dar.
-%------------------------------------------------
-\section{Fragen zur Vorbereitung}
-%------------------------------------------------
-
-\begin{enumerate} 
-	\item Welche Größen beschreiben eine Schwingung?
-	%
-	\item Weshalb schwingt ein Federpendel?
-	%
-  \item Wie lautet das Gravitationsgesetz?
-	%
-\end{enumerate} 
-
-%------------------------------------------------
-\section{Durchführung} 
-%------------------------------------------------
-
-\begin{enumerate}
-	\item Messen Sie die Federkonstante $D$ mittels der \textit{statischen Methode}:
-		\begin{enumerate}
-			\item Messen Sie die Ausdehnung $x_0$ der Feder ohne angehängtes Gewicht. Wiederholen Sie die Messung drei Mal. Wie groß ist die Ablesegenauigkeit für diese Messung?
-			%
-			\item Messen Sie nun die Ausdehnung $x$ der Feder für verschiedene angehängte Gewichte: 50~g, 100~g, 150~g, 200~g. Wiederholen Sie die Messung jeweils drei Mal.
-		\end{enumerate}
-	%
-	\item Messen Sie die Federkonstante nun \textit{dynamisch}:
-		\begin{enumerate}
-			\item Messen Sie die Masse $m_F$ der Feder.
-			%
-			\item Messen sie die Periodendauer für fünf Schwingungen der Feder bei angehängten Gewichten 50~g, 100~g, 150~g, 200~g. Wiederholen Sie die Messung jeweils drei Mal. Wie groß ist die Unsicherheit der Zeitmessung?
-		\end{enumerate}
-\end{enumerate}
-
-%------------------------------------------------
-\section{Auswertung} 
-%------------------------------------------------
-
-\begin{enumerate}
-	\item Statische Methode:
-		\begin{enumerate}
-			\item Tragen Sie die mittlere Auslenkung $X = x_0 - x$ der Feder gegen das angehängte Gewicht auf. Dieses kann dabei als fehlerfrei angenommen werden.
-			%
-			\item Laut Gleichung \ref{eq:Federkonstante} gibt die Steigung dieser Gerade die Federkonstante $D$ an. Bestimmen Sie die Steigung der Geraden inklusive ihrer Unsicherheit.
-		\end{enumerate}
-	%
-	\item Dynamische Methode:
-		\begin{enumerate}
-			\item Laut Gleichung \ref{eq:Schwingungsdauer} ist das Quadrat der Schwingungsdauer proportional zur Federkonstanten $D$. Tragen Sie daher den Mittelwert von $T^2$ gegen die effektive Masse auf.
-			%
-			\item Bestimmen Sie die Steigung der Geraden inklusive ihrer Unsicherheit und berechnen Sie daraus die Federkonstante $D$.
-		\end{enumerate}
-	%
-	\item Vergleichen Sie die mit den beiden Methoden gemessenen Federkonstanten. Diskutieren Sie mögliche Abweichungen.
-\end{enumerate}
+\end{document}

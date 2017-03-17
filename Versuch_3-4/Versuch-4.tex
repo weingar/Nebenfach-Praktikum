@@ -1,142 +1,56 @@
-\chapter{Innere Reibung von Flüssigkeiten}
-\label{v:4}
+\documentclass[11pt, twoside, a4paper]{book}
 
-In diesem Versuch lernen Sie die Grundlagen der Reibung in Flüssigkeiten kennen.
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+%\usepackage{lineno}
+\usepackage{verbatim}
+\usepackage[squaren]{SIunits}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[noadjust]{marginnote}
+\usepackage{tikz}
+\usepackage{nicefrac}
+\usepackage{framed}
+\usepackage{import}
 
-%------------------------------------------------
-\section{Stichworte}
-%------------------------------------------------
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[european resistors]{circuitikz}
+\usepackage[ 
+    top=2cm, 
+    bottom=2cm, 
+    outer=3cm, 
+    inner=3cm,
+    marginparwidth=2.5cm,
+		headheight=14pt
+  ]{geometry}
 
-Innere Reibung; dynamische Viskosität; laminare Strömung; Hagen-Poiseuillesches Gesetz.
-%
-%------------------------------------------------
-\section{Literatur}
-%------------------------------------------------
+\usepackage{parskip}
+\usepackage{pdfpages}
 
-Gehrtsen, Kapitel 3.3.2 und 3.3.3; Walcher, Kapitel 2.6.0 und 2.6.1
-%
-%------------------------------------------------
-\section{Anwendungsbeispiele}
-%------------------------------------------------
-%
-Die Viskosität ist ein Maß für die Zähflüssigkeit eines Fluids, je höher die Viskosität, desto zähflüssiger. Die Viskosität spielt in allen Bereichen, wo fließende Flüssigkeiten auftreten eine Rolle:\\
-Motorenöl ersetzt die Reibung von Metall auf Metall durch innere Reibung im Öl, mit kleinen Radiusänderungen der Adern erreicht der Körper eine Regelung der Durchflussmenge im Blutkreislauf in weiten Grenzen, das Durchmischungsverhalten von Flüssigkeiten ist sowohl bei Lösungen im Labor, als auch bei der Herstellung von Lacken etc. wichtig.
-%
-%------------------------------------------------
-\section{Theoretischer Hintergrund}
-%------------------------------------------------
+\setlength{\parindent}{0pt}
 
-\subsection{Innere Reibung}
+\input{../utils/format.tex}
 
-Zwischen einer festen Wand und einer dazu parallelen, bewegten Platte befinde sich eine dünne Flüssigkeitsschicht der Dicke $z$. Um die Platte der Fläche $A$ mit konstanter Geschwindigkeit $\vec{v}$ parallel zur Wand zu verschieben, braucht man eine Kraft
-\begin{equation} \label{eq:Kraft}
- \vec{F} = \eta\,A\frac{\vec{v}}{z}\; .
-\end{equation}
-Die dynamische Viskosität $\eta$ beschreibt die Eigenschaften der Flüssigkeit. Dass in Gleichung \ref{eq:Kraft} $A$ und $\vec{v}$ im Zähler stehen, ist leicht einzusehen. Warum aber steht die Schichtdicke $z$ im Nenner?\\
-Hierzu muss man sich klar machen, dass es sich bei der Gegenkraft zu $\vec{F}$ nicht um die Reibung zwischen Festkörper und Flüssigkeit handelt. Das liegt daran, dass die direkt an die Wände angrenzenden Flüssigkeitsschichten an diesen haften. Vielmehr kommt die Gegenkraft durch die Reibung zwischen verschiedenen Schichten in der Flüssigkeit zustande. Zwischen Wand und Platte bildet sich in der Flüssigkeit ein Geschwindigkeitsprofil aus, bei dem die Geschwindigkeit der einzelnen Flüssigkeitsschichten mit wachsendem Abstand von der Wand linear ansteigen. Je kleiner $z$ bei einer gegebenen Geschwindigkeit der Platte ist, desto schneller müssen also die einzelnen Molekülschichten der Flüssigkeit übereinander weggleiten.\\
-Die durch die Kraft $\vec{F}$ von aussen zugeführte Energie wird komplett in Wärme umgewandelt. Diesen Zustand der Flüssigkeit nennt man \textit{laminare Strömung}.\\
+  %\input{utils/disable-tutor.tex}
+  \input{../utils/enable-tutor.tex}
 
-Steigert man $\vec{v}$, so tritt im Allgemeinen beim Überschreiten eines kritischen Wertes $v_{krit}$ ein weiterer Anteil zur Reibungskraft hinzu: Die Flüssigkeit zwischen Wand und Platte wird in wirbelnde Bewegung versetzt. Die von aussen zugeführte Energie wird nun zum Teil in kinetische Energie der Flüssigkeit umgesetzt. Diesen Zustand nennt man \textit{turbulente Strömung}.\\
+\input{../utils/tutor.tex}
 
-Analoge Überlegungen gelten natürlich auch für strömende Flüssigkeiten zwischen ruhenden Wänden, z.B. Blut in Adern, Motoröl, etc.
+\begin{document}
 
-Die Viskosität von Flüssigkeiten nimmt mit steigender Temperatur sehr stark ab (das Medium wird 'dünn-flüssiger'). Für viele Flüssigkeiten gilt in guter Näherung $\eta = \eta_{\inf}\, e^{b/T}$.
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{3}
+\def\chaptername{Versuch}
 
-Ist die Viskosität unabhängig von der Geschwindigkeit $v$, so spricht man von eine \textit{Newton'schen Flüssigkeit}. Die meisten reinen Flüssigkeiten sind Newton'sch. Für bestimmte Mischungen hingegen lässt sich die innere Reibung nicht mehr einfach durch das \textit{Newton'sche Reibungsgesetz}, s. Gl. \ref{eq:Kraft}, beschreiben, die Fließeigenschaften ändern sich, wenn zum Beispiel eine äußere Kraft auf die Flüssigkeit einwirkt. Beispiele für solchen nichtnewtonsche oder anomalviskose Flüssigkeiten sind Blut, Zementleime, Treibsand oder Ketchup.
+\include{Anleitung-4}
 
-%------------------------------------------------
-\section{Fragen zur Vorbereitung}
-%------------------------------------------------
-
-\begin{enumerate}
- %
-% \item Was soll heute im Praktikum gemessen werden? Warum?
- %
- \item Wie ist der Druck definiert? (Einheiten)
- %
- %\item Was heißt hydrostatischer Druck?
- %
- \item Welche Strömungstypen gibt es?
- %
- \item Was ist Viskosität? Wodurch entsteht sie? Welche Einheit hat sie?
- %
- %\item Welche Einheit hat die Viskosität?
- %
- \item Wie verhält sich die Viskosität bei steigender Temperatur?
- %
- %\item Unter welchen Voraussetzungen gilt das Hagen-Poiseuillesche Gesetz?
- %
- \item Wie lautet das Hagen-Poiseuillesche Gesetz?
- %
- \item Worauf bezieht sich die Druckdifferenz $\Delta$p im Hagen-Poiseuilleschen Gesetz?
- %
-\end{enumerate}
-
-%------------------------------------------------
-\section{Durchführung} 
-%------------------------------------------------
-
-\begin{enumerate}
- %
- \item Messen Sie die Auslaufzeit $t$ in Sekunden von $h\,=\,45\,$cm auf $h\,=\,35\,$cm für alle drei Kapillaren. Wiederholen Sie die Messung für jede Kapillare dreimal.
- %
- \item Messen Sie für die Kapillare mit mittlerem Durchmesser die Auslaufzeit in Abhängigkeit von der Flüssigkeitshöhe $h$. Notieren Sie dazu bei durchlaufender Stoppuhr jeweils die Zeit, bei der die Flüssigkeitssäule um weitere 5~cm gesunken ist. Messen Sie die Zeit im Intervall zwischen $h\,=\,50\,$cm und $h\,=\,10\,$cm.\\
- Bereiten Sie eine Tabelle wie folgt vor:
- \begin{table}[h]
-	\centering
-		\begin{tabular}{|c|c|c|c|}
-			$h_i$ [m] & $t_i$ [s] & $h_i/h_0$ & ln($h_i/h_0$)\\ \hline \hline
-			0,5 & 0 & & \\
-		\end{tabular}
- \end{table}
- %
- \item Messen Sie die Länge $l$ der Kapillaren, den Radius $R_V$ des Vorratsbehälters, sowie die Temperatur des (destillierten ?) Wassers.
- %
-\end{enumerate}
-
-%------------------------------------------------
-\section{Auswertung} 
-%------------------------------------------------
-
-\begin{enumerate}
- %
- \item Berechnen Sie den Druckunterschied zwischen der Ober- und Unterseite der Kapillare aus der mittleren Wasserhöhe. Benutzen Sie hierfür
-  \begin{equation}
-		\Delta p = \rho\cdot g\cdot h_{mittel}\; .  
-  \end{equation}
- %
- \item \label{Aufg:Vis1}
- Berechnen Sie die Viskosität $\eta$ von Wasser nach dem Hagen-Poiseuilleschen Gesetz
-  \begin{equation} \label{eq:HP}
-   \frac{V}{t} = \frac{\Delta p\cdot\pi}{8\eta l}r_k^4
-  \end{equation}
- für die drei Kapillaren. Berechnen Sie die Fehler mithilfe der Gaußschen Fehlerfortpfanzung.
- %
- \item Tragen Sie den Logarithmus der relativen Wasserhöhe $\ln(h_i/h_0)$ als Funktion der Auslaufzeit $t$ auf. Bestimmen Sie die Steigung $m$ der Gerade inklusive ihres Fehlers (Anlegen von Grenzgeraden).\\
-
-	\underline{Herleitung:}\\
-	Es gilt: $\Delta p(t) = \frac{Kraft}{Flaeche} = \frac{\rho g\cdot h(t) \pi R_V^2}{\pi R_V^2} = \rho g\cdot h(t)$\; .\\
-	Damit wird das Hagen-Poiseuillesche Gesetz zu 
-	\begin{equation} \label{eq:HP1}
-		\frac{dV}{dt} = \frac{\pi r_K^4}{8\eta l}\Delta p(t) = \frac{\rho g\pi r_K^4}{8\eta l} h(t) := C_1\cdot h(t)\; .
-	\end{equation}
-	Das Flüssigkeitsvolumen im Vorratsbehälter beträgt $dV = \pi R_V^2 dh$, damit wird Gleichung \ref{eq:HP1} zu
-	\begin{equation}
-		\frac{dh}{dt} = \frac{C_1}{\pi R_V^2} h(t) := C\cdot h(t)\; .
-	\end{equation}
-	Separation der Variablen ergibt $\frac{dh}{h(t)} = m\cdot dt$.\\
-	Integrieren wir diese Formel in den gemessenen Grenzen $\int^{h_1}_{h_0} \frac{dh}{h(t)} = m\int^{t_1}_0 dt$\\
-	so ergibt sich
-	\begin{equation}
-		ln\left(\frac{h_1}{h_0}\right) = m\cdot t_1 = \frac{\rho g r_K^4}{8\eta l R_V^2}\cdot t_1
-	\end{equation}
- %
- \item \label{Aufg:Vis2}
- Berechnen Sie aus der Steigung der Geraden die Viskosität $\eta$ nach
-  \begin{equation}
-   \eta = -\frac{\rho g\,r_K^4}{8\,l\,R^2_V}\frac{1}{m}\; .
-  \end{equation}
- Bestimmen Sie den Fehler der Viskosität aus der Gaußschen Fehlerfortpflanzung.
- %
- \item Stimmen die in den Aufgaben \ref{Aufg:Vis1} und \ref{Aufg:Vis2} gemessenen Werte mit dem Literaturwert für die Viskosität mit Wasser überein? Wenn nicht, diskutieren Sie Quellen für Abweichungen vom Literaturwert (z.B.: Welche Annahmen sind gemacht worden?).
-\end{enumerate}
+\end{document}

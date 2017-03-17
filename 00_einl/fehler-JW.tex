@@ -1,4 +1,4 @@
-\chapter{Auswertung von Messungen: Messunsicherheit} \label{v:fehler}
+\chapter{Auswertung von Messungen: Messunsicherheit} \label{v:fehlerJW}
 
 %**********************************************************************************************************************
 %**********************************************************************************************************************
@@ -56,7 +56,7 @@ Statistische Unsicherheiten entstehen dadurch, dass die einzelnen Messwerte bei 
 
 %**********************************************************************************************************************
 %**********************************************************************************************************************
-\section{Direkte Messung}
+\section{Direkte Messung} \label{chap:Direkt}
 
 Eine direkte Messung liegt vor, wenn die gesuchte Größe nicht aus mehreren Messgrößen zusammengesetzt ist. Ein Beispiel wäre die Messung der Länge eines Stocks.
 
@@ -69,16 +69,16 @@ Eine gängige Darstellung solcher Messwerte ist das \textit{Histogramm}, bei dem
 \subsection{Der Mittelwert}
 
 Der Mittelwert, um den die Messwerte verteilt sind, nähert sich mit wachsender Anzahl $n$ von Messungen dem wahren Wert $\mu$, ist also ein guter Schätzwert für den wahren Wert basierend auf der Stichprobe der Messungen. Wenn keine besonderen Umstände vorliegen, die eine spezielle Gewichtung der Abweichung notwendig machen, verwendet man als Schätzwert das \textit{arithmetische Mittel}\footnote{Das Symbol $\sum_{i=1}^n$ bezeichnet die Summe über die Größen $x_i$, wobei die Werte aufsummiert werden, deren Zählindex $i$ zwischen 1 und $n$ liegt.}:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		\bar{x} = \frac{1}{n}\sum^n_{i=1} x_i = \frac{\left(x_1 + x_2 + ... + x_n\right)}{n} 
 	\end{equation}
-\end{important}
+\end{hint}
 
 Als Messergebnis gibt man also den so definierten Mittelwert $\bar{x}$ an.
 
 %**********************************************************************************************************************
-\subsection{Die Standardabweichung}
+\subsection{Die Standardabweichung} \label{chap:Standardabweichung}
 
 Das arithmetische Mittel $\bar{x}$ hat die Eigenschaft, dass die Summe der Abweichungen $\Delta x_i = \left( x_i - \bar{x}\right)$ der Einzelmessungen gerade verschwindet
 \begin{equation}
@@ -87,11 +87,11 @@ Das arithmetische Mittel $\bar{x}$ hat die Eigenschaft, dass die Summe der Abwei
 Dies folgt daraus, dass, wie in Abschnitt \ref{ssect:StatistUnsicher} erwähnt, für ein große Anzahl $n$ an Messungen, die statistischen Schwankungen symmetrisch um den Mittelwert erfolgen. Die Summe der Quadrate der Abweichungen verschwindet hingegen nicht.
 
 Als Maß für die Breite der Streuung der Messwerte um den Mittelwert definiert man (für die Stichprobe) die \textit{Standardabweichung} $\sigma$:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		\sigma_x = \sqrt{\frac{1}{n-1}\sum^n_{i=1}\left(x_i - \bar{x}\right)^2}
 	\end{equation}
-\end{important}
+\end{hint}
 
 $\sigma_x$ ist eine positive Größe, die genau dann verschwände, wenn alle Messwerte übereinstimmten, was allerdings nie passiert. 
 
@@ -109,17 +109,17 @@ Die Formel für die Standardabweichung kann so umgestellt werden, dass der Mitte
 
 Die Standardabweichung gibt ein Maß für die mittlere Abweichung der Messwerte vom wahren Wert an. Natürlich gibt es Messwerte, die weniger abweichen und solche die mehr abweichen. Für eine sehr große Anzahl an Messwerten, $n\rightarrow \infty$, kommt jeder einzelne Messwert mit der Häufigkeit $h$ vor. Diese nennt man die \textit{Wahrscheinlichkeitsdichte}. \\
 Aufgrund des \textit{zentralen Grenzwertsatzes} wird in den meisten Fällen die Häufigkeit durch die \textit{Gaußsche Normalverteilung} beschrieben:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		h(x) = \frac{1}{\sqrt{2\pi}\sigma}\cdot e^{-\frac{\left(x-\bar{x}\right)^2}{2\sigma^2}}
 	\end{equation}
-\end{important}
+\end{hint}
 
 Die Gauß-Funktion (''Glockenkurve'')  ist symmetrisch um den Mittelwert $\bar{x}$ und so normiert, dass das Integral von $-\infty$ bis $\infty$ gerade 1 ergibt. 
 
 Tabelle \ref{tab:MessungDINA4} enthält die Messwerte von $n=30$ Messungen der Breite $x_i$ eines DIN A4 Blattes, in Abbildung \ref{fig:messung_histo} sind die Werte der Breite $x$ als Histogramm dargestellt, inklusive der entsprechend angepassten Normalverteilung.
 
-\begin{minipage}[b]{.5\textwidth}
+\begin{minipage}{.45\textwidth}
 %\begin{table}[h]	
 	\centering
 		\begin{tabular}[t]{|c|c||c|c||c|c|} 
@@ -140,10 +140,10 @@ Tabelle \ref{tab:MessungDINA4} enthält die Messwerte von $n=30$ Messungen der B
 		\end{tabular}
 	\captionof{table}{Messung der Höhe und Breite eines DIN A4 Blattes}
 	\label{tab:MessungDINA4}
-%\end{table}
-\end{minipage}
 %
-\begin{minipage}[b]{.5\textwidth}
+\end{minipage}\hfill
+%
+\begin{minipage}{.45\textwidth}
 	\includegraphics[width=1.00\textwidth]{00_einl/messung_histo.pdf}
 	\captionof{figure}{Häufigkeitsverteilung der Messwerte aus Tabelle \ref{tab:MessungDINA4}}
 	\label{fig:messung_histo}
@@ -168,12 +168,13 @@ Andere oft genutzte Intervalle sind:
 
 Da wir als Messergebnis den Mittelwert angeben, ist die Messunsicherheit definiert durch die Frage: \textit{Wie weit weicht der Mittelwert $\bar{x}$ aller Messungen vom wahren Wert $\mu$ ab?}
 
-Diese Abweichung nimmt mit zunehmender Anzahl an Messungen immer weiter ab, der Mittelwert nähert sich dem wahren Wert immer mehr an. Bei einer großen Anzahl an Messungen gilt für die \textit{statistische Unsicherheit des Mittelwertes}:
-\begin{important}
+Diese Abweichung nimmt mit zunehmender Anzahl an Messungen immer weiter ab, der Mittelwert nähert sich dem wahren Wert immer mehr an. Man könnte auch sagen, dass der Mittelwert den wahren Wert immer besser beschreibt.\\
+Bei einer großen Anzahl an Messungen gilt für die \textit{statistische Unsicherheit des Mittelwertes}:
+\begin{hint}
 	\begin{equation}
 		\Delta{\bar{x}} = \frac{\sigma_x}{\sqrt{n}}
 	\end{equation}
-\end{important}
+\end{hint}
 
 Den Intervall $\left[\bar{x}-\Delta\bar{x}; \bar{x}+\Delta\bar{x}\right]$ nennt man den \textit{Konfidenzbereich auf dem Vertrauensniveau 68,3\%}. Die Aussage ''Der Messwert beträgt $\bar{x}\pm\Delta\bar{x}$'' bedeutet, dass wenn man den Messvorgang wiederholen würde (mit der gleichen Anzahl an Einzelmessungen $n$), für mindestens $68,3\%$ der auf Grundlage der Messdaten berechneten Konfidenzintervalle der wahre Wert im jeweiligen Konfidenzintervall liegt.
 
@@ -220,18 +221,18 @@ Bei der Bildung des arithmetischen Mittelwertes geht man implizit davon aus, das
 Beispiel: \textit{Aus irgendeinem Grund verwenden Sie zur Messung derselben Länge unterschiedliche Maßstäbe. Z. Bsp. benutzen Sie für einige Messungen ein Lineal mit einer Genauigkeit von 1~mm, für andere Messungen eine Schieblehre, die eine Auflösung von 0,1~mm hat.}\\
 
 Um diese unterschiedlich genauen Messungen sinnvoll in einem Mittelwert zu kombinieren, benutzt man den \textit{gewichteten Mittelwert}:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		\bar{x} = \frac{\sum_{i=1}^n{w_i\cdot x_i}}{\sum_{i=1}^n{w_i}}
 	\end{equation}
-\end{important}
+\end{hint}
 wobei die Wichtungsfaktoren $w_i$ die Kehrwerte der Abweichungsquadrate sind:
 \begin{equation*}
 	w_i = \frac{1}{\Delta x_i^2}
 \end{equation*}
 Auf diese Weise tragen Messwerte mit größerer Unsicherheit weniger stark zum Mittelwert bei. Die Unsicherheit des gewichteten Mittelwertes beträgt:
 \begin{equation}
-	\Delta\bar{x} = \frac{1}{\sum_{i=1}^n{w_i}}
+	\Delta\bar{x} = \sqrt{\frac{1}{\sum_{i=1}^n{w_i}}}
 \end{equation}
 Sind alle Wichtungsfaktoren $w_i$ gleich, geht der gewichtete Mittelwert in den 'normalen` über, und dessen Abweichung sinkt wieder mit der Wurzel der Zahl der Werte.\\
 
@@ -286,7 +287,7 @@ Rechnerisch wird das umgesetzt, indem man in die Formel zur Berechnung der gesuc
 Dieses Verfahren berücksichtigt den statistischen Zusammenhang der einzelnen Beiträge nicht, daher liefert es im Allgemeinen zu große Werte für die Unsicherheit. Darüber hinaus können sich rechnerische Schwierigkeiten ergeben, wenn z. Bsp. die entsprechende Größe in einer Summe im Nenner und im Zähler der Formel vorkommt. In diesem Fall ist es schwierig herauszufinden, ob die positive oder die negative Abweichung den größten bzw. den kleinsten Wert ergibt. Dieses Verfahren ist daher nur für den Notfall geeignet, liefert jedoch oft eine brauchbare Abschätzung.
 
 %**********************************************************************************************************************
-\subsection{Gauß'sche Fehlerfortpflanzung}
+\subsection{Gauß'sche Fehlerfortpflanzung}\label{chap:Fehlerfortpflanzung}
 
 Betrachten wir eine Größe $g$, die nicht direkt gemessen werden kann, sich aber aus mehreren direkt gemessenen Größen $x$, $y$, $z$,... berechnen läßt:
 \begin{equation}
@@ -295,18 +296,18 @@ Betrachten wir eine Größe $g$, die nicht direkt gemessen werden kann, sich abe
 Der Einfachheit halber wollen wir uns im Folgenden auf die drei Messgrößen $x$, $y$ und $z$ beschränken, die Rechnungen können jedoch prinzipiell mit beliebig vielen Messgrößen durchgeführt werden.
 
 Wir gehen davon aus, dass die Messserien für die Größen $x$, $y$ und $z$ normalverteilt sind. Dann kann der Mittelwert $\bar{g}$ der gesuchten Größe bestimmt werden, indem man die Mittelwerte der Messgrößen in die Formel einsetzt:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		\bar{g} = g(\bar{x},\bar{y},\bar{z})
 	\end{equation}
-\end{important}
+\end{hint}
 
 Wenn die Messgrößen $x$, $y$ und $z$ statistisch unabhängig voneinander sind, man sagt \textit{unkorreliert}, dann kann die gesamte Unsicherheit wie folgt berechnet werden:
-\begin{important}
+\begin{hint}
 	\begin{equation}
 		\Delta\bar{g} = \sqrt{\Delta\bar{x}^2 \cdot \left(\frac{\partial g}{\partial x} \right)^2_{\bar{x},\bar{y},\bar{z}} + \Delta\bar{y}^2 \cdot \left(\frac{\partial g}{\partial y} \right)^2_{\bar{x},\bar{y},\bar{z}} + \Delta\bar{z}^2 \cdot \left(\frac{\partial g}{\partial z} \right)^2_{\bar{x},\bar{y},\bar{z}}}
 	\end{equation}
-\end{important}
+\end{hint}
 
 Diese Formel ist bekannt als die \textit{Gauß'sche Fehlerfortpflanzung}, wenn für die Unsicherheiten $\Delta\bar{x}$, $\Delta\bar{y}$, $\Delta\bar{z}$ die jeweilige Standardabweichung eingesetzt wird.
 
