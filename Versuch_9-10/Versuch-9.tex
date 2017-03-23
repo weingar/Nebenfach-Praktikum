@@ -1,0 +1,56 @@
+\documentclass[11pt, twoside, a4paper]{book}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+%\usepackage{lineno}
+\usepackage{verbatim}
+\usepackage[squaren]{SIunits}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[noadjust]{marginnote}
+\usepackage{tikz}
+\usepackage{nicefrac}
+\usepackage{framed}
+\usepackage{import}
+
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[european resistors]{circuitikz}
+\usepackage[ 
+    top=2cm, 
+    bottom=2cm, 
+    outer=3cm, 
+    inner=3cm,
+    marginparwidth=2.5cm,
+		headheight=14pt
+  ]{geometry}
+
+\usepackage{parskip}
+\usepackage{pdfpages}
+
+\setlength{\parindent}{0pt}
+
+\input{../utils/format.tex}
+
+  %\input{utils/disable-tutor.tex}
+  \input{../utils/enable-tutor.tex}
+
+\input{../utils/tutor.tex}
+
+\begin{document}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\setcounter{chapter}{8}
+\def\chaptername{Versuch}
+
+\include{Anleitung-9}
+
+\end{document}

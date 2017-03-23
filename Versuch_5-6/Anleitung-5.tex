@@ -1,0 +1,133 @@
+\chapter{Spezifische Wärmekapazität}
+\label{v:5}
+
+In diesem Versuch lernen Sie Messmethoden zur Bestimmung der spezifischen Wärmekapazität verschiedener Stoffe kennen.
+
+%------------------------------------------------
+\section{Stichworte}
+%------------------------------------------------
+Temperatur; Wärme; Wärmemenge; (spezifische) Wärmekapazität; Regel von Dulong-Petit; Kalorimeter.
+%
+%------------------------------------------------
+\section{Literatur}
+%------------------------------------------------
+Gehrtsen, Kapitel 5.1.1 und 5.1.5/6
+%
+%------------------------------------------------
+\section{Anwendungsbeispiele}
+%------------------------------------------------
+%
+Die spezifische Wärmekapazität ist eine Stoffeigenschaft die angibt, wie viel Wärme von einem Körper aufgenommen werden muss, damit sich die Temperatur von 1~kg des Stoffes um 1\degree~C ändert. Die spez. Wärmekapazität spielt also immer dann eine Rolle, wenn Stoffe erwärmt oder abgekühlt werden sollen:\\
+Wie lange dauert es, eine biologische Probe einzufrieren, oder einen Braten zuzubereiten? Welche Leistung muss ein Klimasystem (z. Bsp. Klimaanlage, Heizung) haben, um Stoffe auf die gewünschte Temperatur bringen zu können? Wieso ändert sich die Temperatur am Meer weniger als im Landesinneren?
+%
+%------------------------------------------------
+\section{Theoretischer Hintergrund}
+%------------------------------------------------
+
+\subsection{Eine kurze Einführung in die Wärmelehre}
+
+Die ganze Wärmelehre läßt sich in wenigen kurzen Sätzen zusammenfassen: 
+\begin{itemize}
+ %
+ \item Wärme ist die ungeordnete Bewegung von Molekülen.
+ %
+ \item Wärmeenergie ist die Energie dieser Bewegung.
+ %
+ \item Temperatur ist ein Maß für den Mittelwert dieser kinetischen Energie.
+\end{itemize}
+
+Wenn man nur die kinetische Energie der Translationsbewegung der Moleküle betrachtet (Welche Bewegungen/Energien gibt es noch?), so kann man die Temperatur über deren Mittelwert definieren:
+\begin{equation} \label{eq:DefT}
+ \bar{E}_{trans} = \frac{1}{2}m\overline{v^2} = \frac{3}{2}kT\; .
+\end{equation}
+Die Konstante $k$, die sogenannte \textit{Boltzmann-Konstante}, hat den Wert $k=1,381\cdot10^{-23}\,J/K$.\\
+Die Temperatur wird in K (Kelvin, nicht in Grad Kelvin) gemessen. Man erkennt in Gleichung \ref{eq:DefT}, dass es einen nichtunterschreitbaren absoluten Nullpunkt der Temperatur gibt, bei dem die Moleküle völlig ruhen, also $E$ und $T$ Null sind. Von hier aus zählt man die absolute oder Kelvin-Temperatur.\\
+Ihre Einheit, 1\,K, ist ebensogroß wie $1^{\circ}$\,C, das als $\frac{1}{100}$ des Abstandes zwischen dem Gefrier- und dem Siedepunkt des Wassers bei einem Druck von 1,013\,bar definiert ist. Bei diesem Druck liegt der Gefrierpunkt des Wassers bei 273,2\,K, sein Siedepunkt bei 373,2\,K.
+
+Moleküle können nicht nur Translationsenergie haben, sondern auch Rotationsenergie. Außerdem können ihre Bestandteile, Atome, Ionen und sogar Elektronen, gegeneinander schwingen. Jede solche unabhängige Bewegungsmöglichkeit nennt man einen \textit{Freiheitsgrad}.\\
+Eine Translationsbewegung hat drei Freiheitsgrade, nämlich die drei unabhängigen Raumrichtungen. Auch die Rotation hat drei Freiheitsgrade, entsprechend der drei unabhängigen Rotationsachsen. Bei bestimmten Körpern kann es jedoch sein, dass einer oder mehrere solcher Rotationsbewegungen nicht zur Energiebilanz beitragen. Ein Beispiel wäre ein zweiatomiges Molekül, welches um die Achse zwischen den beiden Atomen rotiert. Dann fällt einer oder mehrere der Freiheitsgrade weg. Ein Beispiel, bei dem mehr als ein Rotationsfreiheitsgrad wegfällt, wäre ein kugelsymmetrisches Atom. Bei diesem trägt keine der Rotationsachsen, welche durch den 'geometrischen' Mittelpunkt des Atoms geht, zur Energiebilanz bei.\\
+Wenn ein Atom in ein Kristallgitter eingebaut ist, kann es meist nicht mehr rotieren, aber Schwingungen in alle drei Raumrichtungen sind möglich, welche ebenfalls Freiheitsgrade darstellen.\\
+
+Auf jeden dieser Freiheitsgrade entfällt im thermischen Gleichgewicht die gleiche mittlere Energie, und zwar für jedes Molekül $\overline{E}_{FG}= \frac{1}{2}\, kT$. Damit wird die Gesamtenergie für ein Molekül mit $f$ Freiheitsgraden
+\begin{equation} \label{eq:DefW}
+ \overline{E}_{mol} = \frac{f}{2}kT\; .
+\end{equation}
+
+\subsection{Wärmekapazität}
+
+Um einen Körper von der Temperatur $T_1$ auf die Tempereatur $T_2$ zu erwärmen, muss man ihm Energie zuführen. Die benötigte Energie folgt direkt aus Gleichung \ref{eq:DefW}, wenn man weiss, wieviele Moleküle der Körper enthält. Ein homogener (aus gleichen Molekülen zusammengesetzter) Körper der Masse $M$ enthält $M/m$ Moleküle der Masse $m$. Die benötigte Energie beträgt also
+\begin{equation}
+ \Delta E = \frac{M}{m}\frac{f}{2}k\Delta T\; .
+\end{equation}
+
+Man nennt das Verhältnis 
+\begin{equation}
+ C = \frac{\Delta E}{\Delta T} = \frac{M}{m}\frac{f}{2}k
+\end{equation}
+die \textit{Wärmekapazität} des Körpers. Bezogen auf 1~kg eines bestimmten Stoffes erhält man dessen \textit{spezifische Wärmekapazität} 
+\begin{equation} \label{eq:spez_Waermekapazitaet}
+ c = \frac{\Delta E}{M\,\Delta T} = \frac{fk}{2m}\; .
+\end{equation}
+Bezogen auf ein mol eines Stoffes erhält man genauso dessen \textit{molare Wärmekapazität}. Da die Anzahl der Moleküle in einem mol eines Stoffes bekanntermaßen immer der Avogadro-Konstanten $N_A$ entspricht, können wir die für einfach Stoffe wie Gase oder feste Metalle, bzw. allgemeine Elementkristalle mit $f=6$ die molare Wärmekapazität entsprechend der \textit{Regel von Dulong-Petit} schreiben als
+\begin{equation} \label{eq:Dulong-Petit}
+ C_{mol} = N_A\frac{f}{2}k = 3\,N_A\,k = 24,9\,\mathrm{J\,mol^{-1}\,K^{-1}}\; .
+\end{equation}
+
+%------------------------------------------------
+\section{Fragen zur Vorbereitung}
+%------------------------------------------------
+
+\begin{enumerate} 
+% \item Was soll heute im Praktikum gemessen werden? Warum?
+ %
+ \item Wie lautet der erste Hauptsatz der Wärmelehre und gilt für ihn die Energieerhaltung?
+ %
+ \item Wie ist die Wärmekapazität definiert und was beschreibt sie?
+ %
+ \item Wodurch unterscheiden sich spezifische und molare Wärmekapazität?
+ %
+ \item Welcher Zusammenhang besteht zwischen Kalorie und Joule?
+ %
+ \item Was ist ein Dewar-Gefäß (Kalorimeter)? Wie bestimmt man im Versuch seine Wärmekapazität?
+ %
+ \item Was besagt die Regel von Dulong-Petit, wie kommt sie zu Stande, welchen Zusammenhang gibt es zu den Freiheitsgraden in Festkörpern?
+ %
+ \item Wie funktioniert ein Druckkochtopf?
+\end{enumerate} 
+
+%------------------------------------------------
+\section{Durchführung} 
+%------------------------------------------------
+
+Vor jedem Mischversuch sind die Masse und Temperatur des Wassers im Kalorimeter zu bestimmen. Um eine homogene Temperaturverteilung im Kalorimeter zu erzielen, sollte der Rührer bei jeder Temperaturmessung hinzugeschaltet werden. Schalten Sie das Rührwerk nach Ende der Messung bitte wieder ab.\\
+
+\xhintbox{Bitte mit den heißen Gegenständen im Versuch vorsichtig umgehen!}
+
+\begin{enumerate}
+ %
+ \item Bereiten Sie eine Tabelle für die folgende Messung vor.
+ %
+ \item Erhitzen Sie den Al-Körper in kochendem Wasser auf 100°\,C. Messen Sie währenddessen die Temperatur des isolierten Wasserbades (Kalorimeter) mit kaltem Wasser für 5 Minuten alle 20 Sekunden. Bringen Sie nun den erhitzten Metallkörper in das Wasserbad und messen Sie über die nächsten zwei Minuten die Temperatur möglichst alle 5 Sekunden, danach für drei Minuten alle 20 Sekunden.
+ %
+ \item Tragen Sie den Temperaturverlauf des Wassers über die gesamte Messdauer von zehn Minuten grafisch auf. Bestimmen Sie die Anfangs- und Misch-Temperatur durch Extrapolation der gemessenen Werte. Überlegen Sie sich eine sinnvolle Abschätzung des Fehlers des Temperaturunterschiedes.
+ %
+ \item Für den Cu und den Fe-Körper wird die Prozedur vereinfacht wiederholt. Messen Sie für diese nur die Anfangstemperatur vor dem Einbringen des 100°\,C heißen Metallkörpers und die Endtemperatur des Kalorimeters wenn dieses im thermischen Gleichgewicht ist.
+ %
+ \item Führen Sie einen einfachen Mischversuch durch, um die Wärmekapazität des Kalorimeters berechnen zu können. Dazu gießen Sie heißes Wasser in das kalte Wasser des Kalorimeters. Messen Sie alle benötigten Temperaturen und Massen.
+ %
+ \item Bestimmen Sie die Massen der drei Metallkörper mit der Waage (jedes Stück nur einmal).
+ %
+\end{enumerate}
+%------------------------------------------------
+\section{Auswertung} 
+%------------------------------------------------
+\etodo{Musterauswertung}
+
+\begin{enumerate}
+ %
+ \item Bestimmen Sie die Wärmekapazität des Kalorimeters. Beachten Sie die Messfehler.
+ %
+ \item Bestimmen Sie die spezifische Wärmekapazität von Al, Cu und Fe inklusive ihrer Fehler.
+ %
+ \item Überprüfen Sie die Gültigkeit der Regel von Dulong-Petit für die drei Metalle.
+\end{enumerate}

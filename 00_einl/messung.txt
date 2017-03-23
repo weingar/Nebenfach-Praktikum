@@ -1,0 +1,33 @@
+#include <TCanvas.h>
+#include <TH1.h>
+#include <TAxis.h>
+#include <TRandom.h>
+
+void messung(){
+	TCanvas *mess_can = new TCanvas("mess_can","Messwerte");
+	TH1F *h1 = new TH1F("Messwerte","Breite DIN A4", 13, 20.675, 21.325);
+	
+	mess_can->Draw();
+	
+	TRandom mess_random;
+	Float_t wert = 0.0;
+	
+	mess_random.SetSeed(0);
+	
+	for(i=0; i<30; i++){
+		wert = mess_random.Gaus(21.,0.05);
+		cout << wert <<endl;
+		h1->Fill(wert);
+	}
+	
+	h1->Draw();
+	h1->Fit("gaus");
+	h1->GetXaxis()->SetTitle("Breite x [mm]");
+	h1->GetYaxis()->SetTitle("H#ddot{a}ufigkeit");
+	gStyle->SetStatFormat("6.2f");
+	
+	mess_can->Modified();
+	mess_can->Update();
+	
+	return;
+}

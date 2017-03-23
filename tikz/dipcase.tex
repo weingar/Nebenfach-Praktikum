@@ -1,0 +1,41 @@
+\newcommand{\dipcase}[5]{
+  \def\dipcasewidth{#3}
+  \def\dipcasename{#5}
+  \pgfmathsetmacro{\dipcasepinshalf}{(#4)/2}
+  \pgfmathsetmacro{\dipcasepinheight}{((\dipcasewidth)/3)}
+  \pgfmathsetmacro{\dipcaseheight}{((\dipcasepinheight)*\dipcasepinshalf)}
+  \def\dipcasepindistance{1cm}
+  \draw (#1,#2) coordinate (dipcaseorigin);
+
+  \draw (dipcaseorigin) rectangle ++(\dipcasewidth, -\dipcaseheight) 
+    coordinate (dipcaserb);
+
+  \draw (dipcaseorigin) ++(0.5*\dipcasewidth, 0)
+    ++(-0.1*\dipcasewidth, 0)
+    arc (-180:0:0.1*\dipcasewidth);
+
+  \foreach \pin in {1, ..., \dipcasepinshalf}
+  {
+    \pgfmathsetmacro{\rpin}{\pin - 1}
+    \foreach \xmirr in {1, -1}
+    {
+      \ifnum\xmirr=1
+        \pgfmathtruncatemacro{\pinnumber}{\pin}
+        \draw (dipcaseorigin) ++(0, -\rpin * \dipcasepinheight)
+          ++(0, -0.5*\dipcasepinheight) coordinate(dipcasepincenter);
+      \else
+        \pgfmathtruncatemacro{\pinnumber}{\dipcasepinshalf + \pin}
+        \draw (dipcaserb) ++(0, \rpin * \dipcasepinheight)
+          ++(0, 0.5*\dipcasepinheight) coordinate(dipcasepincenter);
+      \fi
+      \draw (dipcasepincenter) coordinate (\dipcasename\pinnumber);
+
+      \draw (dipcasepincenter) 
+        ++(0, \dipcasepinheight/4) 
+        -- ++(-\dipcasepinheight/4*\xmirr, 0)
+        -- ++(0, -\dipcasepinheight/2)
+        -- ++(\dipcasepinheight/4*\xmirr, 0);
+
+    }
+  }
+}

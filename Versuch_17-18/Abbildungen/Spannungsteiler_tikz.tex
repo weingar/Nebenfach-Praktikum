@@ -1,0 +1,19 @@
+	\begin{figure}[h!]
+		\centering
+		\begin{circuitikz}
+			\begin{scope}[xshift=0cm]
+				\draw (2.5,2)
+					to [R, i<_=$I$, l=$R_1$](0,2) 
+					to [V_=$U_o$] (0,0) 
+					to [short] (2.5,0) coordinate (B)
+					to [R, l=$R_2$] (2.5,2) coordinate (A);
+				\draw (A) to [short, *-o] ++(0.5,0) coordinate (A1);
+				\draw (A1) node [anchor=south] {$A$};
+				\draw (B) to [short, *-o] ++(0.5,0) coordinate (B1);
+				\draw (B1) node [anchor=north] {$B$};
+				\draw (B1) to [open, v=$U_{AB}$] (A1);
+			\end{scope}
+		\end{circuitikz}
+		\caption{Spannungsteiler}
+		\label{fig:spannungsteiler}
+	\end{figure}

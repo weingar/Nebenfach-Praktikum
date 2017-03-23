@@ -1,0 +1,39 @@
+\section{Musterauswertung}
+
+\subsection*{Erdbeschleunigung}
+Der Mittelwert der gemessenen Zeit für 10 Schwingungnen beträgt mit Standardabweichung $T_{10}= 30,4\pm 0,2$\;s. Daraus folgt für die Schwingungsdauer $T=3,04\pm 0,02$\;s. Mit dieser und der Länge des Pendelfadens $L=2,35$\;m lässt sich die Erdbeschleunigung $g$ bestimmen, da $\omega=\frac{2\pi}{T}=\sqrt{g/L}$. Daraus folgt:\\
+\begin{align*}
+g=\frac{4\pi^2 L}{T^2}=10,04\; \rm{m/s}.
+\end{align*} 
+Der Fehler von $g$ ergibt sich mit gaußscher Fehlerfortpflanzung zu, wenn die Länge des Fadens als genau angenommen wird:
+\begin{align*}
+\sigma_{g}=8\pi^{2}\cdot\frac{L}{T^3}\cdot\sigma_{T}=0,2\;\rm{m/s}.
+\end{align*}
+\subsection*{Inelastischer Stoß}
+Die Geschwindigkeit der kleinen Kugel beim Auftreffen auf die große Kugel ergibt sich aus der Energieerhaltung $E_{kin}=\frac{mv_{m}^{2}}{2}=mgh=E_{pot}$:\\
+\begin{align*}
+v_{m}=\sqrt{2gh}.
+\end{align*}
+Daraus folgen die Werte für die Geschwindigkeit, die in Tabelle \ref{vm} aufgelistet sind. Der Fehler der Höhe wurde dabei als 0.5\;mm angenommen und der Fehler für $v_{m}$ mit gaußscher FF berechnet.\\
+Über den Impulssatz erhält man für die gemeinsame Geschwindigkeit aller Massen nach dem Stoß $v_{th}$ (siehe Tabelle \ref{vm}):
+\begin{align*}
+v_{th}=\frac{mv_{m}}{m+M+m_{k}}.
+\end{align*}
+
+\begin{table}[b]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$h$in cm&3&4&5&6\\
+\hline
+$v_{m}$ in m/s&$0.77\pm 0.02$&$0.89\pm 0.02$&$0.99\pm 0.01$&$1.08\pm 0.01$\\
+\hline
+$v_{th}$ in m/s& $0.037\pm 0.001$&$0.043\pm 0.001 $ &$0.048\pm 0.0005$ &$0.052\pm 0.0005 $ \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Geschwindigkeit der kleinen Kugel beim Auftreffen auf die große, sowie die gemeinsame Geschwindigkeit nach dem Stoß. Der Fehler der Knetmasse wird als 0.1 g angenommen.\label{vm}}
+\end{table}
+
+Da die Messungenauigkeit sehr hoch ist, liegen nur zwei Werte für die experimentelle Geschwindigkeit $v_{exp}$ vor. $v_{3}=0.041 \pm 0.005$\;m/s für eine Fallhöhe von 3\;cm und $v_{4,5,6}=0.062\pm 0.005 $\;m/s für die anderen Fallhöhen. Dabei wurde ein systematischer Fehler von $\sigma_{x}=0.2$\;cm für den Ausschlag geschätzt.
+\end{document}
