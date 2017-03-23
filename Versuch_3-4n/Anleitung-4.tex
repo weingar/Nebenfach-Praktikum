@@ -35,7 +35,7 @@ Man kann daher Leistung von einem mit der Primärspule verbundenen Stromkreis au
 
 \noindent
 \begin{minipage}{0.6\textwidth}
-In der Abbildung rechts sind die beiden Spulen (Windungszahlen $N_1$ und $N_2$) auf ein geschlossenes Eisenjoch gewickelt. An die Primärspule legen wir die Wechselspannung $U_1$ an. Die Sekundärspule schliessen wir mit einer Impedanz Z ab. In der Primärspule fließt ein sinusförmiger, gegen $U_1$ phasenverschobener Strom $I_1$, der wiederum einen zeitlich veränderlichen magnetischen Fluß $\Phi_{m,1}$ hervorruft. Der alternierende magnetische Fluß induziert in der Sekundärspule eine Wechselspannung
+In der Abbildung rechts sind die beiden Spulen (Windungszahlen $N_1$ und $N_2$) auf ein geschlossenes Eisenjoch gewickelt. An die Primärspule legen wir die Wechselspannung $U_1$ an. Die Sekundärspule schließen wir mit einer Impedanz Z (z. Bsp. ein beliebiges elektrisches Gerät, welches durch ohmsche Widerstände, Kondensatoren und Spulen dargestellt werden kann) ab. In der Primärspule fließt ein sinusförmiger, gegen $U_1$ phasenverschobener Strom $I_1$, der wiederum einen zeitlich veränderlichen magnetischen Fluß $\Phi_{m,1}$ hervorruft. Der alternierende magnetische Fluß induziert in der Sekundärspule eine Wechselspannung
 \begin{equation}
 U_{ind} = -L_1\frac{dI_1}{dt} = -N_1\frac{d\Phi_{m,1}}{dt}\; .
 \end{equation}
@@ -74,19 +74,26 @@ Für die Stromübersetzung im Kurzschlußfall findet man:
 \section{Fragen zur Vorbereitung}
 %------------------------------------------------
 
+\etodo{Restliche Antworten für Quicky-Fragen.}
+
 \begin{enumerate}
 	%
-	\item Was ist eine Wechselspannung/ein Wechselstrom? Wie kann man sie/ihn mathematisch beschreiben (Beispiel)?
-	%
-	\item Was versteht man unter einer Effektivspannung/ einem Effektivstrom? Wie lautet der entsprechende Zusammenhang für eine sinusförmige Wechselspannung?
-	%
-	\item Was versteht man unter elektrischer Leistung? Was gilt für die mittlere elektrische Leistung in einem Wechselstromkreis? (Stichwort: Phasenverschiebung zwischen Strom und Spannung)
+	%\item Was versteht man unter elektrischer Leistung? Was gilt für die mittlere elektrische Leistung in einem Wechselstromkreis? (Stichwort: Phasenverschiebung zwischen Strom und Spannung)
 	%
 	\item Wie lautet der Zusammenhang zwischen Strom und Spannung für einen ohmschen Widerstand in einem Wechselstromkreis?
+		\begin{solution}
+			$$ U(t) = R\cdot I(t)$$
+		\end{solution}
 	%
 	\item Wie lautet der Zusammenhang zwischen Strom und Spannung für den kapazitiven Widerstand eines idealen Kondensators in einem Wechselstromkreis?
+		\begin{solution}
+			$$Q(t) = C\cdot U(t) \quad \Rightarrow I(t) = \frac{dQ}{dt} = C\cdot\frac{dU}{dt}$$
+		\end{solution}
 	%
 	\item Wie lautet der Zusammenhang zwischen Strom und Spannung für den induktiven Widerstand einer idealen Spule in einem Wechselstromkreis?
+		\begin{solution}
+			$$U(t) = -L\cdot\frac{dI}{t}$$
+		\end{solution}
 	%
 %	\item Wie lautet der Zusammenhang für den Gesamtwiderstand (Impedanz) einer Reihenschaltung von ohmschen, kapazitiven und induktiven Widerstand in einem Wechselstromkreis?
 	%
