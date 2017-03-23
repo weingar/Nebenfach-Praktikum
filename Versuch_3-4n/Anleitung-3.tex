@@ -156,6 +156,20 @@ In Wechselstromkreisen gibt es unterschiedliche Angaben zur Charakterisierung de
   \begin{equation}
    \bar{P} = U_{eff}\, I_{eff} = \frac{U_0}{\sqrt{2}}\,\frac{I_0}{\sqrt{2}}
   \end{equation}
+	\begin{hint}
+		Berechnet wird der Effektivwert, z.Bsp. der Spannung, als 
+		\begin{equation*}
+			U_{eff} = \sqrt{\frac{1}{T} \int_{t_0}^{t_0 +T}{u^2 du}} = \sqrt{\bar{u^2}}
+		\end{equation*}
+		Für eine sinusförmige Wechselspannung $u=u_0 sin(\omega t)$ ergibt sich
+		\begin{equation*}
+			\bar{u^2} = u_0^2 \bar{sin^2(\omega t)} = u_0^2\frac{1}{2}
+		\end{equation*}
+		Somit ergibt sich für den Effektivwert der Spannung
+		\begin{equation} \label{eq:Effektivspannung}
+			U_{eff} = \sqrt{\bar{u^2}} = \frac{u_0}{\sqrt{2}}
+		\end{equation}
+	\end{hint}
  %
  \item \underline{Spitze-Spitze-Wert:} In besonderen Fällen wird für Spannungen die Differenz zwischen größtem und kleinstem Wert als sogenannter Spitze-Spitze-Wert $U_{SS}$ angegeben.
  %
@@ -245,29 +259,53 @@ Eine Teilspannung ist proportional dem Teilwiderstand, über dem sie abgegriffen
 
 \begin{enumerate}
  %
- \item Was soll heute im Praktikum untersucht werden? 
- %
  \item Was ist eine Wechselspannung? Wie kann man sie mathematisch beschreiben (Beispiel)? 
+		\begin{solution}
+			Wechselspannung ist eine zeitlich nicht konstante Spannung, die jedoch meistens einen periodischen Verlauf hat und bei der sich typischerweise im Laufe der Zeit das Vorzeichen ändert. Sie kann meist durch einen sinusförmigen Verlauf beschrieben werden, z.Bsp.
+			\begin{equation*}
+				U(t) = U_0 \sin\omega t
+			\end{equation*}
+		\end{solution}
  %
  \item Was versteht man unter der Schwingungsdauer/Periode einer Wechselspannung? Wie lautet der Zusammenhang zwischen Periode und Frequenz?
+		\begin{solution}
+			Schwingungsdauer $T$ ist die Zeit zwischen zwei gleichen Schwingungszuständen der Spannung. Für die Frequenz gilt: $$f = \frac{\omega}{2\pi} = \frac{1}{2\pi T}$$.
+		\end{solution}
  %
  \item Was versteht man unter einer Effektivspannung/einem Effektivstrom? Wie lautet der entsprechende Zusammenhang für eine sinusförmige Wechselspannung?
+		\begin{solution}
+			Der Effektivwert, z.Bsp. die Effektivspannung, einer zeitlich veränderlichen Größe ist diejenige Gleichgröße, also Betrag einer Gleichspannung, die in einem ohmschen Widerstand im zeitlich konstanten Mittel dieselbe Leistung (Wärme pro Zeitspanne) umsetzt. Zur Berechnung siehe \ref{eq:Effektivspannung}.
+		\end{solution}
  %
  \item Was ist ein Kondensator? Wie sieht ein Plattenkondensator aus?
+		\begin{solution}
+			Ein Kondensator besteht aus zwei Elektroden beliebiger Geometrie (Platten-, Zylinder-, sphärischer Kondensator), welche durch ein Dielektrikum voneinander getrennt sind. Bei einem idealen Kondensator besteht kein ohmscher Kontakt, i.e. $R=\infty$. Die negative Elektrode wird mit Elektronen aufgeladen, so werden auf der anderen positive Ladungen induziert. Ändert sich die Ladung über die Zeit, so scheint es, als würde Strom durch die Kapazität fließen.\\
+			Ein typischer Plattenkondensator besteht aus zwei parallelen Platten, die so große angenommen werden, dass Effekte an ihren Rändern vernachlässigt werden können. Zwischen den Platten befindet sich Luft oder ein anderes Dielektrikum mit hohem spez. Widerstand.
+		\end{solution}
  %
  \item Was ist die Kapazität eines Kondensators? Wie hängt sie mit Ladung und Spannung zusammen?
+		\begin{solution}
+			Die Kapazität beschreibt, wie groß das elektrische Feld zwischen den Elektroden, i.e. die Spannung über den Kondensator, ist bei Beladung der Elektroden mit einer bestimmten Ladung. D.h. dass die Kapazität eine Eigenschaft des Kondensators ist.
+			\begin{equation*}
+				Q = C\cdot U\quad,
+			\end{equation*}
+			mit der Ladung $Q$, der Spannung über den Kondensator $U$ und seiner Kapazität $C$.
+		\end{solution}
  %
  \item Beschreiben Sie anhand einer kleinen Skizze (Spannung in Abhängigkeit der Zeit) die Auf- und die Entladung eines Kondensators über einen ohmschen Widerstand! Wie hängt die Auf-/Entladung des Kondensators von der Größe des Widerstandes ab?
  %
 % \item Was ist eine Braun'sche Röhre (Skizze und kurze Erklärung)? Stichworte: Wie wird der Elektronenstrahl erzeugt? Wie wird er abgelenkt?
  %
- \item Wozu dient ein Oszillograph?
+ \item Wozu dient ein Oszilloskop?
+	\begin{solution}
+		Dazu, zeitlich veränderliche Spannungen visuell darzustellen.
+	\end{solution}
  %
- \item Was ist eine Kippspannung? Wozu wird sie im Oszillograph gebraucht? Was wäre auf dem Bildschirm eines Oszillographen zu sehen, wenn man nur eine Wechselspannung anlegt, aber keine Kippspannung?
- %
- \item Wie stellt man eine Wechselspannung auf einem Oszillograph dar? (Stichwort: Überlagerung von zu messender Wechselspannung und Kippspannung)
- %
- \item Wozu dient der Trigger? Stichworte: Was sind Trigger-Level und Triggerflanke?
+ \item Wozu dient der Trigger bei einem Oszilloskop? Wie ist eine typische Triggerbedingung definiert?
+	\begin{solution}
+		Trigger dient dazu, interessante Spannungsänderungen im Display darzustellen (egal ob periodische Änderung oder einzelne Pulse). \\
+		Eine typische Triggerbedingung lautet: Triggere wenn Eingangsspannung die Trigger- oder Kippspannung unter-/überschreitet.
+	\end{solution}
  %
 \end{enumerate}
 
@@ -346,8 +384,6 @@ Eine Teilspannung ist proportional dem Teilwiderstand, über dem sie abgegriffen
 %------------------------------------------------
 \section{Auswertung} 
 %------------------------------------------------
-\etodo{Musterauswertung}
-
 \begin{hint}
 	Bitte fertigen Sie die Graphen in der folgenden Auswertung per Hand auf Millimeterpapier an.
 \end{hint}
