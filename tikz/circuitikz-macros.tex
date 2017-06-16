@@ -2,3 +2,11 @@
 \input{tikz/shape-halfadder.tex}
 \input{tikz/shape-fulladder.tex}
 \input{tikz/dipcase.tex}
+
+\newcommand{\mymeter}[2] 
+{  % #1 = name , #2 = rotation angle
+\begin{scope}[transform shape,rotate=#2]
+\draw[thick] (#1)node(){$\mathbf V$} circle (11pt);
+\draw[rotate=45,-latex] (#1)  +(-17pt,0) --+(17pt,0);
+\end{scope}
+}
