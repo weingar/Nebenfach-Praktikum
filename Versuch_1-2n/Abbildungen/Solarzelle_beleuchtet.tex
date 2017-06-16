@@ -1,0 +1,31 @@
+	\begin{figure}[h!]
+		\centering
+		\begin{circuitikz}
+			\begin{scope}[xshift=0cm]
+				\draw (2,0)
+				to [diode=light dependent] (0,0)
+				to [short] (0,2) coordinate (A) %gefüllten Punkt hinzufügen
+				to [voltmeter] (2,2)
+				to [short] (2,0)
+			\end{scope}
+		\end{circuitikz}
+
+	\end{figure}
+	
+	
+	%
+					%\draw (2.5,2)
+					%to [R, i<_=$I$, l=$R_1$](0,2) 
+					%to [V_=$U_o$] (0,0) 
+					%to [short] (2.5,0) coordinate (B)
+					%to [R, l=$R_2$] (2.5,2) coordinate (A);
+				%\draw (A) to [short, *-o] ++(0.5,0) coordinate (A1);
+				%\draw (A1) node [anchor=south] {$A$};
+				%\draw (B) to [short, *-o] ++(0.5,0) coordinate (B1);
+				%\draw (B1) node [anchor=north] {$B$};
+				%\draw (A1) to [short] ++(0.5,0)
+					%to [R, l=$R_L$] (3.5,0)
+					%to [short] (B1);
+					%
+							%\caption{Spannungsteiler}
+		%\label{fig:spannungsteiler_thevenin}
