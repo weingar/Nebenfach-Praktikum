@@ -1,20 +1,27 @@
 \begin{circuitikz}
 	\begin{scope}[xshift=0cm]
-		\draw (0,2)
-		to [diode=light dependent] (0,0)
-		to [short, -*] (2,0) coordinate (A) %gefüllten Punkt hinzufügen
-		to [voltmeter, color=white, name=M] (2,2)
-		to [short, *-] (0,2);
+		\draw (0,4)
+		to [pD*, mirror] (0,2)
+		to [short, -*] (2,2) 
+		to [voltmeter, color=white, name=M] (2,4)
+		to [short, *-] (0,4);
 	\mymeter{M}{0}
-		\draw (2,2)
-		to [ammeter] (4,2)
-		to [short] (4,0)
-		to [short] (2,0);
+		\draw (2,4)
+		to [ammeter, -*] (4,4);
 		%
 		\draw (6,0)
-		to [V=12V] (6,2)
-		to [short] (5,2)
-		to [resistor=8<\kilo\ohm>]
+		to [V=12V] (6,4)
+		to [short] (4,4);
+		%
+		\draw(4,0)
+		to [resistor, l_=8\kilo\ohm, -*] (4,2)
+		to [vR, l_=0-10\kilo\Ohm] (4,4);
+		%
+		\draw (6,0)
+		to [short] (4,0);
+		%
+		\draw (4,2)
+		to [short] (2,2);
 	\end{scope}
 \end{circuitikz}
 

@@ -1,0 +1,16 @@
+\begin{circuitikz}
+	\begin{scope}[xshift=0cm]
+		\draw (0,2)
+		to [diode] (0,0)
+		to [short, -*] (2,0) 
+		to [voltmeter, color=white, name=M] (2,2)
+		to [short, *-] (0,2);
+	\mymeter{M}{0}
+		\draw (2,2)
+		to [ammeter] (4,2);
+		%
+		\draw (2,0)
+		to [short] (4,0)
+		to [V, l_=0...2V] (4,2);
+	\end{scope}
+\end{circuitikz}
