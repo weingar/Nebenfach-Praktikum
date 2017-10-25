@@ -30,7 +30,7 @@
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{decorations.pathreplacing}
 \input{tikz/circuitikz-macros.tex}
-\usepackage[european resistors]{circuitikz}
+\usepackage[europeanresistors, americanvoltages, fulldiode]{circuitikz}
 \usepackage[ 
     top=2cm, 
     bottom=2cm, 
@@ -49,8 +49,8 @@
 
 \input{utils/format.tex}
 
-  \input{utils/disable-tutor.tex}
-  %\input{utils/enable-tutor.tex}
+  %\input{utils/disable-tutor.tex}
+  \input{utils/enable-tutor.tex}
 
 \input{utils/tutor.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,8 +83,8 @@
 \frontmatter
 
 
-\ifnotutor{\title{\Huge Physikalisches Praktikum\\
-f"ur Nebenfach Physik}}
+\ifnotutor{\title{\Huge\textbf{ Physikalisches Praktikum\\
+f"ur Nebenfach Physik}}}
 \iftutor{\title{\Huge Nebenfach Praktikum\\
 Tutorenversion}}
 
@@ -169,7 +169,8 @@ Tutorenversion}}
 \import{Versuch_13-14n/}{Anleitung-13}	% Thermoelement
 \import{Versuch_13-14n/}{Anleitung-14}	% Ultraschall
 
-\import{Versuch_15-16n/}{Anleitung-15}	% Elektrische Netzwerke
+%\import{Versuch_15-16n/}{Anleitung-15}	% Elektrische Netzwerke
+\import{Versuch_neu_1-2/}{Anleitung_Neu-1}	% Elektrische Netzwerke
 \import{Versuch_15-16n/}{Anleitung-16} 	% Nichtstationäre Diffusion
 
 \import{Versuch_17-18n/}{Anleitung-17}	% Künstliche Radioaktivität

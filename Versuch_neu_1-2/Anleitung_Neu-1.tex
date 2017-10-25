@@ -1,7 +1,7 @@
-\chapter{Freie gedämpfte Schwingungen}
+\chapter{Signalausbreitung auf Leitern}
 \label{vn:1}
 
-In diesem Versuch werden die Grundlagen der freien und der angeregten Schwingung mit Dämpfung anhand des Pohl'schen Resonators untersucht.
+In diesem Versuch lernen Sie die Grundlagen der Ausbreitung von Signalen in elektrischen Netzwerken, wie z. Bsp. elektrischen Leitungen oder Nervenzellen.
 
 %\noindent
 %{\bf Kenntnisse}: ???
@@ -9,237 +9,315 @@ In diesem Versuch werden die Grundlagen der freien und der angeregten Schwingung
 %------------------------------------------------
 \section{Stichworte}
 %------------------------------------------------
-Pohl'scher Resonator, Schwingungsgleichung, harmonische Schwingung, Resonanz, Dämpfung.
+Spannung, Strom, Ohm'scher Widerstand, Ohm'sche Gesetze, Kirchhoff'sche Regeln, Parallel- und Reihenschaltung von Widerständen
 %
 %------------------------------------------------
 \section{Literatur}
 %------------------------------------------------
-Gehrtsen, Kapitel 2.1-2.4, 4.2; Demtröder, Kapitel 5.1-5.6, 11.1-11.5; Walcher, Kapitel 2.7.4
+Gehrtsen, Kapitel 6.1.2, 6.3.1 - 6.3.4
 %
 %------------------------------------------------
 \section{Anwendungsbeispiele}
 %------------------------------------------------
 %
-Bewegungsabläufe lassen sich darin unterscheiden, ob sie sich regelmäßig wiederholen oder nicht. Als periodische Vorgänge bezeichnet man Prozessen, bei denen sich jeder Zustand des Systems immer nach derselben Zeitdauer wiederholt. Nicht-periodische Vorgänge sind Abläufe, die nur einmal auftreten oder sich unregelmäßig wiederholen (z. B. der Aufprall von Regentropfen).\\
-Schwingungen und Wellen sind periodische Strukturen, deren Verständnis grundlegend für sämtliche naturwissenschaftliche Bereiche ist. Eine Schaukel, die Stimmlippen in Ihrem Kehlkopf, ein elektrischer Schwingkreis schwingen. In der pharmazeutischen Industrie finden Schwingungen Anwendung bei Vibrationssieben und -filtern, in der Medizin stellen Ultraschallschwingungen ein wichtiges nicht-invasives Diagnosewerkzeug zur Verfügung, sogar die Populationsentwicklung biologischer Arten oder die Konzentrationen von chemischen Lösungen können durch Schwingungen beschrieben werden.\\
-In der Geophysik werden schwingfähig aufgehängte große Massen zum Beispiel als Seismographen benutzt. Eine der am weitest verbreiteten Arten von Seismographen sind (vllt. eher waren) astatische Seismographen nach Emil Wiechert. Die große Neuerung bei diesen gegenüber den Vorgängermodellen ist die Luftdämpfung, die es Wiechert erlaubte, die Verstärkung seines Seismographen soweit zu erhöhen, dass diese zur Vermessung kleinster Bodenbewegungen benutzt werden konnten.\\
-
-\noindent
-Da Ihnen also Schwingungen in allen möglichen Themen-/Arbeits-/Forschungsgebieten begegnen, wollen wir uns hier, wenn auch nur oberflächlich, mit ihren wichtigsten mathematischen Eigenschaften und den daraus resultierenden Phänomenen beschäftigen.
+Anwendungsbeispiele aus der Physiologie finden Sie später in diesem Kapitel.
 %
 %------------------------------------------------
 \section{Theoretischer Hintergrund}
 %------------------------------------------------
 
-\subsection{Freie Schwingung mit Dämpfung}
+\subsection{Elektrische Ladung}
 
-Bewegt sich ein Körper in eine Richtung $x$ während eine Rückstellkraft auf ihn wirkt, die der Bewegungsrichtung entgegengesetzt und proportional zu $x$ ist, so stellt sich eine Schwingung ein. Die Bewegung des  Körpers wird mit wachsendem $x$ immer stärker gebremst, bis er zum Stillstand kommt und sich danach in $-x$~Richtung zurückbewegt. Wenn er die Ausgangslage überschreitet wiederholt sich derselbe Vorgang. Diesen periodisch wiederkehrenden Vorgang nennt man \textit{Schwingung}, die Zeit $T$, die verstreicht, bis sich ein Bewegungszustand (bestimmt durch Ort, Betrag und Richtung der Geschwindigkeit) wieder einstellt, heißt \textit{Schwingungsdauer}. Die \textit{Frequenz} einer Schwingung ist definiert durch
+Die elektrische \textit{Ladung} ist eine physikalische Eigenschaft von Körpern und hat als Einheit das Coulomb, $ [Q]~=~C$. Diese Ladung kann positive oder negative Werte annehmen und tritt immer in ganzzahligen Vielfachen der kleinsten frei vorkommende Ladungsmenge, der sogenannten \textit{Elementarladung} $e~=~1,6\cdot 10^{-19}~C$, auf. Zum Beispiel hat das Elektron eine Ladung von $Q_e~=~-1\cdot e$, das Proton trägt eine Ladung von $Q_p~=~+1\cdot e$.
+
+\noindent
+Normalerweise besitzen Atome genauso viele Elektronen in der Hülle, wie positive Ladungen im Kern. Dann bezeichnet man sie als elektrisch neutral. Ändert sich die Anzahl der Elektronen, so ist das Atome nach außen hin elektrisch geladen und wird dann als \textit{Ion} bezeichnet. Ein Natriumatom, dem ein Elektron fehlt, ist einfach positiv geladen und wird mit Na$^+$-Ion bezeichnet. Die Ladung eines Ions kann auch mehrfach positiv oder negative sein, z.B. Ca$^{2+}$.
+
+\subsection{Spannung, Strom und Widerstand}
+
+Die elektrische \textit{Spannung} ist die Differenz der Coulombpotenziale an zwei Orten, zum Beispiel zwei Punkten in einem elektrischen Schaltkreis:
 \begin{equation}
-f = 1/T \; ,
+	U = \Phi_A - \Phi_B
 \end{equation}
-ihre \textit{Kreisfrequenz} $\omega$, auch Winkelfrequenz genannt, durch
+Wie man an dieser Definition sieht, bezieht sich die Angabe einer Spannung immer auf ein Referenzpotenzial, welches entweder explizit angegeben wird (''Spannung zwischen Punkten A und B'') oder impliziert wird (typischerweise die sogenannte ''Erde''). Daher kann eine Spannung \textit{positiv} oder \textit{negativ} sein, je nachdem ob das Potenzial am beschriebenen Punkt höher oder niedriger als das Referenzpotenzial ist. Bei einer Spannungsquelle in einem elektrischen Schaltkreis nennt man den Anschluss mit dem höheren Potenzial den \textit{Pluspol} und den mit dem niedrigeren Potenzial den \textit{Minuspol}. Bei den Schaltsymbolen in den nachfolgenden Schaltplänen bezeichnet der längere Strich an der Spannungsquelle den Pluspol.\\
+Diese Potenzialdifferenz erzeugt ein elektrisches Feld ($\vec{E} = -\mathrm{grad}\Phi$), welches auf geladene Teilchen eine \textit{Coulombkraft} in Richtung der Feldlinien ausübt und diese damit beschleunigt. Negativ geladene Elektronen werden dabei auf den Pluspol zu beschleunigt. Die resultierende \textit{Drift} der Ladungsträger, zum Beispiel in einem Draht, nennt man dann \textit{Strom}:
 \begin{equation}
-\omega = 2\pi f = 2\pi /T\; .
+	I = \frac{dQ}{dt}
 \end{equation}
+Die \textit{technische Stromrichtung} ist so definiert, dass Strom vom Pluspol einer Spannungsquelle zum Minuspol fließt (also entgegen der Driftrichtung von Elektronen). In den nachfolgenden Schaltplänen ist teilweise die technische Stromrichtung durch Pfeile gekennzeichnet.\\
+
+\noindent
+Die Einheiten von Spannung, $[U]~=~1~V$, und von Strom, $[I]~=~1~A$, das Volt und das Ampere, sind SI Einheiten. \\
+
+\noindent
+Der ohmsche Widerstand eines Leiters ist definiert durch das Ohm'sche Gesetz
+\begin{equation} \label{eq:Ohm}
+R:=\frac{U}{I}\, ,
+\end{equation}
+seine Einheit $[R]~=~1$~\Ohm\, ist das \textit{Ohm}.
+
+\subsection{Einfache Netzwerke}
+
+Elektrische Netzwerke bestehen aus elektrischen Bauteilen, welche miteinander verbunden werden. In diesem Versuch wollen wir uns mit dem einfachsten passiven Bauteil beschäftigen: dem rein ohmschen Widerstand.\\
+Netzwerke sind aus \textit{Knoten} und \textit{Maschen} aufgebaut. Aufbauend auf der Erhaltung der elektrischen Ladung ($\frac{dQ}{dt} = 0$) kann man das Verhalten von Strom und Spannung durch die \textit{Kirchhoffschen Gesetze} beschreiben:\\
+
+\noindent
+1. Kirchhoffsches Gesetz (Knotenregel): \\
+	Die Summe aller Ströme, die in eine Knoten hinein bzw. aus einem Knoten herausfließen, ist null.
+ \begin{equation}
+  \sum^n_{k=1}{I_k} = 0 \; .
+  \label{eq:Kirchhoff1}
+ \end{equation}
 %
-Ist die rücktreibende Kraft linear proportional zu $x$, so handelt es sich um eine \textit{harmonische Schwingung}. Diese Art von ungedämpften, freien Schwingungen haben Sie im Vorversuch \ref{v:0} und in der Vorlesung kennengelernt.\\
-Eine Schwingung, deren Amplitude durch Energieverlust monoton abnimmt, heißt \textit{gedämpfte Schwingung}. Im einfachsten Fall rührt der Energieverlust von Reibung oder einer anderen Kraft her, die proportional zur Geschwindigkeit des Körpers $v = \frac{{\rm d} x}{\rm dt} = \dot{x}$ ist. Eine rücktreibende Kraft, die proportional zu $x$ ist, kann zum Beispiel von einer Feder mit der Federkonstanten $D$ ausgeübt werden. Damit ergibt sich die Bewegungsgleichung des Körpers zu
+2. Kirchhoffsches Gesetz (Maschenregel): \\
+	Die Summe aller Spannungen in einer Masche ist null.
 \begin{equation}
-	m\ddot{x} + b\dot{x} + Dx = 0 \, .
-\label{eq:Schwingungsgleichung_vn1}
+ \sum^n_{k=1}{U_k} = 0 \; .
+ \label{eq:Kirchoff2}
 \end{equation}
 
-Der im Versuch benutzte Aufbau nach Pohl, der \textit{Pohl'sche Resonator}, funktioniert genauso wie die oben beschriebene lineare Schwingung, wobei Rückstellkraft und Reibung aus einer Drehbewegung resultieren, sodass anstelle der linearen Auslenkung $x$ der Auslenkungswinkel $\varphi$ betrachtet wird. Auf die Drehscheibe mit dem Trägheitsmoment $\Theta$ wirkt durch die Spiralfeder ein zu $\varphi$ proportionales Rückstellmoment $D^*\varphi$. Die Wirbelstrombremse (und natürlich auch Reibung) erzeugen ein bremsendes Moment $\rho\dot{\varphi}$, welches proportional zur Winkelgeschwindigkeit ist. Damit erhalten wir die Bewegungsgleichung des Pohl'schen Resonators:
-\begin{equation}
-	\Theta\ddot{\varphi} + \rho\dot{\varphi} + D^*\varphi = 0\, .
-\end{equation}
+\noindent
+Die Kirchhoffschen Gesetze können benutzt werden, um den Strom durch ein Bauteil und die über ihm abfallende Spannung zu beschreiben. Ein Beispiel ist die Berechnung des Gesamtwiderstandes einer Parallel- oder Serienschaltung von Widerständen.
 %
-Bringen wir diese Differenzialgleichung auf die Normalform, indem wir durch $\Theta$ teilen, erhalten wir mit den Definitionen $2\beta := \rho /\Theta$ und $\omega_0^2 := D^* /\Theta$ eine homogene Differenzialgleichung 2. Ordnung:
-\begin{equation}
-	\ddot{\varphi} + 2\beta\dot{\varphi} + \omega_0^2 \varphi = 0 \, .
-\label{eq:Bewegungsgleichung_Pohl}
-\end{equation}
+\subsection{Parallelschaltung}
+
+\begin{minipage}{0.35\textwidth}
+ \includegraphics[width=1.00\textwidth]{figures/Parallel.jpg}
+ \label{fig:Parallel}
+\end{minipage}
 %
-Setzt man den Ansatz $\varphi (t)= A \exp(\lambda t)$ in Gleichung \ref{eq:Bewegungsgleichung_Pohl} ein, so findet man (im Allgemeinen) zwei Werte für $\lambda$:
+\begin{minipage}{0.6\textwidth}
+Aus der Knotenregel folgt: \hfill $I = I_1 + I_2\, .$\\
+Mit dem Ohm'schen Gesetz folgt: \hfill $\frac{U_0}{R_{ges}} = \frac{U_0}{R_1} + \frac{U_0}{R_2}\, .$\\
+Den Gesamtwiderstand der Parallelschaltung von Widerständen kann man also schreiben als: 
+\begin{equation}
+\frac{1}{R_{ges}} = \frac{1}{R_1} + \frac{1}{R_2} = \sum_i{\frac{1}{R_i}} \, .
+\end{equation}
+\end{minipage}
+%
+\subsection{Serienschaltung}
+
+\begin{minipage}{0.35\textwidth}
+ \includegraphics[width=1.00\textwidth]{figures/Seriell.jpg}
+ \label{fig:Seriell}
+\end{minipage}
+%
+\begin{minipage}{0.6\textwidth}
+Aus der Maschenregel folgt: \hfill $U_0 = U_1 + U_2\, .$\\
+Mit Ohm's Gesetz folgt: \hfill $I\cdot R_{ges} = I\cdot R_1 + I\cdot R_2\, .$\\
+Den Gesamtwiderstand der Serienschaltung von Widerständen kann man also schreiben als: 
+\begin{equation}
+R_{ges} = R_1 + R_2 = \sum_i{R_i} \, .
+\end{equation}
+\end{minipage}
+%
+\subsection{Der (unbelastete) Spannungsteiler} \label{sec:Spannungsteiler}
+
+In Schaltung \ref{fig:Seriell} kann man die Spannung $U_2$, die über den Widerstand $R_2$ abfällt auch als Eingangsspannung für eine daran anschliessende Schaltung benutzen. Schaltung \ref{fig:Seriell} bezeichnet man in diesem Fall als \textit{Spannungsteiler}. Die Spannung $U_2$ wird dann durch die \textit{Spannungsteilerformel} gegeben, die wir kurz herleiten wollen:\\
+Fließt ein Strom $I$ durch $R_2$, so fällt über den Widerstand die Spannung ab
 \begin{equation*}
-	\lambda_{1,2} = -\beta \pm \sqrt{\beta^2 - \omega_0^2}\, .
+U_2 = I\cdot R_2\; .
 \end{equation*}
-%
-Es sind drei Fälle zu unterscheiden, die drei charakteristische Bewegungsformen beschreiben:
-\begin{enumerate}[label=\alph*.)] 
-	\item \textbf{Kriechfall}: $\beta^2 > \omega_0^2$\\
-		Man findet, dass $\gamma := \sqrt{\beta^2 - \omega_0^2} > 0$ und eine reelle Zahl ist. Damit sind die beiden Werte von $\lambda$ negative reelle Zahlen und die allgemeine Lösung der Schwingungsgleichung
-		\begin{equation*}
-			\varphi(t) = A\exp((-\beta+\gamma) t) + B\exp((-\beta -\gamma) t)
-		\end{equation*}
-		Die Konstanten $A$ und $B$ sind dabei durch die Anfangsbedingungen gegeben.\\
-		Die Dämpfung ist sehr stark, so dass es nicht zu einer Schwingung kommt. Der Körper kehrt langsam, ohne Überschwinger, zur Ausgangslage ($\varphi = 0$) zurück.
-	%
-	\item \textbf{Aperiodischer Grenzfall}: $\beta^2 = \omega_0^2$\\
-		Man findet (mit etwas weiterem Rechnen) für die Lösung der Schwingungsgleichung
-		\begin{equation*}
-			\varphi(t) = \varphi_0\left(1 + \omega_0 t\right) \exp(-\omega_0 t)\, .
-		\end{equation*}
-		Wieder ist der Exponent eine reelle Zahl, so dass auch diese Lösung keine Schwingung darstellt.\\
-		Die Reibung ist so stark, dass das System gerade so nicht schwingt, sondern in besonders kurzer Zeit in die Ruhelage zurückkehrt.
-	%
-	\item \textbf{Schwingfall}: $\beta^2 < \omega_0^2$\\
-		In diesem Fall findet man für $\lambda$ zwei verschiedene, komplexe Werte:
-		\begin{equation*}
-			\lambda_{1,2} = -\beta \pm i\sqrt{\omega_0^2 - \beta^2}
-		\end{equation*}
-		Mit den Anfangsbedingungen findet man dann für die Lösung der Schwingungsgleichung den Ausdruck
-		\begin{equation}
-			\varphi(t) = \varphi_0\exp(-\beta t)\cdot\cos(\hat{\omega}t) \quad \mathrm{mit}\quad \hat{\omega}=\sqrt{\omega_0^2 -\beta^2}\, .
-			\label{eq:Schwingfall}
-		\end{equation}
-		Wie man sieht ist die Eigenfrequenz $\hat{\omega}$ dieser gedämpften Schwingung kleiner als die der ungedämpften Schwingung.\\
-		Die Amplitude
-		\begin{equation}
-			\varphi(t) = \varphi_0\cdot \exp(-\beta t)
-			\label{eq:Amplitude_gedaempft}
-		\end{equation}
-		klingt exponentiell ab.
-		
-\end{enumerate}
-
-\begin{figure}[ht!]
-\begin{center}
-\includegraphics[width=0.45\textwidth]{Versuch_neu_1-2/figures/2285.pdf}
-\includegraphics[width=0.45\textwidth]{Versuch_neu_1-2/figures/2284.pdf}
-\end{center}
-\caption{Zeitlicher Verlauf der Amplitude einer Schwingung im Kriechfall und aperiodischen Grenzfall (links) und im gedämpften Schwingfall (rechts).}
-\label{fig:Schwingungen}
-\end{figure}
-
-\subsection{Angeregte Schwingung mit Dämpfung}
-
-Wirkt auf das schwingungsfähige System das äußere periodische Anregungsmoment $M\cos(\omega t)$, so wird die Bewegungsgleichung eine inhomogene lineare Differentialgleichung 2. Ordnung. Diese kann man zwar analytisch lösen, was wir hier aber dem ''geneigten Leser'' überlassen wollen.\\
-Nach dem Einschwingvorgang, währenddessen die Bewegung des Systems eine Überlagerung der Bewegung mit seiner Eigenfrequenz $\omega_0$ sowie einer mit der Erregerfrequenz $\omega$ ist, lautet die Lösung der Bewegungsgleichung 
-\begin{equation}
-	\varphi(t) = \frac{N}{\sqrt{\left(\omega_0^2 - \omega^2\right)^2 +4\beta^2\omega^2}}\cos(\omega t - \alpha)\, .
-\end{equation}
-Dies ist eine Schwingung mit der Frequenz $\omega_e$, welche um den Winkel $\alpha$ gegen die Phase der Erregerschwingung verschoben ist. \\
-Wie man sieht, ist die Amplitude 
+Aus der Maschenregel folgt für den Strom:
 \begin{equation*}
-	\varphi_0 = \frac{N}{\sqrt{\left(\omega_0^2 - \omega^2\right)^2 +4\beta^2\omega^2}}
+I = \frac{U_0}{R_1 + R_2} \; .
 \end{equation*}
-abhängig von der Differenz der Erregerfrequenz zur Eigenfrequenz des Systems $\left(\omega_0^2 - \omega^2\right)^2$ und zur Dämpfung $\beta$. Sie wird maximal, wenn die Erregerfrequenz der \textit{Resonanzfrequenz} entspricht, die sich ergibt als:
-\begin{equation}
-	\omega_r = \sqrt{\omega_0^2 -2\beta^2}\, .
+Einsetzen ergibt die Spannungsteilerformel:
+\begin{equation}\label{eq:Spannungsteiler}
+U_2 = U_0\cdot\frac{R_2}{R_1+R_2}
 \end{equation}
 
-\begin{figure}[ht!]
+\subsection{Anwendungsbeispiel: Nervenleitung}
+
+\subsubsection{Spannungsabhängigkeit von Ionenkanälen}
+
+Im Intra- und Extrazellularraum einer Nervenzelle liegen Ionen in unterschiedlicher Konzentration vor. Dieser Unterschied macht sich als Spannung von $U\approx -70$~mV bemerkbar und kann mittels der Nernst-Gleichung berechnet werden. Diese Spannung wird meist als Membranpotenzial bezeichnet, was physikalisch nicht richtig ist, da es sich eigentlich um eine Potenzialdifferenz handelt.\\
+
+\noindent
+Die Membran einer Nervenzelle trennt die Elektrolyte im Interzellularraum von denen im Extrazellularraum. Des Weiteren enthält die Membran Ionenkanäle, durch die ein Ionenaustausch stattfinden kann. Wenn kein Ionenaustausch stattfindet stellt sich das oben erwähnte Membranpotenzial von $U\approx -70$~mV ein. Wenn sich diese Spannung zu positiveren Werten verändert (z.B. $U\approx -30$~mV), spricht man von einer Depolarisation, im umgekehrten Fall von einer Repolarisation oder Hyperpolarisation.
+
+\noindent
+Ein offener Ionenkanal verhält sich ungefähr wie ein ohm'scher Widerstand: Solange nur die Membranpotenzial von $U\approx -70$~mV an der Membran anliegt, fließt kein Strom. Der Widerstand eines Ionenkanals kann wie in Gleichung \ref{eq:Ohm} gezeigt durch $R=U/I$ berechnet werden. Eigentlich müsste in dieser Gleichung $\Delta U$ stehen, da der Unterschied zum Membranpotenzial entscheidend ist. Zur Vereinfachung wird dieses Potenzial aber meist gleich Null gesetzt, so dass eine Depolarisation einer positiven Spannungsänderung entspricht. Dann kann man das $\Delta$ weglassen.
+
+\noindent
+Ionenkanäle zeigen dieses Verhalten nur solange sie geöffnet sind. Wie lange ein solcher Kanal geöffnet ist, hängt von der anliegenden Spannung ab. Bei diesen \textit{spannungsabhängigen Ionenkanälen} wird die Zeitanteil, für den der Kanal geöffnet ist, durch die \textit{Offenwahrscheinlichkeit} angegeben.
+\etodo{Plot einfügen}
+Wie in Abbildung \textbf{bla} qualitativ für einen Natriumkanal gezeigt ist, bleibt der Kanal für kleine Spannungsänderung fast immer geschlossen. Erst bei einer Depolarisation, wenn das das Membranpotenzial also einen Wert von $U\approx -30$~mV erreicht, nimmt der Zeitanteil im offenen Zustand stark zu. Dies entspricht dem Bereich, in dem eine Nervenzelle ein neues Aktionspotenzial auslöst, da hier die Leitfähigkeit stark ansteigt. Für noch größere Werte des Membranpotenzials geht die Offenwahrscheinlichkeit in Sättigung, da ein Ionenkanal nur für höchsten 75\% der Zeit offen sein kann.
+
+%\noindent
+\begin{minipage}{0.4\textwidth}
+Um das elektrische Verhalten einer Zellmembran korrekt zu beschreiben, müssen mehrere Ionenkanäle betrachtet werden. Dann kann die Offenwahrscheinlichkeit als der Prozentsatz der Ionenkanäle in offenem Zustand interpretiert werden. Das Verhalten einer Zellmembran kann simuliert werden indem mehrere Widerstände parallel zueinander geschaltet werden. Jeder Widerstand repräsentiert dabei einen offenen Ionenkanal, bei steigender Spannung, i.e. Membranpotenzial, werden also mehr Widerstände parallel geschaltet, bis eine maximale Anzahl erreicht ist, die der Sättigung der Offenwahrscheinlichkeit entspricht. Im Versuch wollen wir die U-I-Kennlinie dieses Modells der Zellmembran vermessen.
+\end{minipage}
+\hfill
+%
+\begin{minipage}{0.55\textwidth}
+		\includegraphics[width=1.00\textwidth]{figures/Membrankanaele.jpg}
+	\captionof{figure}{Oben: Abschnitt einer Membran mit mehreren geöffneten spannungsabhängigen Ionenkanälen. Unten: Modell der Membran bei überschwelliger Depolarisation: Alle Ionenkanäle sind geöffnet.}
+	\label{fig:Membrankanaele}
+\end{minipage}
+
+
+\subsubsection{Modell der elektrotonischen Erregungsausbreitung}
+
+\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.45\textwidth]{Versuch_neu_1-2/figures/3946.pdf}
-	\includegraphics[width=0.45\textwidth]{Versuch_neu_1-2/figures/3947.pdf}
-	\caption{Links: Frequenzgang einer angeregten, gedämpften Schwingung für verschiedene Dämpfungen. Beachten Sie die Verschiebung der Resonanzfrequenz. Vorsicht: In der Legende sind leider $\beta$ und $\omega_0$ vertauscht. Rechts: Phasenverschiebung einer angeregten, gedämpften Schwingung für verschiedene Dämpfungen.}
-	\label{fig:Resonanz}
+		\includegraphics[width=1.00\textwidth]{figures/Axon.jpg}
+	\caption{Modell einer langen, dünnen Nervenzelle.}
+	\label{fig:Axon}
 \end{figure}
 
-Auch die Phasenverschiebung hängt von der Differenz der Erreger- und Eigenfrequenz und der Dämpfung ab:
-\begin{equation*}
-	\tan\alpha = \frac{2\beta\omega}{\omega_0^2-\omega^2}
-\end{equation*}
-Wie in Abbildung \ref{fig:Resonanz} zu sehen ist, ist die Phasenverschiebung (für genügend kleine Dämpfung) sehr klein bei Frequenzen kleiner als der Eigenfrequenz des Systems, das System folgt dem Erreger sehr genau. Überschreitet die Erregerfrequenz die Eigenfrequenz, so wird die Phasenverschiebung 90\degree, das System eilt dem Erreger um eine halbe Schwingung hinterher.
+In diesem Abschnitt wird neben dem Membranwiderstand auch der Innenwiderstand einer langen, dünnen Nervenzelle, bspw. Axon oder Dendrit, betrachtet. Allerdings können wir, im Gegensatz zum vorigen Abschnitt, nicht die Spannungsabhängigkeit der Ionenkanäle berücksichtigen. Dennoch ergibt sich ein gutes Modell für Zellen mit Membranen, die nur passive Ionenkanäle enthalten, für das Internodium eines myelinisierten Axons oder allgemein für eine unterschwellige Depolarisation an einem Axon.
+
+\noindent
+Wie in Abbildung \ref{fig:Axon} dargestellt, kann der Intrazellularraum einer solchen Nervenzelle aufgrund seiner Geometrie mit einem langen, dünnen Leiter verglichen werden. Dieser wird durch den \textit{Innenwiderstand} $R_i$ charakterisiert. Wie jeder elektrische Widerstand ist dieser proportional zur Länge und umgekehrt proportional zur Querschnittsfläche des Leiters. Im Gegensatz zum Inneren der Zelle besitzt der Extrazellularraum keine direkte Begrenzung, so dass die Ionen sich dort relativ frei bewegen können und der elektrische Widerstand damit vernachlässigbar klein ist. Die Stromstärke durch die Membran variiert, je nach Anzahl und Zustand der Ionenkanäle, was durch den Membranwiderstand $R_M$ beschrieben wird.\\
+Um das Modell der Zellmembran zu verfeinern, wird dieses typischerweise durch einen Kondensator ergänzt, den wir in diesem Versuch allerdings vernachlässigen werden.\\
+
+\noindent
+Im Ruhezustand ist das Membranpotenzial entlang der Membran zunächst überall gleich. Eine Depolarisation, wie sie z.B. bei Reizung sensorischer Nervenzellen erfolgt, breitet sich infolge der frei beweglichen Ionen entlang der Nervenzelle aus. Solange keine aktive Verstärkung des Signals erfolgt, spricht man von passiver oder \textit{elektrotonischer Erregungsausbreitung}.\\
+Die elektrotonische Erregungsausbreitung wird durch zwei Größen charakterisiert:
+\begin{itemize}
+	\item Wie schnell breitet sich die Erregung aus? Dies gibt die sog. Membranzeitkonstante $\tau$ an.
+	\item Wie weit kann sich die Erregung entlang der Nervenzelle ausbreiten? Dies wird mit Hilfe der Längskonstante $\lambda$ ausgedrückt.
+\end{itemize}
+%
+Anhand der Schaltung in Abb. \ref{fig:Axon} lässt sich die Abhängigkeit zwischen der an der Membran abfallenden Spannung $U$ und dem Abstand $x$ zum Ursprung der Depolarisation untersuchen.
+\begin{itemize}
+	\item Die verwendete Spannungsquelle erzeugt einen Strom und verschiebt das Membranpotential. Dies entspricht der Depolarisation. Durch die im Experiment verwendete Gleichspannungsquelle wird eine zeitliche Veränderung der Depolarisation vernachlässigt und der Vorgang ''eingefroren''.
+	\item Für den verschwindend geringen Widerstand des Extrazellularraums werden einfache Leitungen, für Innen- und Membranwiderstand die Bauteile $R_i$ und $R_M$ verwendet.
+	\item Jeder Abschnitt des Schaltbildes besteht aus einem Innen- und einem Membranwiderstand. Dies entspricht in der Physiologie einem kurzen Abschnitt einer Zellmembran.
+\end{itemize}
+%
+Die Depolarisation führt zu einem Strom im Inneren der Nervenzelle. Wie groß dieser Strom ist, hängt u.a. vom Innenwiderstand $R_i$ ab. Ein Teil des Stroms fließt durch die Ionenkanäle der Membran und über den Extrazellularraum zurück. Die Stärke dieser Leckströme hängt dabei vom Membranwiderstand $R_M$ ab. Aufgrund der Leckströme durch die Membran nimmt der Strom im Intrazellularraum ab. Deshalb nehmen auch die Verlustströme durch die Membran mit der Länge der Nervenfaser, und damit die an den einzelnen Membranwiderständen $R_M$ messbare Spannung ab.\\
+Die Abnahme der Depolarisation lässt sich mathematisch über eine Exponentialfunktion beschreiben:
+\begin{equation}
+	U(x) = U_0\cdot e^{-x/\lambda}
+\end{equation}
+
+$U_0$ entspricht dabei für die maximale Depolarisation, die an der Membran am Ort $x=0$ abfällt. Nach der Strecke $x=\lambda$ ist die Depolarisation auf $1/e = 37\%$ ihres Ausgangswertes abgesunken. $\lambda$ ist also ein Maß dafür, wie stark die Depolarisation $U$ mit der Länge $x$ abklingt und wird deshalb als \textit{Längskonstante} bezeichnet.\\
+
+\noindent
+Eine dicke Nervenfaser hat aufgrund der großen Querschnittsfläche einen kleinen Innenwiderstand. Daher fließt im Inneren der Nervenzelle ein größerer Strom, der im Vergleich zu dünneren Nervenzellen langsamer mit der Strecke abklingt, und daher die Depolarisation über größere Strecken überschwellig bleibt. Für eine solche Zelle ist der Wert von $\lambda$ größer und die Erregung kann sich weiter ausbreiten.
+
+\noindent
+Im Zusammenhang mit ''Saltatorischer Erregungsleitung'' wird häufig davon gesprochen, dass das Signal von Schnürring zu Schnürring springt. Das ist jedoch irreführend, da Ladungen nicht springen können. Bei kontinuierlicher Erregungsleitung am unmyelinisierten Axon werden in sehr kurzen Abständen neue Aktionspotenziale erzeugt, da die Depolarisation ansonsten schnell unterschwellig würde. Das Myelin in den Internodien verhindert dies: Nachdem am Ranvierschen Schnürring ein Aktionspotenzial erzeugt
+
+\begin{tutorhint}
 %------------------------------------------------
 \section{Fragen zur Vorbereitung}
 %------------------------------------------------
 
 \begin{enumerate} 
-	\item Skizzieren Sie von Hand die Funktion $f(t) = \cos(\omega t)$. Welche Werte nimmt diese an für $\omega t = 0\, , \pi/2\, , \pi\, , 3\pi/4\, , 2\pi$?
+	\item Wiederholung: Ohm'sches Gesetz, Schaltung von Messgeräten
 	%
-	\item Unter welchen Bedingungen tritt eine resonant angeregte Schwingung auf? Wie verhält sich die Amplitude der Schwingung in diesem Fall?
+	\item Wie lauten die Kirchhoff'schen Gesetze? Welche Erhaltungssätze liegen ihnen zugrunde?
 	%
-	\item Sie regen ein schwingfähiges System von außen mit verschiedenen Erregerfrequenzen an. Woran können Sie unterscheiden, ob sich die Erregerfrequenz der Resonanzfrequenz nähert oder sich von ihr entfernt? Diese Frage wird in der Durchführung des Versuchs wichtig, bitte darüber nachdenken!
+	\item Wie berechnet man den Gesamtwiderstand bei Reihen- und Parallelschaltungen von Widerständen?
 	%
-	\item Was ist der konzeptionelle Unterschied zwischen der Frequenz $f$ und der Kreisfrequenz $\omega$?
+	\item Wie funktioniert die Spannungsteilerschaltung (Schaltskizze und Erklärung)? 
+		\esolution{s. Abschnitt \ref{sec:Spannungsteiler}}
 	%
-	\item Wieso ist die detaillierte Kenntnis der Eigenschwingungsfrequenzen von Gebäuden, Brücken oder den Flügeln eines Flugzeuges wichtig?
+	\item Von welchen Eigenschaften eines Leiters hängt dessen ohm'scher Widerstand ab und wie?
+		\esolution{$R=\rho\cdot\frac{A}{L}$ mit dem materialabhängigen spezifischen Widerstand $\rho$, Querschnittsfläche $A$ und Länge $L$.}
 	%
-	\item Beschreiben Sie die Bewegung eines gedämpften, schwingfähigen Systems im Schwingfall, Kriechfall und im aperiodischen Grenzfall? Wann tritt welcher der drei Fälle ein?
+	\item In unserem Modell der langen Nervenzelle haben wir die Kapazität der Membran vernachlässigt. Wo würde man diese in der Schaltung in Abb. \ref{fig:Axon} einzeichnen?
+		\esolution{Parallel zu $R_M$.}
+	%
+	\item Wie kommt der Strom innerhalb bzw. ausserhalb der Membran einer Zelle zustande?
+		\esolution{Diffusion von Ionen, bspw. K$^+$, Na$^{2+}$, etc. Insbesondere nicht, wie sonst, Drift von Elektronen in einem elektrischen Feld.}
 \end{enumerate} 
+
+\end{tutorhint}
 
 %------------------------------------------------
 \section{Durchführung} 
 %------------------------------------------------
-
-\begin{figure}[t]
-	\centering
-		\includegraphics[width=\textwidth]{Versuch_neu_1-2/figures/Pohl_AP.jpg}
-	\caption{Pohlscher Resonator bestehend aus einer Schwungscheibe mit Rückstellfeder und Winkelskala, Erreger (Schrittmotor) mit Exzenter und Winkelskala, Wirbelstrombremse mit Millimetertrieb, Computer zur Steuerung des Schrittmotors und zur Datenaufnahme.}
-	\label{fig:Pohl_AP}
-\end{figure}
-
-
-\subsection{Vorbereitung}
-
-Starten Sie den PC und melden Sie sich als Benutzer »Prakt« (kein Passwort) an. Schalten Sie die Motorsteuerung in dem separaten Kasten auf der Rückseite ein. Starten Sie das Programm »Pohl« über die Verknüpfung auf dem Desktop. Ihre Messdaten werden nach dem Ende jeder einzelnen Messung graphisch dargestellt und sollten umgehend ausgedruckt werden. Zusätzlich wird eine PDF-Datei in dem angegebenen Verzeichnis gespeichert. Bitte nicht in anderen Verzeichnissen Dateien verändern oder löschen.
-
-\subsection{Bedienung des Messprogramms}
-
-Das Programm »Pohl« ist eine grafische Oberfläche für die Messwertaufnahme am Pohlschen Resonator.
+\subsection{Der Spannungsteiler}
 \begin{enumerate}
-	\item Starten Sie das Programm »Pohl«, falls dies noch nicht geschehen ist.
-	%
-	\item Legen Sie eine neue Messung an. Geben Sie hierzu die Parameter der Messung in den dafür vorgesehen Textfeldern an, damit diese im Ergebnisgraphen vermerkt werden. Die Frequenz geben Sie bitte in Millihertz (mHz) an, mit der der Exzenter betrieben werden soll. Ein Wert von 250 lässt den Exzenter also in 4 Sekunden eine vollständige Umdrehung durchführen. Bei der Eingabe von 0 ist der Exzenter deaktiviert.
-	%
-	\item Klicken Sie auf den Button »neue Messung starten«, um eine neue Messreihe anzulegen. Die Datenaufnahme und ggf. auch die Motorsteuerung starten nun.
-	%
-	\item Das Pohlsche Rad befindet sich nun in Eigenschwingung bzw. im Einschwingvorgang. Dabei wird der Amplitudenverlauf grafisch aufgetragen, sobald das Rad zwecks Kalibrierung der Auslese die Nulllage zwei mal durchlaufen hat (vorher keine Datenanzeige). 
-	%
-	\item Bei der erzwungenen Schwingung empfiehlt es sich, sobald der Einschwingvorgang beendet ist, die Messung durch einen Klick auf den Button »Messreihe neu starten« erneut zu starten. Bei Messung der Eigenschwingung empfiehlt es sich, gerade bei starker Dämpfung, zunächst die Initialisierung der Elektronik abzuwarten, dann das Rad erneut auszulenken und den Button »Messreihe neu starten« zu betätigen.
-	%
-	\item Durch einen Klick auf die Reiter »Amplitude« bzw. »Phasenraum« können Sie sich verschiedene Messdaten schon während der Messung anschauen.
-	%
-	\item Wenn Sie genug Daten haben, beenden Sie die Messung mit einem Klick auf »Messung beenden«. Es wird nachfolgend eine PDF-Datei mit dem graphisch dargestellten Ergebnis angelegt und angezeigt; diese bitte umgehend ausdrucken.
-\end{enumerate}
-
-\subsection{Durchführung}
-
-\etutorhint{
-\begin{itemize}
-	\item Für den Versuchsteil angeregte Schwingungen stellen Sie bitte sicher, dass die Stange zwischen anregendem Motor und Pendel nicht bei einem zu großen Radius des Exzenterrades angebracht ist. Ist die Stange bei etwa dem halben Radius des Exzenterrades montiert, so kommt es nicht zu einer Resonanzkatastrophe.
-	\item Alle Aufbauten in einem Raum benutzen denselben Drucker. Einer der Rechner wird dazu als Druckerserver betrieben, muss also eingeschaltet sein. Da ich zur Zeit nicht weiß, welcher der jeweilige Server ist, einfach alle Rechner hochfahren.
-	\item Achten Sie darauf, dass wenn der die Schwingung anregende Motor auf einen Winkel von 0\degree gestellt ist, der Zeiger des Exzenters, an dem die Schraubenfeder montiert ist, ebenfalls auf 0\degree steht. Ansonsten gibt es einen konstanten Offset der Phase zwischen der anregenden Schwingung und der des Schwungrades. Die Phasendifferenz wird zwar im Moment nicht gemessen, aber sie wäre in einem solchen Fall nicht gleich 45\degree bei der Resonanzfrequenz.
-\end{itemize}
-}
-
-\begin{enumerate}
-	% Messung der Eigenfrequenz des Resonators bei Dämpfung 0 --> ablese aus Plot
-	\item Bringen Sie den Motor mit dem Messprogramm in Position 0.
-	%Messung des Amplitudenverlaufs für verschieden starke Dämpfung --> nur Betrachten?
-	\item Starten Sie die Messung für die freie Schwingung für vier verschiedene Stellungen des Millimetertriebs der Wirbelstrombremse: 0, 4, 6 und 8~mm. Die Skala des Millimetertriebs weist dabei ggf. einen Versatz auf: »0 mm« bezieht sich auf die Position bei Deckung der Kante des Magneten mit der Außenseite des Kupferrads und die anderen Angaben gelten relativ dazu. Regen Sie den Resonator bei abgeschaltetem Motor zu Eigenschwingungen an (Anregung 0~Hz; falls nötig die Nulllage des Motors vorher per Software einstellen). Dabei die Auslenkung der Drehscheibe von Hand auf 120° stellen und loslassen. Während einer kurzen Initialisierungsphase der Messelektronik werden noch keine Messdaten angezeigt.
-	%
-	\item Messen Sie nun die erzwungene gedämpfte Schwingung. Für drei verschiedene Dämpfungen 4, 6 und 8~mm (Stellung am Millimetertrieb der Wirbelstrombremse) führen Sie dazu jeweils die nachfolgenden Schritte durch:
-	\begin{enumerate}
-		\item Nehmen Sie für die jeweils eingestellte Dämpfung für genügend viele verschiedene Frequenzen (150-600~mHz) die Schwingung des Oszillators auf. Stellen Sie sicher, dass 
-		der Einschwingvorgang vorbei ist, bevor Sie die Datenaufzeichnung starten. Hierbei muss die Amplitude des Pohl'schen Resonators zeitlich konstant sein. Achten Sie weiterhin darauf, dass genügend viele Schwingungen aufgezeichnet werden.
+	\item \textbf{Unbelasteter Spannungsteiler}\\
+		\begin{minipage}{0.5\textwidth}
+			Bauen Sie mit den Bausteinen die nebenstehende Schaltung auf. Benutzen Sie die Widerstandswerte $R_1=R_2=10$~k\Ohm.\\
+			Messen Sie die Ausgangsspannung $U_{AB}$ zwischen den Punkten $A$ und $B$ (das Symbol steht für ein Voltmeter) für 5 verschiedene Werte der Eingangsspannung $U_0$.
+		\end{minipage}
 		%
-		\item Machen Sie insbesondere in der Nähe der Resonanz viele Messungen. Achten Sie dabei jedoch auf eine mögliche Resonanzkatastrophe. In diesem Fall ist die Messung sofort über »Messung beenden« zu beenden.
-	\end{enumerate}
+		\hfill
+		\begin{minipage}{0.3\textwidth}
+			\input{tikz/Spannungsteiler_tikz.tex}
+		\end{minipage}
+	%
+	\item Wiederholen Sie die Messung für $R_1=R_2=100$~\Ohm.
+	%
+	\item \textbf{Belasteter Spannungsteiler}\\	
+		\begin{minipage}{0.5\textwidth}
+			Erweitern Sie die Schaltung um einen Lastwiderstand $R_L$. Benutzen Sie für diesen verschiedene Widerstandswerte $R_L=51$~\Ohm, 100~\Ohm, 390~\Ohm und 10~k\Ohm.\\
+			Messen Sie, bei einer Eingangsspannung $U_0=5$~V, die Ausgangsspannung $U_{AB}$ zwischen den Punkten $A$ und $B$.
+		\end{minipage}
+		%
+		\hfill
+		\begin{minipage}{0.4\textwidth}
+			\input{tikz/Spannungsteiler_belastet_tikz.tex}
+		\end{minipage}
+	%
 \end{enumerate}
-Für die Auswertung sind die ausgedruckten Graphen ausreichend. Wer es vorzieht, die PDF-Dateien zu verwenden, sollte diese über das Internet oder einen mitgebrachten USB-Stick übertragen. Am einfachsten geht dies mit einer E-Mail an sich selbst. Ihr/e Betreuer/in kann Ihnen dabei helfen.
+
+\subsection{Parallelschaltung von Widerständen oder spannungsabhängige Ionenkanäle}
+
+Jeder geöffnete Ionenkanal wird nun durch einen der Widerstände $R_M=390$~\Ohm ~simuliert. Ein geschlossener Kanal hingegen besitzt einen unendlich hohen Widerstand, daher wird für einen solchen Kanal kein Bauteil verwendet. Die Anzahl der geöffneten Kanäle entspricht also der Anzahl $n$ der parallel geschalteten Widerstände.\\
+Um das spannungsabhängige Verhalten der Kanäle zu simulieren, muss die Anzahl der parallel geschalteten Widerstände gezielt variiert werden. 
+%
+\begin{enumerate}
+	\item Bauen Sie jeweils eine Parallelschaltung aus $n$ identischen Widerständen $R_M$ entsprechen Abb. \ref{fig:Membrankanaele} auf und legen Sie die Spannung $U(n)$ gemäß der Vorgaben aus Tabelle \ref{tab:bla} an. Messen Sie jeweils Spannung und Strom. Da es sich um eine Parralelschaltung handelt, kann die Spannung an einem beliebigen Widerstand abgegriffen werden.
+	\begin{table*}[h]
+	 \centering
+		 \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c}
+			 n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\ \hline
+			 U(n)/V & 0,5 & 1,5 & 2,0 & 2,5 & 2,8 & 2,9 & 3,0 & 3,1 & 3,2 & 3,5
+			\end{tabular}
+		\caption{Anzahl $n$ parallel geschalteter Widerstände und anzulegende Spannung $U(n)$.}
+		\label{tab:bla}
+	\end{table*}
+	%
+	\item Messen Sie für die Parallelschaltung mit 10 Widerständen, i.e. die maximale Offenwahrscheinlichkeit der Ionenkanäle, Strom und Spannung für Spannungen von 4~V bis zur maximalen Ausgangsspannung des Netzteils in Schritten von ungefähr 1~V. Beachten Sie dabei, dass durch den 400~mA Eingang des Multimeters nicht mehr als 400~mA fließen dürfen. Sollte der Strom diesem Wert nahe kommen, wechseln Sie bitte auf die 10~A-Buchsen.
+\end{enumerate}
+
+\subsection{Einfache Widerstandsnetzwerke oder elektrotonische Erregungsausbreitung}
+
+\begin{enumerate}
+	\item \textbf{Dünne Nervenfaser}\\
+	Bauen Sie eine Schaltung wie in Abb. \ref{fig:Axon} dargestellt, mit insgesamt 8 Gliedern. Benutzen Sie die Widerstandswerte $R_M=390$~\Ohm und $R_i=100$~\Ohm. Simulieren Sie eine Depolarisation, indem Sie die maximale Ausgangsspannung des Netzgerätes als $U_0$ anlegen. Messen Sie die Spannung $U_n$, die über jeden der Membranwiderstände $R_M$ abfällt. Schätzen Sie die Unsicherheit der Spannungsmessung ab.
+	%
+	\item \textbf{Dicke Nervenfaser}\\
+	Simulieren Sie die Erregungsausbreitung in einer dicken Nervenfaser, indem Sie die Innenwiderstände durch $R_i=51$~\Ohm Widerstände ersetzen. Messen Sie wieder die Spannungen $U_n$ über die Membranwiderstände.
+	%
+	\item \textbf{Myelinisierung}\\
+	Simulieren Sie die Wirkung des Isolators Myelin, indem Sie die Widerstände durch $R_M=10$~k\Ohm und $R_i=100$~\Ohm ersetzen. Messen Sie wieder die Spannungen $U_n$ über die Membranwiderstände.
+\end{enumerate}
 
 %------------------------------------------------
 \section{Auswertung} 
 %------------------------------------------------
-\etodo{Musterauswertung}
-
-\begin{hint}
-	Bitte fertigen Sie die Graphen in der folgenden Auswertung per Hand auf Millimeterpapier an.
-\end{hint}
+\subsection{Der Spannungsteiler}
 
 \begin{enumerate}
+	\item \textbf{Unbelasteter Spannungsteiler}\\
+	Tragen Sie die gemessene Ausgangsspannung $U_{AB}$ als Funktion der Eingangsspannung $U_0$ auf und bestimmen Sie die Steigung der Ausgleichsgeraden inkl. deren Unsicherheit. Welche Ausgangsspannung erwarten Sie (bitte kurz mit Formel erläutern)? Stimmt die gemessene Spannung mit Ihrer Erwartung überein?
 	%
-	\item \label{aw:Schwingfall} Lesen Sie aus den zeitlichen Verläufen der vier verschieden gedämpften Schwingungen deren jeweilige Frequenz $\hat{\omega}$ ab.
+	\item \textbf{Belasteter Spannungsteiler}\\
+	Berechnen Sie für die verschiedenen Widerstandswerte $R_L$ das Verhältnis $U_0/U_{AB}$ und tragen Sie dieses als Funktion des Widerstandes in einen Graphen ein. Was ist der Unterschied zum unbelasteten Spannungsteiler?
+\end{enumerate}
+
+\subsection{Parallelschaltung von Widerständen oder spannungsabhängige Ionenkanäle}
+
+Tragen Sie den gemessenen Strom als Funktion der angelegten Spannung $U(n)$ auf. Das ist die sogenannte U-I-Kennlinie der Membran. In welchem Bereich verhält sich die Membran wie ein ohm'scher Widerstand? Wieso tut sie das nur dort?
+
+\subsection{Einfache Widerstandsnetzwerke oder elektrotonische Erregungsausbreitung}
+
+\begin{enumerate}
+	\item \textbf{Dünne Nervenfaser}\\
+	Tragen Sie die am $n$-ten Glied gemessene Spannung gegen die Zahl $n$ graphisch auf. Lesen Sie aus dem Graphen die Längskonstante $\lambda$ ab und schätzen Sie deren Unsicherheit $\sigma(\lambda)$.
 	%
-	\item \label{aw:Log_Dekrement}Tragen Sie für die vier verschieden gedämpften Schwingungen den Logarithmus der maximalen Auslenkung, $\ln\varphi(t)$ s. Gl. \ref{eq:Amplitude_gedaempft}, als Funktion der Zeit auf. Diesen finden Sie für die Halbwelle mit positiver Auslenkung auf der zweiten Seite des zur Messung gehörenden pdf-Dokumentes. \\
-	Lesen Sie aus dem Graphen die Dämpfung $\beta$ inkl. ihrer Unsicherheit ab.
+	\item \textbf{Dicke Nervenfaser}\\
+	Tragen Sie die am $n$-ten Glied gemessene Spannung gegen die Zahl $n$ im selben Graphen ein. Lesen Sie wieder die Längskonstante $\lambda$ und deren Unsicherheit $\sigma(\lambda)$ ab.
 	%
-	\item Berechnen Sie mit Hilfe von Gleichung \ref{eq:Schwingfall} für jede der vier verschieden gedämpften Schwingungen jeweils $\omega_0$. Mitteln Sie über diese vier Werte, um die Eigenfrequenz des ungedämpften Systems inklusive ihrer Unsicherheit zu berechnen. Siehe hierzu Kapitel \ref{chap:Direkt}.
-	%
-	\item Bestimmen Sie die Amplitude der angeregten Schwingungen für die verschiedenen Erregerfrequenzen aus den zugehörigen Graphen. Mitteln Sie graphisch über mehrere Perioden, indem Sie jeweils eine Gerade parallel zur x-Achse  an die maximalen Amplituden der positiven Halbwellen anpassen. 
-	%
-	\item Tragen Sie nun das Verhältnis der Amplitude bei der jeweiligen Erregerfrequenz zur Amplitude bei einer Frequenz nahe Null, $\varphi(\omega)/\varphi(0)$, als Funktion des Verhältnisses der Erregerfrequenz zur Eigenfrequenz des ungedämpften Systems, $\omega/\omega_0$, auf. Dabei sollen die Kurven für die verschiedenen Dämpfungen in denselben Graphen eingetragen werden.
+	\item \textbf{Myelinisierung}\\
+	Tragen Sie die am $n$-ten Glied gemessene Spannung gegen die Zahl $n$ wieder im selben Graphen ein. Lesen Sie die Längskonstante $\lambda$ und deren Unsicherheit $\sigma(\lambda)$ ab.
 \end{enumerate}
