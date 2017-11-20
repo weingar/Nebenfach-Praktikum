@@ -1,0 +1,101 @@
+\section*{Versuch 8 - Musterprotokoll}
+\label{sec:einleitung}
+
+Der folgende Versuch beschäftigt sich mit der inneren Reibung von Flüssigkeiten. Dabei soll die Viskosität $\eta$ von Wasser als Maß für die Zähflüssigkeit eines Fluids unter Verwendung des Hagen-Poiseuilleschen Gesetzes bestimmt werden.
+
+\section{Durchführung}
+\label{sec:durchfuehrung}
+
+Zunächst werden die drei im vorherigen Versuch verwendeten Kapillaren (blau, rot und grün) mit bekanntem Durchmesser als Auslaufvorrichtung an einem Glaszylinder mit Zentimeterskala angebracht. Anschließend wird der Zylinder mit Wasser gefüllt und die Auslaufzeit $t$ des Wassers für jede Kapillare von einer Höhe von $h=\unit{45}{\centi\meter}$ auf $h=\unit{35}{\centi\meter}$ gemessen. (\textit{Bei einem der Zylinder stimmen Skala und tatsächliche Höhe der Wassersäule über dem Ausfluss nicht überein. Die auf der Skala angegebenen Höhen sind tatsächlich jeweils $\unit{4}{\centi\meter}$ kleiner.}) Die Messung wird für jede Kapillare dreimal wiederholt.\\
+Im Anschluss wird für die Kapillare mit mittlerem Durchmesser bei einem Ausfluss von $h=\unit{50}{\centi\meter}$ auf $h=\unit{10}{\centi\meter}$ die zu einem jeweiligen Absinken der Flüssigkeitssäule um $\unit{5}{\centi\meter}$ gehörende Auslaufzeit $t$ notiert.\\
+Des Weiteren sind die Länge der Kapillaren $l$, der Radius $R_V$ des Zylinders sowie die Temperatur des Wasers festzuhalten.
+
+\section{Auswertung}
+\label{sec:auswertung}
+
+Die Bestimmung der Viskosität des Wassers erfolgt für beide Messsungen mithilfe des Hagen-Poiseuilleschen Gesetzes:
+
+\begin{align}
+\frac{\text{d}V}{\text{d}t} = \frac{\pi r_K^4}{8\eta l}\,\Delta p(t)\,\label{eq:H-P} .
+\end{align}
+
+\noindent Dabei beschreibt $V$ das Volumen der ausfließenden Flüssigkeit, $r_K$ die Länge der verwendeten Kapillare und $\Delta p(t)$ den Druck der über der Kapillare stehenden Flüssigkeitssäule mit
+
+\begin{align}
+\Delta p(t) = \rho\, g \, h(t)\, ,
+\end{align}
+
+\noindent wobei $\rho$ für die Dichte des Wassers und $h(t)$ für die während des Auslaufens zeitabhängige Höhe des Wassers im Zylinder stehen.\\
+Für die Berechnung der Viskosität aus den Auslaufzeiten des ersten Versuchsteils wird zunächst eine konstante Auslaufgeschwindigkeit $V/t$ angenommen, die Druckdifferenz ergibt sich hierbei aus der mittleren Füllhöhe $h_\text{mittel}=\unit{40}{\centi\meter}$ des Zylinders während des Auslaufens. Es findet sich
+
+\begin{align*}
+\Delta p = \unit{\dots}{\pascal}\, .
+\end{align*}
+
+\noindent Für die Auslaufzeit wird der Mittelwert aus den gemessenen Zeiten für die jeweiligen Kapillaren mit dazugehöriger Standardabweichung $\sigma_t$ berechnet. Man findet:
+
+\begin{align*}
+t_{\text{blau}} &= \unit{\dots}{\second} ~~ \sigma_{t_{\text{blau}}} = \unit{\dots}{\second}\\
+t_{\text{rot}} &= \unit{\dots}{\second} ~~ \sigma_{t_{\text{rot}}} = \unit{\dots}{\second}\\
+t_{\text{gr\"un}} &= \unit{\dots}{\second} ~~ \sigma_{t_{\text{gr\"un}}} = \unit{\dots}{\second}
+\end{align*}
+
+\noindent Aus dem Hagen-Poiseuilleschen Gesetz folgt mit $V_{\text{Zylinder}} = \pi R_V^2 \Delta h$ und $\Delta h =\unit{10}{\centi\meter}$ für die Viskosität:
+
+\begin{align}
+\eta = \frac{\Delta p\, r_K^4\, t}{8\, l \, R_V^2\,\Delta h}\, .
+\end{align}
+
+\noindent Der dazugehörige Fehler $\sigma_{\eta}$ ergibt sich nach Gaußscher Fehlerfortpflanzung zu
+
+\begin{align}
+\sigma_{\eta} = \sqrt{\left(\frac{\Delta p \, r_K^4}{8\, l \, R_V^2\,\Delta h}\,\sigma_t\right)^2 + \left(\frac{\Delta p \, r_K^4 \, t}{8\, l^2 \, R_V^2\,\Delta h}\,\sigma_l\right)^2 + \left(\frac{\Delta p \, r_K^4 \, t}{4\, l \, R_V^3\,\Delta h}\,\sigma_{R_V}\right)^2 + \left(\frac{\Delta p \, r_K^3 \, t}{2\, l \, R_V^2\,\Delta h}\,\sigma_{r_K}\right)^2}\, .
+\end{align}
+
+\noindent Als Fehler der gemessenen Längen $l$ und $R_V$ wird der Ablesefehlers des verwendeten Maßstabes von $\unit{0.5}{\milli\meter}$ angenommen, der Fehler des Radius der Kapillaren $r_K$ entspricht der im Vorversuch ermittelten Standardabweichung. Damit erhält man für die Viskosität des Wassers aus den drei Teilmessungen
+
+\begin{align*}
+\eta_{\text{blau}} &= \unit{\dots+-\dots}{\pascal\second}\\
+\eta_{\text{rot}} &= \unit{\dots+-\dots}{\pascal\second}\\
+\eta_{\text{gr\"un}} &= \unit{\dots+-\dots}{\pascal\second}
+\end{align*}
+
+\noindent für die Viskosität von Wasser aus dem ersten Versuchsteil.\\
+Für den zweiten Versuchsteil findet sich nach Lösen der Differentialgleichung (\ref{eq:H-P}) ausgehend von einer Anfangssteighöhe des Wassers im Zylinder $h_0$:
+
+\begin{align}
+\text{ln}\,\left(\frac{h(t)}{h_0}\right) = \frac{\rho g \, r_K^4}{8\,\eta\, l \, R_V^2}\,\cdot t
+\end{align}
+
+\noindent Eine Auftragung von $\text{ln}\,\left(\frac{h(t)}{h_0}\right)$ als Funktion der Zeit ermöglicht somit die Bestimmung der Viskosität aus der Steigung $m$ der sich dabei ergebenden Ausgleichsgeraden (siehe Abbildung \dots). Der Fehler $\sigma_m$ ergibt sich dabei aus der Steigung der eingezeichneten Fehlergeraden, mithilfe einer Gaußschen Fehlerfortpflanzung erhält man:
+
+\begin{align}
+\eta = \frac{\rho g \, r_K^4}{8\, l \, R_V^2}\,\cdot\frac{1}{m}
+\end{align}
+
+\noindent mit Fehler
+
+\begin{align}
+\sigma_{\eta} = \sqrt{\left(\frac{\rho\, g\, r_K^3}{2\, l \, R_V^2}\,\frac{1}{m}\,\sigma_{r_K}\right)^2 + \left(\frac{\rho\, g\, r_K^4}{8\, l^2 \, R_V^2}\,\frac{1}{m}\,\sigma_l\right)^2 + \left(\frac{\rho\, g\, r_K^4}{4\, l \, R_V^3}\,\frac{1}{m}\,\sigma_{R_V}\right)^2 + \left(\frac{\rho\, g\, r_K^4}{8\, l \, R_V^2}\,\frac{1}{m^2}\,\sigma_m\right)^2}\, .
+\end{align}
+
+\noindent Es findet sich
+
+\begin{align*}
+m = \unit{\dots+-\dots}{\per\second}
+\end{align*}
+
+\noindent und damit
+
+\begin{align*}
+\eta = \unit{\dots+-\dots}{\pascal\second}
+\end{align*}
+
+\noindent für die Viskosität von Wasser aus dem zweiten Versuchsteil.
+
+\section{Diskussion}
+\label{sec:diskussion}
+
+Als Literaturwert für die Viskosität von Wasser bei $\unit{20}{\celsius}$ findet sich $\eta = \unit{1}{\milli\pascal\second}$. Damit weisen die ermittelten Werte eine Abweichung von \dots\% vom Literaturwert bei einem relativem Fehler von \dots\% auf. Der Literaturwert findet sich (nicht) im errechneten Fehlerintervall. Die ermittelte Viskosität aus dem zweiten Versuchsteil ist somit genauer (ungenauer) als die drei Ergebnisse aus dem ersten Versuchteil, wobei alle Versuchsergebnisse (nicht) in vergleichbarer Größenordnung liegen.\\
+Möglich Ungenauigkeiten im Versuch könne sich aus einer Verunreinigung des Wassers oder des verwendeten Zylinders, welche die Viskosität verfälscht, ergeben. Des Weiteren kommt es häufig zu Bläschenbildung im Zylinder. Zudem könnte es während des Versuches zu Temperaturschwankungen gekommen sein, wodurch die Temperaturabhängigkeit der Viskosität Einfluss auf das Ergebnis genommen hat.\\
+Eine weitere Ungenauigkeit stellen die getroffenen Näherungen während der Berechnung dar. So wird das Fluid als newtonsches Fluid vorausgesetzt. Die Bestmmung der Viskosität aus dem ersten Versuchsteil erfolgt zudem unter der Annahme, dass während des Auslaufens von $h=\unit{45}{\centi\meter}$ auf $h=\unit{35}{\centi\meter}$ ein konstanter Druck durch die Wassersäule über der Kapillare ausgeübt wird, was offensichtlich nicht exakt der Fall ist.

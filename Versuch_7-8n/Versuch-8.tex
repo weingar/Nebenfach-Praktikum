@@ -5,7 +5,7 @@
 \usepackage{ngerman}
 %\usepackage{lineno}
 \usepackage{verbatim}
-\usepackage[squaren]{SIunits}
+\usepackage[squaren,mediumqspace]{SIunits}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -18,6 +18,9 @@
 \usepackage{nicefrac}
 \usepackage{framed}
 \usepackage{import}
+
+%\usepackage[separate-uncertainty=true, locale = DE]{siunitx}
+%\usepackage{empheq}
 
 \usetikzlibrary{calc,intersections}
 \usetikzlibrary{arrows}
@@ -52,5 +55,8 @@
 \def\chaptername{Versuch}
 
 \include{Anleitung-8}
+\iftutor{
+	\include{Auswertung-8}
+}
 
 \end{document}
