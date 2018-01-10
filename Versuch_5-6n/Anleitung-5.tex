@@ -1,6 +1,8 @@
 \chapter{Freie gedämpfte Schwingungen}
 \label{vn:1}
 
+\etodo{\textbf{Praktikumsleitung:} Die Schrittmotoren für die angeregten Schwingungen haken manchmal bei kleinen Frequenzen, einfach von Hand kurz anschieben. Die Winkelmesser machen ab und an Probleme. Jörn Große-Knetter ist der Experte.}
+
 In diesem Versuch werden die Grundlagen der freien und der angeregten Schwingung mit Dämpfung anhand des Pohl'schen Resonators untersucht.
 \begin{hint}
 	Für diesen Versuch brauchen Sie einen USB-Stick, um Dateien zu speichern, die Sie für die Auswertung brauchen.\\
@@ -218,6 +220,7 @@ Das Programm »Pohl« ist eine grafische Oberfläche für die Messwertaufnahme a
 	\item Für den Versuchsteil angeregte Schwingungen stellen Sie bitte sicher, dass die Stange zwischen anregendem Motor und Pendel nicht bei einem zu großen Radius des Exzenterrades angebracht ist. Ist die Stange bei etwa dem halben Radius des Exzenterrades montiert, so kommt es nicht zu einer Resonanzkatastrophe.
 	\item Alle Aufbauten in einem Raum benutzen denselben Drucker. Einer der Rechner wird dazu als Druckerserver betrieben, muss also eingeschaltet sein. Da ich zur Zeit nicht weiß, welcher der jeweilige Server ist, einfach alle Rechner hochfahren.
 	\item Achten Sie darauf, dass wenn der die Schwingung anregende Motor auf einen Winkel von 0\degree gestellt ist, der Zeiger des Exzenters, an dem die Schraubenfeder montiert ist, ebenfalls auf 0\degree steht. Ansonsten gibt es einen konstanten Offset der Phase zwischen der anregenden Schwingung und der des Schwungrades. Die Phasendifferenz wird zwar im Moment nicht gemessen, aber sie wäre in einem solchen Fall nicht gleich 45\degree bei der Resonanzfrequenz.
+	\item Das ROOT-Makro, welches die pdf-Files erzeugt, fittet eine Kosinus-förmige Schwingung an die Daten. Das geht besser, wenn die Messung neu gestartet wird, nachdem der Einschwingvorgang komplett abgeklungen ist, d.h. die Amplitude der angeregten Schwingung zeitlich relativ konstant ist. Dann reicht es, fünf bis zehn komplette Schwingungen aufzuzeichnen und dann die Messung zu beenden. Das Makro läuft dann relativ schnell durch.
 \end{itemize}
 }
 
